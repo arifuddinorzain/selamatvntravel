@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SelamatVn | Handcrafted Luxury Travel & Dream Vacation Packages</title>
+  <meta name="description"
+    content="Discover extraordinary curated travel packages across 7 continents. Join premium small-group tours, luxury private escapes, and unforgettable adventures with 100% flexible booking.">
+  <meta name="keywords"
+    content="travel agency, vacation packages, luxury travel, guided tours, Bali tours, Amalfi coast, Swiss Alps, safari vacation">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+    rel="stylesheet">
+
+  <!-- FontAwesome Icons for crisp UI symbols -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- TOP PROMO BANNER -->
+  <aside class="top-banner" id="topPromoBanner">
+    <div class="banner-container">
+      <div class="banner-tag"><i class="fa-solid fa-bolt-lightning"></i> SUMMER SALE</div>
+      <p class="banner-text">
+        <span>Save up to <strong>$500 per person</strong> on all 2026 curated packages!</span>
+        <span class="countdown-wrap">
+          Offer ends in:
+          <span class="timer-box" id="bannerTimer">02d : 14h : 38m : 19s</span>
+        </span>
+      </p>
+      <div class="banner-actions">
+        <a href="#packages" class="banner-cta">Claim Discount</a>
+        <button class="banner-close" id="closeBannerBtn" aria-label="Close notification"><i
+            class="fa-solid fa-xmark"></i></button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- NAVIGATION BAR -->
+  <header class="navbar" id="mainHeader">
+    <div class="nav-container">
+      <a href="#" class="brand-logo" aria-label="WanderLuxe Homepage">
+        <div class="logo-icon-wrapper">
+          <i class="fa-solid fa-compass-drafting"></i>
+        </div>
+        <div class="brand-name">
+          <span>Selamat<strong class="highlight-text">Vn</strong></span>
+          <span class="brand-sub">TRAVEL & TOURS</span>
+        </div>
+      </a>
+
+      <!-- Desktop & Mobile Nav Links -->
+      <nav class="nav-links" id="navMenu">
+        <a href="#destinations" class="nav-link">Destinations</a>
+        <a href="#packages" class="nav-link">Tour Packages <span class="hot-badge">Hot</span></a>
+        <a href="#custom-trip" class="nav-link">Trip Calculator</a>
+        <a href="#why-us" class="nav-link">Why Us</a>
+        <a href="#testimonials" class="nav-link">Stories</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#packages" class="btn btn-primary mobile-menu-cta"><i class="fa-solid fa-plane-departure"></i> Join A Package</a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="nav-actions">
+        <!-- Currency Selector -->
+        <div class="currency-dropdown">
+          <button class="currency-btn" id="currencyToggleBtn" aria-haspopup="true" aria-expanded="false">
+            <span id="currentCurrencyLabel">USD ($)</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="currency-menu" id="currencyMenu">
+            <button class="currency-opt active" data-currency="USD">USD ($)</button>
+            <button class="currency-opt" data-currency="EUR">EUR (€)</button>
+            <button class="currency-opt" data-currency="GBP">GBP (£)</button>
+            <button class="currency-opt" data-currency="AUD">AUD (A$)</button>
+          </div>
+        </div>
+
+        <a href="#packages" class="btn btn-primary join-nav-btn" id="navJoinBtn">
+          <i class="fa-solid fa-plane-departure"></i> Join A Package
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-backdrop" id="navBackdrop"></div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg-overlay"></div>
+      <img src="assets/images/hero-bali.jpg" alt="Luxury infinity pool paradise resort at sunset" class="hero-bg-img"
+        id="heroBgImage">
+
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-pill-badge animate-fade-down">
+            <span class="live-dot"></span>
+            <i class="fa-solid fa-award"></i> World's #1 Luxury Travel Agency 2026
+          </div>
+
+          <h1 class="hero-title animate-fade-up">
+            Escape The Ordinary. <br>
+            <span class="gradient-text">Live Your Dream Journey.</span>
+          </h1>
+
+          <p class="hero-subtitle animate-fade-up-delay">
+            Handcrafted luxury vacation packages designed to inspire wonder. From turquoise Balinese lagoons to private
+            Amalfi yachts and alpine peaks — join the world's most sought-after trips today.
+          </p>
+
+          <!-- Key Trust Badges -->
+          <div class="hero-trust-list animate-fade-up-delay-2">
+            <div class="trust-badge">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>100% Flex-Pass Guarantee</span>
+            </div>
+            <div class="trust-badge">
+              <i class="fa-solid fa-star text-gold"></i>
+              <span>4.9 / 5 (14,200+ Reviews)</span>
+            </div>
+            <div class="trust-badge">
+              <i class="fa-solid fa-users"></i>
+              <span>Small Groups (Max 12)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- HERO FLOATING GLASS CARDS -->
+        <div class="hero-floating-elements">
+          <div class="glass-float-card card-top-right">
+            <div class="float-icon-box coral-gradient">
+              <i class="fa-solid fa-fire"></i>
+            </div>
+            <div>
+              <div class="float-title">Bali Retreat Flash Deal</div>
+              <div class="float-meta">🔥 Only 3 slots remaining!</div>
+            </div>
+          </div>
+
+          <div class="glass-float-card card-bottom-left">
+            <img src="assets/images/avatar-couple.jpg" alt="Recent travelers Marcus and Elena" class="float-avatar">
+            <div>
+              <div class="float-title">"Best trip of our lives!"</div>
+              <div class="float-meta text-gold">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span class="text-white">Elena & Marcus</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE SEARCH / FILTER BAR WIDGET -->
+      <div class="search-widget-container">
+        <form class="search-widget" id="heroSearchWidget" onsubmit="event.preventDefault(); window.handleHeroSearch();">
+          <div class="widget-field">
+            <label for="searchDestination"><i class="fa-solid fa-location-dot"></i> Where to?</label>
+            <select id="searchDestination">
+              <option value="all">Any Destination (Global)</option>
+              <option value="bali">Bali, Indonesia</option>
+              <option value="amalfi">Amalfi Coast, Italy</option>
+              <option value="swiss">Swiss Alps, Switzerland</option>
+              <option value="kyoto">Kyoto, Japan</option>
+              <option value="serengeti">Serengeti, Tanzania</option>
+              <option value="santorini">Santorini, Greece</option>
+            </select>
+          </div>
+
+          <div class="widget-divider"></div>
+
+          <div class="widget-field">
+            <label for="searchType"><i class="fa-solid fa-compass"></i> Travel Style</label>
+            <select id="searchType">
+              <option value="all">All Styles</option>
+              <option value="beach">Tropical Island & Beach</option>
+              <option value="luxury">Ultra Luxury & Yachts</option>
+              <option value="adventure">Alpine & Mountain Adventure</option>
+              <option value="cultural">Culture & Heritage</option>
+              <option value="safari">Wildlife & Safari</option>
+            </select>
+          </div>
+
+          <div class="widget-divider"></div>
+
+          <div class="widget-field">
+            <label for="searchDate"><i class="fa-regular fa-calendar-days"></i> When?</label>
+            <select id="searchDate">
+              <option value="flexible">Flexible / Any Month</option>
+              <option value="summer">Summer 2026</option>
+              <option value="autumn">Autumn 2026</option>
+              <option value="winter">Winter 2026/27</option>
+              <option value="spring">Spring 2027</option>
+            </select>
+          </div>
+
+          <div class="widget-divider"></div>
+
+          <div class="widget-field">
+            <label for="searchGuests"><i class="fa-solid fa-user-group"></i> Travelers</label>
+            <select id="searchGuests">
+              <option value="1">1 Solo Explorer</option>
+              <option value="2" selected>2 Travelers (Couple/Duo)</option>
+              <option value="3">3 - 4 Travelers (Small Group)</option>
+              <option value="5">5+ Travelers (Family/Private)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-gradient widget-submit-btn" id="searchSubmitBtn">
+            <i class="fa-solid fa-magnifying-glass"></i> Find Packages
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- LIVE STATS STRIP -->
+    <section class="stats-strip">
+      <div class="container stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">48+</div>
+          <div class="stat-label">Bespoke Destinations</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number">14,200+</div>
+          <div class="stat-label">Happy Travelers Joined</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number">99.4%</div>
+          <div class="stat-label">Satisfaction Score</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">VIP Concierge Support</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POPULAR DESTINATIONS SHOWCASE -->
+    <section class="destinations-section" id="destinations">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="sub-heading"><i class="fa-solid fa-globe"></i> World Curations</span>
+          <h2 class="main-heading">Explore World-Class Destinations</h2>
+          <p class="section-desc">Hand-picked iconic locations with VIP access, 5-star hand-selected stays, and
+            authentic cultural immersion.</p>
+        </div>
+
+        <div class="destinations-grid">
+          <!-- Bali -->
+          <div class="destination-card large-card" onclick="window.filterByDestination('bali')">
+            <img src="assets/images/hero-bali.jpg" alt="Bali tropical jungle and ocean" loading="lazy">
+            <div class="destination-overlay">
+              <div class="destination-top">
+                <span class="tag-pill tag-tropical"><i class="fa-solid fa-sun"></i> 29°C Tropical</span>
+                <span class="tag-pill tag-sale">4 Packages Available</span>
+              </div>
+              <div class="destination-bottom">
+                <h3>Bali & Nusa Islands</h3>
+                <p>Indonesia • Sacred temples, cliffside infinity pools & coral reefs</p>
+                <div class="destination-cta">
+                  <span>Explore from <strong>$1,299</strong></span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Amalfi -->
+          <div class="destination-card" onclick="window.filterByDestination('amalfi')">
+            <img src="assets/images/amalfi-coast.jpg" alt="Amalfi Coast Positano Italy" loading="lazy">
+            <div class="destination-overlay">
+              <div class="destination-top">
+                <span class="tag-pill tag-luxury"><i class="fa-solid fa-gem"></i> Mediterranean</span>
+                <span class="tag-pill tag-sale">3 Packages</span>
+              </div>
+              <div class="destination-bottom">
+                <h3>Amalfi Coast & Capri</h3>
+                <p>Italy • Pastel cliffs, yacht cruises & Michelin dining</p>
+                <div class="destination-cta">
+                  <span>Explore from <strong>$2,190</strong></span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Swiss Alps -->
+          <div class="destination-card" onclick="window.filterByDestination('swiss')">
+            <img src="assets/images/swiss-alps.jpg" alt="Swiss Alps Zermatt summer lake" loading="lazy">
+            <div class="destination-overlay">
+              <div class="destination-top">
+                <span class="tag-pill tag-adventure"><i class="fa-solid fa-mountain"></i> Alpine Haven</span>
+                <span class="tag-pill tag-sale">2 Packages</span>
+              </div>
+              <div class="destination-bottom">
+                <h3>Swiss Alps & Zermatt</h3>
+                <p>Switzerland • Glacial peaks, alpine chalets & panoramic trains</p>
+                <div class="destination-cta">
+                  <span>Explore from <strong>$2,450</strong></span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kyoto -->
+          <div class="destination-card" onclick="window.filterByDestination('kyoto')">
+            <img src="assets/images/kyoto-japan.jpg" alt="Kyoto cherry blossom temple" loading="lazy">
+            <div class="destination-overlay">
+              <div class="destination-top">
+                <span class="tag-pill tag-culture"><i class="fa-solid fa-fan"></i> Cultural Heritage</span>
+                <span class="tag-pill tag-sale">3 Packages</span>
+              </div>
+              <div class="destination-bottom">
+                <h3>Kyoto & Tokyo</h3>
+                <p>Japan • Cherry blossoms, ancient shrines & tea ceremonies</p>
+                <div class="destination-cta">
+                  <span>Explore from <strong>$2,390</strong></span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Serengeti -->
+          <div class="destination-card" onclick="window.filterByDestination('serengeti')">
+            <img src="assets/images/serengeti-safari.jpg" alt="Serengeti luxury glamping safari" loading="lazy">
+            <div class="destination-overlay">
+              <div class="destination-top">
+                <span class="tag-pill tag-safari"><i class="fa-solid fa-binoculars"></i> Big Five Safari</span>
+                <span class="tag-pill tag-sale">2 Packages</span>
+              </div>
+              <div class="destination-bottom">
+                <h3>Serengeti & Ngorongoro</h3>
+                <p>Tanzania • Hot air balloon rides, wild migrations & luxury lodges</p>
+                <div class="destination-cta">
+                  <span>Explore from <strong>$3,150</strong></span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Santorini -->
+          <div class="destination-card" onclick="window.filterByDestination('santorini')">
+            <img src="assets/images/santorini-greece.jpg" alt="Santorini Oia caldera sunset" loading="lazy">
+            <div class="destination-overlay">
+              <div class="destination-top">
+                <span class="tag-pill tag-romantic"><i class="fa-solid fa-heart"></i> Romance & Sunsets</span>
+                <span class="tag-pill tag-sale">3 Packages</span>
+              </div>
+              <div class="destination-bottom">
+                <h3>Santorini & Mykonos</h3>
+                <p>Greece • Whitewashed villas, caldera infinity pools & wine tours</p>
+                <div class="destination-cta">
+                  <span>Explore from <strong>$1,890</strong></span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES SECTION -->
+    <section class="packages-section" id="packages">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="sub-heading"><i class="fa-solid fa-suitcase-rolling"></i> Limited Group & Private Trips</span>
+          <h2 class="main-heading">Featured All-Inclusive Tour Packages</h2>
+          <p class="section-desc">
+            Everything is taken care of: premium 5-star lodging, private transfers, expert local guides, and VIP
+            excursions. Choose your trip and lock in early-bird rates.
+          </p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="package-filters-bar">
+          <div class="filter-tabs" id="filterTabs">
+            <button class="filter-tab active" data-category="all">
+              <i class="fa-solid fa-earth-americas"></i> All Packages
+            </button>
+            <button class="filter-tab" data-category="beach">
+              <i class="fa-solid fa-umbrella-beach"></i> Beach & Tropical
+            </button>
+            <button class="filter-tab" data-category="luxury">
+              <i class="fa-solid fa-gem"></i> Luxury Escapes
+            </button>
+            <button class="filter-tab" data-category="adventure">
+              <i class="fa-solid fa-person-hiking"></i> Alpine & Adventure
+            </button>
+            <button class="filter-tab" data-category="cultural">
+              <i class="fa-solid fa-landmark"></i> Cultural Heritage
+            </button>
+            <button class="filter-tab" data-category="safari">
+              <i class="fa-solid fa-paw"></i> Wildlife Safari
+            </button>
+          </div>
+
+          <!-- Search within packages -->
+          <div class="package-search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="packageSearchInput" placeholder="Search by name, country, or tag..."
+              aria-label="Search packages">
+          </div>
+        </div>
+
+        <!-- Packages Grid (Populated dynamically via JavaScript) -->
+        <div class="packages-grid" id="packagesGrid">
+          <!-- Javascript renders dynamic package cards here -->
+        </div>
+
+        <!-- Extra perk strip beneath packages -->
+        <div class="booking-guarantee-card">
+          <div class="guarantee-col">
+            <div class="icon-circle cyan-glow"><i class="fa-solid fa-arrows-rotate"></i></div>
+            <div>
+              <h4>Zero-Risk Rescheduling</h4>
+              <p>Change your travel dates up to 21 days before departure with 0 penalty fees.</p>
+            </div>
+          </div>
+          <div class="guarantee-col">
+            <div class="icon-circle purple-glow"><i class="fa-solid fa-credit-card"></i></div>
+            <div>
+              <h4>Pay with 20% Deposit</h4>
+              <p>Lock in today's best price with only 20% down. Pay the rest 30 days before takeoff.</p>
+            </div>
+          </div>
+          <div class="guarantee-col">
+            <div class="icon-circle gold-glow"><i class="fa-solid fa-shield-cat"></i></div>
+            <div>
+              <h4>Included Travel Insurance</h4>
+              <p>Comprehensive health, baggage, and trip interruption coverage included for peace of mind.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE "BUILD YOUR DREAM PACKAGE" ESTIMATOR -->
+    <section class="custom-trip-section" id="custom-trip">
+      <div class="container">
+        <div class="custom-trip-wrapper">
+          <div class="custom-trip-intro">
+            <span class="sub-heading"><i class="fa-solid fa-sliders"></i> Tailor-Made Travel</span>
+            <h2 class="main-heading">Customize Your Dream Vacation</h2>
+            <p>
+              Looking for something specifically tailored for you and your travel companions? Use our interactive
+              package builder to calculate an instant quote and secure private dates.
+            </p>
+
+            <div class="interactive-steps-summary">
+              <div class="step-bullet">
+                <span class="num">1</span>
+                <div>
+                  <strong>Pick Your Destination & Stays</strong>
+                  <span>Choose luxury private villas, boutique ecolodges, or iconic 5-star suites.</span>
+                </div>
+              </div>
+              <div class="step-bullet">
+                <span class="num">2</span>
+                <div>
+                  <strong>Add Exclusive Experiences</strong>
+                  <span>Private yachts, helicopter flights, VIP private chefs, or photography tours.</span>
+                </div>
+              </div>
+              <div class="step-bullet">
+                <span class="num">3</span>
+                <div>
+                  <strong>Instant Guaranteed Price</strong>
+                  <span>No guesswork or waiting for quotes. Instant checkout & concierge onboarding.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trip Builder Interactive Calculator Card -->
+          <div class="custom-calculator-card">
+            <div class="calc-header">
+              <h3><i class="fa-solid fa-calculator"></i> Real-Time Package Estimator</h3>
+              <span class="calc-badge">Live Price Sync</span>
+            </div>
+
+            <form id="tripCalcForm" onsubmit="event.preventDefault(); window.bookCustomTrip();">
+              <!-- Destination -->
+              <div class="calc-field">
+                <label for="calcDest">Choose Destination</label>
+                <select id="calcDest" onchange="window.updateTripCalc()">
+                  <option value="bali" data-price="1299">Bali & Nusa Penida Island (7 Days)</option>
+                  <option value="amalfi" data-price="2190">Amalfi Coast & Capri Yacht Tour (8 Days)</option>
+                  <option value="swiss" data-price="2450">Swiss Alps & Glacier Express (7 Days)</option>
+                  <option value="kyoto" data-price="2390">Kyoto & Tokyo Golden Route (9 Days)</option>
+                  <option value="serengeti" data-price="3150">Serengeti Safari & Ngorongoro Crater (6 Days)</option>
+                  <option value="santorini" data-price="1890">Santorini & Cyclades Islands (7 Days)</option>
+                </select>
+              </div>
+
+              <!-- Accommodation Tier -->
+              <div class="calc-field">
+                <label>Select Accommodation Level</label>
+                <div class="tier-selector">
+                  <label class="tier-opt">
+                    <input type="radio" name="hotelTier" value="0" checked onchange="window.updateTripCalc()">
+                    <span class="tier-box">
+                      <strong>5★ Boutique Resort</strong>
+                      <small>Standard Luxury Included</small>
+                    </span>
+                  </label>
+                  <label class="tier-opt">
+                    <input type="radio" name="hotelTier" value="450" onchange="window.updateTripCalc()">
+                    <span class="tier-box">
+                      <strong>Private Pool Villa</strong>
+                      <small>+$450 / person</small>
+                    </span>
+                  </label>
+                  <label class="tier-opt">
+                    <input type="radio" name="hotelTier" value="850" onchange="window.updateTripCalc()">
+                    <span class="tier-box">
+                      <strong>Presidential Suite</strong>
+                      <small>+$850 / person</small>
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Add-on Excursions -->
+              <div class="calc-field">
+                <label>Select Extra VIP Experiences (Optional)</label>
+                <div class="addons-grid">
+                  <label class="addon-checkbox">
+                    <input type="checkbox" id="addonYacht" value="320" onchange="window.updateTripCalc()">
+                    <span class="checkbox-custom"></span>
+                    <span class="addon-info">
+                      <span class="addon-name">Private Sunset Yacht Cruise</span>
+                      <span class="addon-price">+$320</span>
+                    </span>
+                  </label>
+
+                  <label class="addon-checkbox">
+                    <input type="checkbox" id="addonHeli" value="380" onchange="window.updateTripCalc()">
+                    <span class="checkbox-custom"></span>
+                    <span class="addon-info">
+                      <span class="addon-name">Scenic Helicopter Excursion</span>
+                      <span class="addon-price">+$380</span>
+                    </span>
+                  </label>
+
+                  <label class="addon-checkbox">
+                    <input type="checkbox" id="addonDining" value="190" onchange="window.updateTripCalc()">
+                    <span class="checkbox-custom"></span>
+                    <span class="addon-info">
+                      <span class="addon-name">Private Chef & Wine Pairing</span>
+                      <span class="addon-price">+$190</span>
+                    </span>
+                  </label>
+
+                  <label class="addon-checkbox">
+                    <input type="checkbox" id="addonPhoto" value="150" onchange="window.updateTripCalc()">
+                    <span class="checkbox-custom"></span>
+                    <span class="addon-info">
+                      <span class="addon-name">Pro Drone & Vacation Photographer</span>
+                      <span class="addon-price">+$150</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Travelers Count -->
+              <div class="calc-field calc-row">
+                <div>
+                  <label>Number of Travelers</label>
+                  <div class="counter-input">
+                    <button type="button" class="counter-btn" onclick="window.adjustGuestCount(-1)"><i
+                        class="fa-solid fa-minus"></i></button>
+                    <span id="calcGuestCount" class="counter-value">2</span>
+                    <button type="button" class="counter-btn" onclick="window.adjustGuestCount(1)"><i
+                        class="fa-solid fa-plus"></i></button>
+                  </div>
+                </div>
+
+                <div class="discount-badge-box">
+                  <span class="save-tag"><i class="fa-solid fa-tag"></i> 15% Group Discount Applied</span>
+                  <small>For 2+ travelers</small>
+                </div>
+              </div>
+
+              <!-- Price Display Box -->
+              <div class="calc-total-box">
+                <div class="total-breakdown">
+                  <span class="price-label">Estimated Total (All Inclusive):</span>
+                  <span class="original-strike" id="calcOriginalPrice">$3,290</span>
+                </div>
+                <div class="final-total">
+                  <span class="final-price" id="calcFinalPrice">$2,796</span>
+                  <span class="per-person" id="calcPerPersonPrice">($1,398 / person)</span>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-gradient btn-block btn-lg" id="joinCustomTripBtn">
+                <i class="fa-solid fa-bolt"></i> Join This Tailored Package Now
+              </button>
+              <p class="calc-footnote"><i class="fa-solid fa-lock"></i> Free cancellation within 7 days • Zero booking
+                fees</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE WANDERLUXE -->
+    <section class="why-us-section" id="why-us">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="sub-heading"><i class="fa-solid fa-shield-heart"></i> The WanderLuxe Difference</span>
+          <h2 class="main-heading">Why 14,000+ Travelers Choose Us</h2>
+          <p class="section-desc">We eliminate the stress of planning and replace it with unforgettable, white-glove
+            moments from arrival to return.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon bg-gradient-cyan">
+              <i class="fa-solid fa-champagne-glasses"></i>
+            </div>
+            <h3>100% All-Inclusive Luxury</h3>
+            <p>No hidden resort fees, surcharges, or surprise bills. 5-star handpicked boutique hotels, private
+              transfers, daily gourmet dining, and guided entries are all prepaid.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon bg-gradient-coral">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <h3>24/7 Dedicated WhatsApp Concierge</h3>
+            <p>Have an instant question or want to change dinner reservations? Your dedicated personal travel manager is
+              on standby via WhatsApp and phone 24 hours a day.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon bg-gradient-emerald">
+              <i class="fa-solid fa-user-shield"></i>
+            </div>
+            <h3>Intimate Small Groups (Max 12)</h3>
+            <p>Never get lost in a crowd of 50 tourists on a bus. Our trips foster real friendships and offer private
+              access to remote sights big bus tours can't reach.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon bg-gradient-violet">
+              <i class="fa-solid fa-certificate"></i>
+            </div>
+            <h3>Certified Native Local Guides</h3>
+            <p>Experience hidden cultural spots, secret viewpoints, and culinary treasures led by passionate local
+              storytellers licensed by national tourism boards.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon bg-gradient-amber">
+              <i class="fa-solid fa-calendar-check"></i>
+            </div>
+            <h3>Guaranteed Departures</h3>
+            <p>Every published package is 100% guaranteed to run once booked. We never cancel departures due to low
+              numbers, so you can book flights with confidence.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon bg-gradient-pink">
+              <i class="fa-solid fa-leaf"></i>
+            </div>
+            <h3>Regenerative & Eco-Positive</h3>
+            <p>We offset 150% of carbon emissions for all internal trips and fund coral restoration and wildlife
+              sanctuaries in every destination we visit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REAL TRAVELER REVIEWS & STORIES -->
+    <section class="testimonials-section" id="testimonials">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="sub-heading"><i class="fa-solid fa-comments"></i> Genuine Traveler Experiences</span>
+          <h2 class="main-heading">Loved By Adventurers Worldwide</h2>
+          <p class="section-desc">Read firsthand stories from travelers who joined our curated packages this year.</p>
+        </div>
+
+        <div class="reviews-grid">
+          <!-- Review 1 -->
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">
+              "Joining the Bali Luxury Retreat was hands down the easiest and best vacation decision of our 10-year
+              marriage. Everything was seamless — from the private airport villa escort to the secret sunrise snorkel.
+              We booked the Amalfi tour for next spring immediately after getting home!"
+            </p>
+            <div class="review-user">
+              <img src="assets/images/avatar-couple.jpg" alt="Elena and Marcus Vance" class="review-avatar">
+              <div>
+                <h4 class="user-name">Elena & Marcus Vance</h4>
+                <span class="user-tag"><i class="fa-solid fa-circle-check text-cyan"></i> Verified Traveler • Bali
+                  Haven</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">
+              "As a solo female traveler, joining WanderLuxe's Swiss Alps tour felt safe, wonderfully organized, and
+              genuinely welcoming. The group size was only 10 people, so we became close friends within day two. Our
+              chalet had the most breathtaking view of the Matterhorn!"
+            </p>
+            <div class="review-user">
+              <img src="assets/images/avatar-traveler.jpg" alt="Sarah Jenkins" class="review-avatar">
+              <div>
+                <h4 class="user-name">Sarah Jenkins</h4>
+                <span class="user-tag"><i class="fa-solid fa-circle-check text-cyan"></i> Verified Traveler • Swiss
+                  Alps</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">
+              "The Serengeti Safari package exceeded every expectation. Seeing the Great Migration and floating in a hot
+              air balloon over lions at sunrise was an emotional highlight. The WhatsApp concierge answered questions
+              within 60 seconds every single time!"
+            </p>
+            <div class="review-user">
+              <div class="avatar-placeholder bg-gradient-amber">DK</div>
+              <div>
+                <h4 class="user-name">David & Karen Kim</h4>
+                <span class="user-tag"><i class="fa-solid fa-circle-check text-cyan"></i> Verified Traveler • Serengeti
+                  Safari</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trustpilot & Google Score Bar -->
+        <div class="trust-score-strip">
+          <div class="score-item">
+            <i class="fa-brands fa-google text-google"></i>
+            <div>
+              <strong>4.9 / 5.0 Rating</strong>
+              <small>Based on 2,400+ Google Reviews</small>
+            </div>
+          </div>
+          <div class="score-divider"></div>
+          <div class="score-item">
+            <i class="fa-solid fa-star text-green"></i>
+            <div>
+              <strong>4.95 / 5.0 Trustpilot</strong>
+              <small>Excellent • 3,850+ traveler reviews</small>
+            </div>
+          </div>
+          <div class="score-divider"></div>
+          <div class="score-item">
+            <i class="fa-solid fa-shield-halved text-cyan"></i>
+            <div>
+              <strong>IATA & ASTA Accredited</strong>
+              <small>Fully bonded & licensed agency</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="sub-heading"><i class="fa-solid fa-circle-question"></i> Everything You Need To Know</span>
+          <h2 class="main-heading">Frequently Asked Questions</h2>
+          <p class="section-desc">Got questions before joining a package? Here are the most common inquiries we receive.
+          </p>
+        </div>
+
+        <div class="faq-accordion" id="faqAccordion">
+          <div class="faq-item active">
+            <button class="faq-question" aria-expanded="true">
+              <span>What is included in each tour package?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                All WanderLuxe packages are comprehensively all-inclusive: handpicked 4 to 5-star accommodations,
+                private airport transfers, curated excursions with VIP skip-the-line access, professional native guides,
+                daily breakfast plus signature gourmet lunches and dinners, and comprehensive travel emergency medical
+                insurance. International flights can be added upon request by your concierge!
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How does the 20% deposit and payment schedule work?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                To lock in your spot and secure current promotional discounts, you only need to pay a 20% refundable
+                deposit today. The remaining 80% balance is split into flexible interest-free monthly installments or
+                can be paid in full 30 days prior to your travel departure date.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Can I travel solo or do I have to come with a partner?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Over 40% of our travelers join as solo adventurers! You can either choose a private solo room with our
+                low single-supplement fee, or opt for our free roommate matching service where we pair you with another
+                traveler of the same gender.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What is your cancellation and date change policy?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                We offer the industry's most flexible booking terms. You can change your destination or travel dates
+                free of charge up to 21 days before departure. If you need to cancel altogether, cancellations made 30+
+                days prior receive a 100% future travel credit or refund according to our Flex-Pass terms.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Do you assist with tourist visas and entry documents?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Yes! As soon as you join a package, our visa coordination team provides you with personalized visa
+                guidelines for your passport nationality, prepares all hotel voucher confirmations, and helps review
+                your paperwork to guarantee a smooth arrival.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER / DISCOUNT VOUCHER CALLOUT -->
+    <section class="cta-banner-section">
+      <div class="container">
+        <div class="cta-banner-box">
+          <div class="cta-decor-circle circle-1"></div>
+          <div class="cta-decor-circle circle-2"></div>
+
+          <div class="cta-content">
+            <span class="cta-sub"><i class="fa-solid fa-gift"></i> Instant Traveler Benefit</span>
+            <h2>Get an Instant $150 Voucher For Your First Trip</h2>
+            <p>Subscribe to our VIP Expedition dispatch and receive an instant promotional coupon code, secret flash
+              deals, and curated destination guides straight to your inbox.</p>
+
+            <form class="newsletter-form" id="newsletterForm"
+              onsubmit="event.preventDefault(); window.handleNewsletter();">
+              <div class="newsletter-input-group">
+                <i class="fa-regular fa-envelope"></i>
+                <input type="email" id="newsletterEmail" placeholder="Enter your email address" required
+                  aria-label="Email address for voucher">
+                <button type="submit" class="btn btn-newsletter" id="newsletterSubmitBtn">
+                  Claim $150 Voucher <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </form>
+            <small class="newsletter-privacy"><i class="fa-solid fa-lock"></i> We value your privacy. No spam ever,
+              unsubscribe anytime.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <a href="#" class="brand-logo footer-logo">
+            <div class="logo-icon-wrapper">
+              <i class="fa-solid fa-compass-drafting"></i>
+            </div>
+            <div class="brand-name">
+              <span>Selamat<strong class="highlight-text">Vn</strong></span>
+              <span class="brand-sub">TRAVEL & TOURS</span>
+            </div>
+          </a>
+          <p class="footer-about">
+            Curating life-defining expeditions, luxury small-group retreats, and tailor-made holidays across all 7
+            continents since 2018.
+          </p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Top Packages</h4>
+          <ul class="footer-links">
+            <li><a href="#packages" onclick="window.filterByDestination('bali')">Bali Tropical Lagoon</a></li>
+            <li><a href="#packages" onclick="window.filterByDestination('amalfi')">Amalfi & Capri Coastline</a></li>
+            <li><a href="#packages" onclick="window.filterByDestination('swiss')">Swiss Alps Alpine Express</a></li>
+            <li><a href="#packages" onclick="window.filterByDestination('kyoto')">Kyoto Sakura Blossom</a></li>
+            <li><a href="#packages" onclick="window.filterByDestination('serengeti')">Serengeti Safari Camp</a></li>
+            <li><a href="#packages" onclick="window.filterByDestination('santorini')">Santorini Caldera Luxury</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Why SelamatVn</h4>
+          <ul class="footer-links">
+            <li><a href="#why-us">Flex-Pass Guarantee</a></li>
+            <li><a href="#custom-trip">Custom Trip Estimator</a></li>
+            <li><a href="#testimonials">Traveler Reviews</a></li>
+            <li><a href="#why-us">Small Group Philosophy</a></li>
+            <li><a href="#why-us">Carbon Neutral Pledge</a></li>
+            <li><a href="#faq">Payment Plans (20% Down)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Contact & VIP Concierge</h4>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+1 (800) 926-3379 (24/7)</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>+1 (415) 880-9211 (WhatsApp)</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>contact@selamatvn.travel</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>100 Montgomery St, Suite 2400, San Francisco, CA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 SelamatVn Travel & Tours. All rights reserved. Registered Travel Agency #CA-21094.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Traveler Protection</a>
+          <a href="#">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================== -->
+  <!-- MODAL 1: MULTI-STEP BOOKING & JOIN PACKAGE MODAL -->
+  <!-- ======================================================== -->
+  <div class="modal-backdrop" id="bookingModal" aria-hidden="true">
+    <div class="modal-dialog booking-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close-btn" id="closeBookingModalBtn" aria-label="Close booking modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Step Indicator Bar -->
+      <div class="booking-steps-bar">
+        <div class="step-progress-fill" id="stepProgressFill"></div>
+        <div class="step-indicator active" id="stepIndicator1">
+          <div class="step-circle">1</div>
+          <span>Package Details</span>
+        </div>
+        <div class="step-indicator" id="stepIndicator2">
+          <div class="step-circle">2</div>
+          <span>Dates & Guests</span>
+        </div>
+        <div class="step-indicator" id="stepIndicator3">
+          <div class="step-circle">3</div>
+          <span>Traveler Info</span>
+        </div>
+        <div class="step-indicator" id="stepIndicator4">
+          <div class="step-circle">4</div>
+          <span>Confirmation</span>
+        </div>
+      </div>
+
+      <!-- STEP 1: PACKAGE SUMMARY & SELECTION -->
+      <div class="modal-step-content active" id="bookingStep1">
+        <div class="booking-package-hero">
+          <img src="assets/images/hero-bali.jpg" alt="Selected package preview" id="modalPackageImg">
+          <div class="booking-hero-badge" id="modalPackageTag">Best Seller</div>
+        </div>
+        <div class="booking-package-body">
+          <div class="modal-header-row">
+            <div>
+              <span class="location-crumb" id="modalPackageLocation"><i class="fa-solid fa-location-dot"></i> Bali,
+                Indonesia</span>
+              <h2 id="modalPackageTitle">Bali Tropical Paradise & Private Villa Retreat</h2>
+            </div>
+            <div class="modal-price-box">
+              <span class="discount-pill" id="modalDiscountPill">Save 20%</span>
+              <div class="modal-price-value" id="modalPriceDisplay">$1,299</div>
+              <span class="modal-price-sub">per traveler</span>
+            </div>
+          </div>
+
+          <div class="modal-highlights-list" id="modalHighlightsList">
+            <!-- Dynamic highlights injected here -->
+          </div>
+
+          <div class="step-actions">
+            <button type="button" class="btn btn-outline" id="viewFullItineraryBtn">
+              <i class="fa-solid fa-map-location-dot"></i> View Full Itinerary
+            </button>
+            <button type="button" class="btn btn-primary" onclick="window.nextBookingStep(2)">
+              Select Dates & Travelers <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: DATES, ROOM & GUEST SELECTION -->
+      <div class="modal-step-content" id="bookingStep2">
+        <div class="step-inner">
+          <h3 class="step-title"><i class="fa-regular fa-calendar-check text-cyan"></i> Select Departure Date & Room
+            Preference</h3>
+          <p class="step-subtitle">All departures are 100% guaranteed. Free date change up to 21 days before departure.
+          </p>
+
+          <div class="form-group">
+            <label for="bookingDepartureSelect">Available Guaranteed Departures</label>
+            <select id="bookingDepartureSelect" class="form-control" onchange="window.updateBookingSummary()">
+              <option value="May 18 - May 25, 2026">May 18 - May 25, 2026 (🔥 4 spots left)</option>
+              <option value="June 12 - June 19, 2026">June 12 - June 19, 2026 (6 spots left)</option>
+              <option value="July 10 - July 17, 2026">July 10 - July 17, 2026 (Peak Summer • 5 spots left)</option>
+              <option value="August 15 - August 22, 2026">August 15 - August 22, 2026 (7 spots left)</option>
+              <option value="September 19 - September 26, 2026">September 19 - September 26, 2026 (8 spots left)
+              </option>
+              <option value="October 14 - October 21, 2026">October 14 - October 21, 2026 (Ideal Season)</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label>Number of Travelers</label>
+              <div class="counter-input">
+                <button type="button" class="counter-btn" onclick="window.adjustModalGuests(-1)"><i
+                    class="fa-solid fa-minus"></i></button>
+                <span id="modalGuestCount" class="counter-value">2</span>
+                <button type="button" class="counter-btn" onclick="window.adjustModalGuests(1)"><i
+                    class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+
+            <div class="form-group flex-1">
+              <label for="modalRoomTier">Room Arrangement</label>
+              <select id="modalRoomTier" class="form-control" onchange="window.updateBookingSummary()">
+                <option value="0">Double / Twin Luxury Room (Included)</option>
+                <option value="350">Private Pool Villa Upgrade (+$350/person)</option>
+                <option value="650">Presidential Ocean Suite Upgrade (+$650/person)</option>
+                <option value="200">Solo Private Room Single (+$200/person)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Add flight package option -->
+          <div class="form-group">
+            <label class="addon-checkbox flight-option">
+              <input type="checkbox" id="modalIncludeFlights" value="850" onchange="window.updateBookingSummary()">
+              <span class="checkbox-custom"></span>
+              <span class="addon-info">
+                <span class="addon-name"><i class="fa-solid fa-plane"></i> Include Roundtrip Flights with Airport
+                  Concierge</span>
+                <span class="addon-price">Estimated +$850/person</span>
+              </span>
+            </label>
+          </div>
+
+          <!-- Running summary card -->
+          <div class="booking-live-summary-box">
+            <div class="summary-line">
+              <span>Package Base (<span id="modalSummaryGuests">2</span> Travelers):</span>
+              <strong id="modalSummaryBasePrice">$2,598</strong>
+            </div>
+            <div class="summary-line" id="modalRoomUpgradeLine" style="display:none;">
+              <span>Room Upgrade:</span>
+              <strong id="modalSummaryRoomUpgrade">$0</strong>
+            </div>
+            <div class="summary-line" id="modalFlightLine" style="display:none;">
+              <span>Flights Add-on:</span>
+              <strong id="modalSummaryFlights">$0</strong>
+            </div>
+            <div class="summary-line promo-line">
+              <span>Early-Bird Summer Discount (Applied):</span>
+              <strong class="text-green">-$300</strong>
+            </div>
+            <div class="summary-line total-line">
+              <span>Total Package Investment:</span>
+              <strong class="highlight-total" id="modalSummaryTotalPrice">$2,298</strong>
+            </div>
+            <div class="deposit-notice">
+              <i class="fa-solid fa-shield-check text-cyan"></i> Pay only <strong>20% (<span
+                  id="modalDepositAmount">$459.60</span>)</strong> today to lock this package!
+            </div>
+          </div>
+
+          <div class="step-actions">
+            <button type="button" class="btn btn-outline" onclick="window.nextBookingStep(1)">
+              <i class="fa-solid fa-arrow-left"></i> Back
+            </button>
+            <button type="button" class="btn btn-primary" onclick="window.nextBookingStep(3)">
+              Continue to Traveler Details <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: TRAVELER CONTACT DETAILS & PAYMENT CHOICE -->
+      <div class="modal-step-content" id="bookingStep3">
+        <div class="step-inner">
+          <h3 class="step-title"><i class="fa-solid fa-user-check text-coral"></i> Lead Traveler & Contact Information
+          </h3>
+          <p class="step-subtitle">Your personal concierge will reach out to this email and WhatsApp number within 2
+            hours.</p>
+
+          <form id="leadTravelerForm" onsubmit="event.preventDefault(); window.submitBookingOrder();">
+            <div class="form-row">
+              <div class="form-group flex-1">
+                <label for="travelerFirstName">First Name *</label>
+                <input type="text" id="travelerFirstName" class="form-control" placeholder="e.g. Alexander" required>
+              </div>
+              <div class="form-group flex-1">
+                <label for="travelerLastName">Last Name *</label>
+                <input type="text" id="travelerLastName" class="form-control" placeholder="e.g. Vance" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group flex-1">
+                <label for="travelerEmail">Email Address *</label>
+                <input type="email" id="travelerEmail" class="form-control" placeholder="alexander@example.com"
+                  required>
+              </div>
+              <div class="form-group flex-1">
+                <label for="travelerPhone">WhatsApp / Mobile Phone *</label>
+                <input type="tel" id="travelerPhone" class="form-control" placeholder="+1 (555) 000-0000" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="travelerCountry">Country of Residence</label>
+              <select id="travelerCountry" class="form-control">
+                <option value="US">United States</option>
+                <option value="UK">United Kingdom</option>
+                <option value="CA">Canada</option>
+                <option value="AU">Australia</option>
+                <option value="DE">Germany</option>
+                <option value="SG">Singapore</option>
+                <option value="MY">Malaysia</option>
+                <option value="OTHER">Other Country</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="specialRequests">Dietary Preferences or Special Occasion (Optional)</label>
+              <textarea id="specialRequests" class="form-control" rows="2"
+                placeholder="e.g., Honeymoon trip, vegetarian meal preferences, celebrating anniversary"></textarea>
+            </div>
+
+            <!-- Payment Type Selection -->
+            <div class="form-group">
+              <label>Choose Deposit Option</label>
+              <div class="payment-tier-group">
+                <label class="pay-option active">
+                  <input type="radio" name="payOption" value="deposit" checked>
+                  <div class="pay-box">
+                    <div class="pay-title">
+                      <strong>Pay 20% Deposit Today</strong>
+                      <span class="badge-pill">Most Popular</span>
+                    </div>
+                    <p>Pay only <span id="modalDepositBadgePrice">$459.60</span> now. Remaining balance due 30 days
+                      before departure.</p>
+                  </div>
+                </label>
+                <label class="pay-option">
+                  <input type="radio" name="payOption" value="full">
+                  <div class="pay-box">
+                    <div class="pay-title">
+                      <strong>Pay Full Amount</strong>
+                      <span class="badge-pill badge-green">Extra 5% Off</span>
+                    </div>
+                    <p>Pay in full today and receive an extra 5% instant discount voucher for all on-site drinks.</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div class="step-actions">
+              <button type="button" class="btn btn-outline" onclick="window.nextBookingStep(2)">
+                <i class="fa-solid fa-arrow-left"></i> Back
+              </button>
+              <button type="submit" class="btn btn-gradient btn-lg" id="confirmJoinPackageBtn">
+                <i class="fa-solid fa-lock"></i> Complete Reservation & Join Package
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- STEP 4: SUCCESS CONFIRMATION & VOUCHER -->
+      <div class="modal-step-content" id="bookingStep4">
+        <div class="confirmation-wrap">
+          <div class="confetti-popper-icon">
+            <i class="fa-solid fa-champagne-glasses"></i>
+          </div>
+          <h2 class="confirm-title">Congratulations! You're Going on an Adventure! 🎉</h2>
+          <p class="confirm-subtitle">
+            Your package spot has been officially reserved. A confirmation pack and receipt have been dispatched to your
+            email.
+          </p>
+
+          <!-- Digital Voucher Ticket -->
+          <div class="travel-voucher-ticket" id="travelVoucher">
+            <div class="ticket-header">
+              <div class="ticket-brand">
+                <i class="fa-solid fa-compass-drafting"></i>
+                <span>SELAMATVN TRAVEL & TOURS</span>
+              </div>
+              <div class="ticket-status">CONFIRMED RESERVATION</div>
+            </div>
+
+            <div class="ticket-body">
+              <div class="ticket-main-info">
+                <h3 id="ticketPackageName">Bali Tropical Paradise & Private Villa Retreat</h3>
+                <div class="ticket-dates" id="ticketDates">May 18 - May 25, 2026</div>
+              </div>
+
+              <div class="ticket-details-grid">
+                <div>
+                  <small>LEAD TRAVELER</small>
+                  <strong id="ticketTravelerName">Alexander Vance</strong>
+                </div>
+                <div>
+                  <small>GUESTS</small>
+                  <strong id="ticketGuestCount">2 Travelers</strong>
+                </div>
+                <div>
+                  <small>BOOKING REF</small>
+                  <strong id="ticketBookingRef">WL-2026-98421</strong>
+                </div>
+                <div>
+                  <small>STATUS</small>
+                  <strong class="text-green">20% Deposit Secured</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="ticket-footer">
+              <div class="barcode-graphic">
+                <div class="barcode-lines"></div>
+                <span>WL98421-GLOBAL-PASS</span>
+              </div>
+              <div class="concierge-badge">
+                <i class="fa-solid fa-user-tie"></i> Dedicated Concierge Assigned
+              </div>
+            </div>
+          </div>
+
+          <div class="confirm-actions">
+            <button type="button" class="btn btn-primary" onclick="window.printVoucher()">
+              <i class="fa-solid fa-print"></i> Print Voucher
+            </button>
+            <button type="button" class="btn btn-outline" onclick="window.closeBookingModal()">
+              <i class="fa-solid fa-check"></i> Return to Homepage
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL 2: FULL ITINERARY & PACKAGE DETAILS -->
+  <!-- ======================================================== -->
+  <div class="modal-backdrop" id="itineraryModal" aria-hidden="true">
+    <div class="modal-dialog itinerary-dialog" role="dialog" aria-modal="true" aria-labelledby="itineraryModalTitle">
+      <button class="modal-close-btn" id="closeItineraryModalBtn" aria-label="Close itinerary modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="itinerary-header">
+        <div class="itinerary-header-content">
+          <span class="sub-heading" id="itinLocation">Indonesia</span>
+          <h2 id="itineraryModalTitle">Package Detailed Itinerary</h2>
+          <div class="itinerary-stats-row" id="itinStatsRow">
+            <!-- stats badges -->
+          </div>
+        </div>
+      </div>
+
+      <div class="itinerary-body">
+        <div class="itinerary-timeline-wrap">
+          <h3 class="timeline-title"><i class="fa-solid fa-route text-cyan"></i> Day-by-Day Experience</h3>
+          <div class="timeline" id="itineraryTimeline">
+            <!-- Populated via Javascript -->
+          </div>
+        </div>
+
+        <div class="itinerary-inclusions-wrap">
+          <div class="included-box">
+            <h4><i class="fa-solid fa-circle-check text-green"></i> What's 100% Included</h4>
+            <ul id="itineraryIncludedList">
+              <!-- Included items -->
+            </ul>
+          </div>
+
+          <div class="excluded-box">
+            <h4><i class="fa-solid fa-circle-info text-cyan"></i> Optional Upgrades</h4>
+            <ul id="itineraryUpgradesList">
+              <!-- Upgrades -->
+            </ul>
+          </div>
+
+          <div class="itinerary-sticky-cta">
+            <div class="cta-price-wrap">
+              <small>Starting from</small>
+              <strong id="itinStickyPrice">$1,299</strong>
+            </div>
+            <button type="button" class="btn btn-gradient" id="itinJoinNowBtn">
+              <i class="fa-solid fa-plane-departure"></i> Join This Package Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- FLOATING CONCIERGE CHAT WIDGET -->
+  <!-- ======================================================== -->
+  <div class="floating-concierge" id="floatingConciergeWidget">
+    <button class="concierge-trigger" id="conciergeTriggerBtn" aria-label="Open 24/7 travel concierge chat">
+      <div class="concierge-avatar-icon">
+        <i class="fa-solid fa-headset"></i>
+      </div>
+      <span class="concierge-ping"></span>
+      <span class="concierge-btn-text">Need Help? Chat with Concierge</span>
+    </button>
+
+    <div class="concierge-popup" id="conciergePopup">
+      <div class="concierge-popup-header">
+        <div class="concierge-popup-user">
+          <div class="avatar-ring">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <div>
+            <strong>Maya • Senior Travel Specialist</strong>
+            <small><span class="live-dot-green"></span> Online & ready to help</small>
+          </div>
+        </div>
+        <button class="concierge-close" id="closeConciergeBtn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="concierge-messages" id="conciergeMessages">
+        <div class="chat-msg agent-msg">
+          <p>Hello! 🌴 Welcome to SelamatVn. Are you looking to join a package for a couple, solo trip, or private group?</p>
+        </div>
+      </div>
+
+      <div class="concierge-quick-prompts">
+        <button class="quick-btn" onclick="window.sendConciergeQuick('What packages have early bird discounts?')">🔥
+          Best discounts?</button>
+        <button class="quick-btn" onclick="window.sendConciergeQuick('How does the 20% deposit work?')">💳 Deposit
+          terms?</button>
+        <button class="quick-btn"
+          onclick="window.sendConciergeQuick('Can you recommend a romantic honeymoon package?')">💍 Honeymoon
+          ideas?</button>
+      </div>
+
+      <form class="concierge-input-form" onsubmit="event.preventDefault(); window.sendConciergeMessage();">
+        <input type="text" id="conciergeInput" placeholder="Ask about destinations, dates, prices..."
+          aria-label="Ask concierge question">
+        <button type="submit" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <!-- SOCIAL PROOF TOAST TICKER -->
+  <div class="social-proof-toast" id="socialProofToast">
+    <div class="toast-icon"><i class="fa-solid fa-fire text-coral"></i></div>
+    <div class="toast-content">
+      <strong id="toastTitle">Marcus & Elena from California</strong>
+      <p id="toastDesc">Just joined the <strong>Bali Paradise Villa Retreat</strong> 4 mins ago!</p>
+    </div>
+  </div>
+
+  <!-- JavaScript Main Application -->
+  <script src="app.js"></script>
+</body>
+
+</html>
