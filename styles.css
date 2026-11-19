@@ -1313,9 +1313,14 @@ button {
 
 .custom-trip-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 60px;
+  grid-template-columns: 1fr;
+  max-width: 760px;
+  margin: 0 auto;
   align-items: center;
+}
+
+.qiblat-cta-wrap {
+  margin-top: 32px;
 }
 
 .custom-trip-intro .main-heading {
@@ -1345,6 +1350,7 @@ button {
   height: 36px;
   border-radius: 50%;
   background: var(--gradient-sunset);
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1579,6 +1585,36 @@ button {
   font-size: 1.1rem;
   min-width: 24px;
   text-align: center;
+}
+
+#bookingModal .counter-input {
+  background: #f1f5f9;
+  border: 1.5px solid #e2e8f0;
+  padding: 6px 10px;
+  gap: 16px;
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+#bookingModal .counter-btn {
+  width: 32px;
+  height: 32px;
+  background: #ffffff;
+  color: var(--color-text-main);
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+
+#bookingModal .counter-btn:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+#bookingModal .counter-value {
+  color: var(--color-text-main);
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 .discount-badge-box {
@@ -2224,7 +2260,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 36px;
+  padding: 24px 68px;
   background: var(--color-surface-alt);
   border-bottom: 1px solid #e2e8f0;
   position: relative;
@@ -2232,10 +2268,11 @@ button {
 
 .step-progress-fill {
   position: absolute;
-  top: 42px;
-  left: 50px;
-  right: 50px;
+  top: 40px;
+  left: 88px;
+  right: 88px;
   height: 3px;
+  border-radius: 999px;
   background: #cbd5e1;
   z-index: 1;
 }
@@ -2245,6 +2282,7 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 6px;
+  min-width: 110px;
   position: relative;
   z-index: 2;
   color: var(--color-text-light);
@@ -2504,7 +2542,16 @@ button {
 .payment-tier-group {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  align-items: stretch;
   gap: 14px;
+}
+
+.form-group .pay-option,
+.pay-option {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-bottom: 0;
 }
 
 .pay-option input {
@@ -2512,6 +2559,10 @@ button {
 }
 
 .pay-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   border: 2px solid #e2e8f0;
   border-radius: var(--radius-md);
   padding: 16px;
@@ -3695,13 +3746,17 @@ button {
   }
 
   .booking-steps-bar {
-    padding: 14px 10px;
+    padding: 14px 54px;
   }
 
   .step-progress-fill {
-    top: 29px;
-    left: 20px;
-    right: 20px;
+    top: 28px;
+    left: 54px;
+    right: 54px;
+  }
+
+  .step-indicator {
+    min-width: 0;
   }
 
   .step-circle {

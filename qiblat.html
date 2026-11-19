@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vietnam Live Qiblat Compass & Prayer Times | SelamatVn Travel</title>
+  <meta name="description"
+    content="Live Qiblat compass direction and daily Muslim prayer times across Vietnam cities including Ho Chi Minh City, Hanoi, Da Nang, Phu Quoc, and Nha Trang.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="qiblat.css?v=2">
+</head>
+
+<body class="qiblat-page-body">
+
+  <!-- NAVIGATION BAR -->
+  <header class="navbar qiblat-navbar" id="mainHeader">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="SelamatVn Homepage">
+        <div class="logo-icon-wrapper">
+          <i class="fa-solid fa-compass-drafting"></i>
+        </div>
+        <div class="brand-name">
+          <span>Selamat<strong class="highlight-text">Vn</strong></span>
+          <span class="brand-sub">TRAVEL & TOURS</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navMenu">
+        <a href="index.html#destinations" class="nav-link">Destinations</a>
+        <a href="index.html#packages" class="nav-link">Tour Packages</a>
+        <a href="qiblat.html" class="nav-link" style="color: var(--color-cyan);">Qiblat & Prayers</a>
+        <a href="index.html#why-us" class="nav-link">Why Us</a>
+        <a href="index.html#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html" class="btn btn-primary join-nav-btn">
+          <i class="fa-solid fa-arrow-left"></i> Back to Home
+        </a>
+
+        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav-backdrop" id="navBackdrop"></div>
+  </header>
+
+  <!-- HERO & LIVE VIETNAM CLOCK -->
+  <section class="qiblat-hero">
+    <div class="container">
+      <div class="qiblat-hero-top">
+        <div>
+          <span class="qiblat-live-pill"><span class="live-dot"></span> Vietnam Live (UTC+7)</span>
+          <h1>Vietnam Qiblat Compass & Prayer Times</h1>
+          <p class="qiblat-hero-sub">
+            Live Kaaba direction and daily prayer schedules for Muslim travelers across Ho Chi Minh City, Hanoi, Da Nang, Phu Quoc, and all of Vietnam.
+          </p>
+        </div>
+
+        <div class="vn-clock-card">
+          <div class="vn-clock-label">
+            <span><i class="fa-regular fa-clock"></i> Vietnam Local Time</span>
+            <span>ICT (UTC+7)</span>
+          </div>
+          <div class="vn-clock-time" id="vnLiveClock">--:--:--</div>
+          <div class="vn-clock-date" id="vnLiveDate">Loading Vietnam date...</div>
+          <div class="vn-clock-hijri" id="vnHijriDate"></div>
+        </div>
+      </div>
+
+      <!-- CITY, METHOD & GPS BAR -->
+      <div class="qiblat-controls-bar">
+        <div class="qiblat-control-field">
+          <label for="vietnamCitySelect"><i class="fa-solid fa-location-dot"></i> Select Vietnam City</label>
+          <select id="vietnamCitySelect" class="qiblat-select">
+            <option value="hcmc">Ho Chi Minh City (Saigon)</option>
+            <option value="hanoi">Hanoi</option>
+            <option value="danang">Da Nang</option>
+            <option value="phuquoc">Phu Quoc Island</option>
+            <option value="nhatrang">Nha Trang</option>
+            <option value="hue">Hue</option>
+            <option value="hoian">Hoi An</option>
+            <option value="dalat">Da Lat</option>
+            <option value="muine">Mui Ne</option>
+            <option value="sapa">Sapa</option>
+          </select>
+        </div>
+
+        <div class="qiblat-control-field">
+          <label for="prayerMethodSelect"><i class="fa-solid fa-sliders"></i> Calculation Method</label>
+          <select id="prayerMethodSelect" class="qiblat-select">
+            <option value="11" selected>Southeast Asia / MUIS (20° / 18°)</option>
+            <option value="3">Muslim World League (18° / 17°)</option>
+            <option value="4">Umm al-Qura University, Makkah</option>
+            <option value="2">ISNA (15° / 15°)</option>
+          </select>
+        </div>
+
+        <button type="button" class="gps-btn" id="useGpsBtn">
+          <i class="fa-solid fa-location-crosshairs"></i> Use My Live GPS
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN LIVE DASHBOARD -->
+  <main class="qiblat-main-section">
+    <div class="container">
+      <div class="qiblat-grid">
+        <!-- LEFT CARD: LIVE QIBLAT COMPASS -->
+        <section class="qiblat-card qiblat-compass-card" aria-labelledby="compassCardTitle">
+          <div class="qibla-top-bar">
+            <h2 id="compassCardTitle"><i class="fa-regular fa-paper-plane"></i> Qibla Compass</h2>
+            <span class="qibla-city-chip" id="qiblatCityLabel">Ho Chi Minh City (Saigon)</span>
+          </div>
+
+          <div class="compass-stage">
+            <div class="qibla-status-pill" id="qiblaStatusPill">TRUE NORTH</div>
+
+            <div class="compass-outer qibla-ring-outer" id="compassOuter">
+              <div class="compass-dial-rotator" id="compassDialRotator">
+                <svg class="compass-svg" id="compassSvg" viewBox="0 0 300 300" aria-hidden="true"></svg>
+              </div>
+
+              <!-- Rotating Kaaba Marker Layer -->
+              <div class="qiblat-needle-layer" id="qiblatNeedleLayer">
+                <div class="qiblat-pointer-wrap">
+                  <div class="kaaba-square-badge" title="Qiblat / Kaaba Direction">
+                    <svg viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
+                      <rect x="7" y="10" width="26" height="24" rx="2" fill="#111827" />
+                      <polygon points="7,10 20,5 33,10 20,15" fill="#1f2937" />
+                      <rect x="7" y="14" width="26" height="4" fill="#eab308" />
+                      <rect x="21" y="21" width="5" height="9" rx="0.8" fill="#fbbf24" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Fixed Center Prayer Mat Indicator -->
+              <div class="prayer-mat-center" aria-hidden="true">
+                <span class="prayer-pill">PRAYER</span>
+                <div class="prayer-mat-body">
+                  <div class="prayer-mat-arch"></div>
+                  <div class="prayer-mat-dot"></div>
+                  <div class="prayer-mat-line"></div>
+                </div>
+                <div class="prayer-mat-arm"></div>
+              </div>
+            </div>
+
+            <!-- Dual Direction Cards -->
+            <div class="compass-dual-cards">
+              <div class="compass-glass-card">
+                <small>Phone Direction</small>
+                <strong id="statPhoneDirection">--°</strong>
+                <span id="statPhoneSub">Sensor off</span>
+              </div>
+              <div class="compass-glass-card">
+                <small>Qibla Direction</small>
+                <strong id="statQiblatBearing">289°</strong>
+                <span id="statQiblatSub">WNW • 7,187 km</span>
+              </div>
+            </div>
+
+            <!-- Cream Live Compass Panel -->
+            <div class="live-compass-panel">
+              <div class="live-compass-head">
+                <i class="fa-regular fa-compass"></i>
+                <span>Live Compass</span>
+              </div>
+              <h3 class="live-compass-angle" id="panelQiblaDeg">Qibla Direction: 288.7°</h3>
+              <p class="live-compass-dir" id="panelQiblaCard">West-Northwest</p>
+              <div class="live-compass-meta">
+                <span id="panelDeviceHeading">Device Heading: Off (Desktop / Static)</span>
+                <span>Accuracy: ±10°</span>
+              </div>
+              <button type="button" class="live-compass-btn" id="toggleSensorBtn">
+                <i class="fa-regular fa-compass"></i> Enable Live Compass
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- RIGHT CARD: LIVE VIETNAM PRAYER TIMES -->
+        <section class="qiblat-card" aria-labelledby="prayerCardTitle">
+          <div class="qiblat-card-header">
+            <h2 id="prayerCardTitle"><i class="fa-solid fa-mosque text-coral"></i> Daily Prayer Times</h2>
+            <span class="sync-badge" id="prayerSyncBadge">Loading...</span>
+          </div>
+
+          <div class="next-prayer-banner">
+            <div class="next-prayer-info">
+              <small>Next Prayer in Vietnam</small>
+              <h3 id="nextPrayerName">Loading...</h3>
+            </div>
+            <div class="next-prayer-countdown">
+              <small>Time Remaining</small>
+              <strong id="nextPrayerCountdown">--:--:--</strong>
+            </div>
+          </div>
+
+          <div class="prayer-list" id="prayerList">
+            <!-- Dynamically populated by qiblat.js -->
+          </div>
+        </section>
+      </div>
+
+      <!-- HELPFUL MOSQUE GUIDE FOR VIETNAM -->
+      <section class="qiblat-card vn-mosques-card">
+        <div class="qiblat-card-header">
+          <h2><i class="fa-solid fa-map-pin text-cyan"></i> Key Mosques for Travelers in Vietnam</h2>
+        </div>
+
+        <div class="mosques-grid">
+          <div class="mosque-item">
+            <span class="mosque-city-tag">Ho Chi Minh City</span>
+            <h4>Saigon Central Mosque (Musulman)</h4>
+            <p>66 Dong Du Street, District 1 — centrally located near Ben Thanh Market with Halal restaurants nearby.</p>
+          </div>
+          <div class="mosque-item">
+            <span class="mosque-city-tag">Hanoi</span>
+            <h4>Al-Noor Mosque</h4>
+            <p>12 Hang Luoc Street, Hoan Kiem District — the only historic mosque in Hanoi's Old Quarter.</p>
+          </div>
+          <div class="mosque-item">
+            <span class="mosque-city-tag">Da Nang & Hoi An</span>
+            <h4>Prayer Rooms & Halal Hubs</h4>
+            <p>Muslim-friendly hotels and Halal restaurants around An Thuong (My Khe Beach) offer dedicated prayer spaces.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="qiblat.js?v=3"></script>
+</body>
+
+</html>
+

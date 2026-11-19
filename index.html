@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=6">
 </head>
 
 <body>
@@ -62,7 +62,7 @@
       <nav class="nav-links" id="navMenu">
         <a href="#destinations" class="nav-link">Destinations</a>
         <a href="#packages" class="nav-link">Tour Packages <span class="hot-badge">Hot</span></a>
-        <a href="#custom-trip" class="nav-link">Trip Calculator</a>
+        <a href="#custom-trip" class="nav-link">Qiblat & Prayers</a>
         <a href="#why-us" class="nav-link">Why Us</a>
         <a href="#testimonials" class="nav-link">Stories</a>
         <a href="#faq" class="nav-link">FAQ</a>
@@ -464,165 +464,44 @@
         <div class="custom-trip-wrapper">
           <div class="custom-trip-intro">
             <span class="sub-heading"><i class="fa-solid fa-sliders"></i> Tailor-Made Travel</span>
-            <h2 class="main-heading">Customize Your Dream Vacation</h2>
+            <h2 class="main-heading">Easiest Your Muslim Vacation</h2>
             <p>
-              Looking for something specifically tailored for you and your travel companions? Use our interactive
-              package builder to calculate an instant quote and secure private dates.
+              Stay connected to your daily prayers wherever your journey takes you. Use our built-in Qiblat compass
+              and prayer times guide to find the direction of the Kaaba and check daily prayer schedules effortlessly.
             </p>
 
             <div class="interactive-steps-summary">
               <div class="step-bullet">
                 <span class="num">1</span>
                 <div>
-                  <strong>Pick Your Destination & Stays</strong>
-                  <span>Choose luxury private villas, boutique ecolodges, or iconic 5-star suites.</span>
+                  <strong>Locate Accurate Qiblat Direction</strong>
+                  <span>Use the Qiblat compass to quickly find the exact direction toward Makkah from any
+                    destination.</span>
                 </div>
               </div>
               <div class="step-bullet">
                 <span class="num">2</span>
                 <div>
-                  <strong>Add Exclusive Experiences</strong>
-                  <span>Private yachts, helicopter flights, VIP private chefs, or photography tours.</span>
+                  <strong>View Daily Prayer Times</strong>
+                  <span>Check accurate Fajr, Dhuhr, Asr, Maghrib, and Isha schedules adjusted to your local travel time
+                    zone.</span>
                 </div>
               </div>
               <div class="step-bullet">
                 <span class="num">3</span>
                 <div>
-                  <strong>Instant Guaranteed Price</strong>
-                  <span>No guesswork or waiting for quotes. Instant checkout & concierge onboarding.</span>
+                  <strong>Worship Comfortably While Traveling</strong>
+                  <span>Plan your tours, flights, and hotel stays smoothly without worrying about missing prayer
+                    times.</span>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- Trip Builder Interactive Calculator Card -->
-          <div class="custom-calculator-card">
-            <div class="calc-header">
-              <h3><i class="fa-solid fa-calculator"></i> Real-Time Package Estimator</h3>
-              <span class="calc-badge">Live Price Sync</span>
+            <div class="qiblat-cta-wrap">
+              <a href="qiblat.html" class="btn btn-gradient btn-lg" id="openQiblatPageBtn">
+                <i class="fa-solid fa-compass"></i> Open Qiblat Compass & Prayer Times
+              </a>
             </div>
-
-            <form id="tripCalcForm" onsubmit="event.preventDefault(); window.bookCustomTrip();">
-              <!-- Destination -->
-              <div class="calc-field">
-                <label for="calcDest">Choose Destination</label>
-                <select id="calcDest" onchange="window.updateTripCalc()">
-                  <option value="bali" data-price="1299">Bali & Nusa Penida Island (7 Days)</option>
-                  <option value="amalfi" data-price="2190">Amalfi Coast & Capri Yacht Tour (8 Days)</option>
-                  <option value="swiss" data-price="2450">Swiss Alps & Glacier Express (7 Days)</option>
-                  <option value="kyoto" data-price="2390">Kyoto & Tokyo Golden Route (9 Days)</option>
-                  <option value="serengeti" data-price="3150">Serengeti Safari & Ngorongoro Crater (6 Days)</option>
-                  <option value="santorini" data-price="1890">Santorini & Cyclades Islands (7 Days)</option>
-                </select>
-              </div>
-
-              <!-- Accommodation Tier -->
-              <div class="calc-field">
-                <label>Select Accommodation Level</label>
-                <div class="tier-selector">
-                  <label class="tier-opt">
-                    <input type="radio" name="hotelTier" value="0" checked onchange="window.updateTripCalc()">
-                    <span class="tier-box">
-                      <strong>5★ Boutique Resort</strong>
-                      <small>Standard Luxury Included</small>
-                    </span>
-                  </label>
-                  <label class="tier-opt">
-                    <input type="radio" name="hotelTier" value="450" onchange="window.updateTripCalc()">
-                    <span class="tier-box">
-                      <strong>Private Pool Villa</strong>
-                      <small>+$450 / person</small>
-                    </span>
-                  </label>
-                  <label class="tier-opt">
-                    <input type="radio" name="hotelTier" value="850" onchange="window.updateTripCalc()">
-                    <span class="tier-box">
-                      <strong>Presidential Suite</strong>
-                      <small>+$850 / person</small>
-                    </span>
-                  </label>
-                </div>
-              </div>
-
-              <!-- Add-on Excursions -->
-              <div class="calc-field">
-                <label>Select Extra VIP Experiences (Optional)</label>
-                <div class="addons-grid">
-                  <label class="addon-checkbox">
-                    <input type="checkbox" id="addonYacht" value="320" onchange="window.updateTripCalc()">
-                    <span class="checkbox-custom"></span>
-                    <span class="addon-info">
-                      <span class="addon-name">Private Sunset Yacht Cruise</span>
-                      <span class="addon-price">+$320</span>
-                    </span>
-                  </label>
-
-                  <label class="addon-checkbox">
-                    <input type="checkbox" id="addonHeli" value="380" onchange="window.updateTripCalc()">
-                    <span class="checkbox-custom"></span>
-                    <span class="addon-info">
-                      <span class="addon-name">Scenic Helicopter Excursion</span>
-                      <span class="addon-price">+$380</span>
-                    </span>
-                  </label>
-
-                  <label class="addon-checkbox">
-                    <input type="checkbox" id="addonDining" value="190" onchange="window.updateTripCalc()">
-                    <span class="checkbox-custom"></span>
-                    <span class="addon-info">
-                      <span class="addon-name">Private Chef & Wine Pairing</span>
-                      <span class="addon-price">+$190</span>
-                    </span>
-                  </label>
-
-                  <label class="addon-checkbox">
-                    <input type="checkbox" id="addonPhoto" value="150" onchange="window.updateTripCalc()">
-                    <span class="checkbox-custom"></span>
-                    <span class="addon-info">
-                      <span class="addon-name">Pro Drone & Vacation Photographer</span>
-                      <span class="addon-price">+$150</span>
-                    </span>
-                  </label>
-                </div>
-              </div>
-
-              <!-- Travelers Count -->
-              <div class="calc-field calc-row">
-                <div>
-                  <label>Number of Travelers</label>
-                  <div class="counter-input">
-                    <button type="button" class="counter-btn" onclick="window.adjustGuestCount(-1)"><i
-                        class="fa-solid fa-minus"></i></button>
-                    <span id="calcGuestCount" class="counter-value">2</span>
-                    <button type="button" class="counter-btn" onclick="window.adjustGuestCount(1)"><i
-                        class="fa-solid fa-plus"></i></button>
-                  </div>
-                </div>
-
-                <div class="discount-badge-box">
-                  <span class="save-tag"><i class="fa-solid fa-tag"></i> 15% Group Discount Applied</span>
-                  <small>For 2+ travelers</small>
-                </div>
-              </div>
-
-              <!-- Price Display Box -->
-              <div class="calc-total-box">
-                <div class="total-breakdown">
-                  <span class="price-label">Estimated Total (All Inclusive):</span>
-                  <span class="original-strike" id="calcOriginalPrice">$3,290</span>
-                </div>
-                <div class="final-total">
-                  <span class="final-price" id="calcFinalPrice">$2,796</span>
-                  <span class="per-person" id="calcPerPersonPrice">($1,398 / person)</span>
-                </div>
-              </div>
-
-              <button type="submit" class="btn btn-gradient btn-block btn-lg" id="joinCustomTripBtn">
-                <i class="fa-solid fa-bolt"></i> Join This Tailored Package Now
-              </button>
-              <p class="calc-footnote"><i class="fa-solid fa-lock"></i> Free cancellation within 7 days • Zero booking
-                fees</p>
-            </form>
           </div>
         </div>
       </div>
@@ -1021,15 +900,15 @@
         </div>
         <div class="step-indicator" id="stepIndicator2">
           <div class="step-circle">2</div>
-          <span>Dates & Guests</span>
+          <span>Package Style</span>
         </div>
         <div class="step-indicator" id="stepIndicator3">
           <div class="step-circle">3</div>
-          <span>Traveler Info</span>
+          <span>Dates & Guests</span>
         </div>
         <div class="step-indicator" id="stepIndicator4">
           <div class="step-circle">4</div>
-          <span>Confirmation</span>
+          <span>Traveler Info</span>
         </div>
       </div>
 
@@ -1062,14 +941,68 @@
               <i class="fa-solid fa-map-location-dot"></i> View Full Itinerary
             </button>
             <button type="button" class="btn btn-primary" onclick="window.nextBookingStep(2)">
-              Select Dates & Travelers <i class="fa-solid fa-arrow-right"></i>
+              Choose Package Style <i class="fa-solid fa-arrow-right"></i>
             </button>
           </div>
         </div>
       </div>
 
-      <!-- STEP 2: DATES, ROOM & GUEST SELECTION -->
+      <!-- STEP 2: PACKAGE STYLE SELECTION (FOLLOW VS CUSTOM) -->
       <div class="modal-step-content" id="bookingStep2">
+        <div class="step-inner">
+          <h3 class="step-title"><i class="fa-solid fa-route text-cyan"></i> Choose Your Package Style</h3>
+          <p class="step-subtitle">Would you like to follow our curated package itinerary or customize your own trip?
+          </p>
+
+          <div class="form-group">
+            <div class="payment-tier-group">
+              <label class="pay-option">
+                <input type="radio" name="packageStyleOption" value="follow" checked
+                  onchange="window.handlePackageStyleChange(this.value)">
+                <div class="pay-box">
+                  <div class="pay-title">
+                    <strong>Follow Package</strong>
+                    <span class="badge-pill">Recommended</span>
+                  </div>
+                  <p>Follow our ready-made, all-inclusive itinerary, curated accommodations, and guided experiences as
+                    planned.</p>
+                </div>
+              </label>
+
+              <label class="pay-option">
+                <input type="radio" name="packageStyleOption" value="custom"
+                  onchange="window.handlePackageStyleChange(this.value)">
+                <div class="pay-box">
+                  <div class="pay-title">
+                    <strong>Custom Package</strong>
+                    <span class="badge-pill badge-green">Tailor-Made</span>
+                  </div>
+                  <p>Customize your activities, duration, hotel tier, or travel pace with our dedicated travel
+                    concierge.</p>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group" id="customPackageDetailsGroup" style="display: none;">
+            <label for="customPackageNotes">What would you like to customize? (Optional)</label>
+            <textarea id="customPackageNotes" class="form-control" rows="3"
+              placeholder="e.g., Add 2 extra nights, private tours only, specific places to visit, or preferred hotel style"></textarea>
+          </div>
+
+          <div class="step-actions">
+            <button type="button" class="btn btn-outline" onclick="window.nextBookingStep(1)">
+              <i class="fa-solid fa-arrow-left"></i> Back
+            </button>
+            <button type="button" class="btn btn-primary" onclick="window.nextBookingStep(3)">
+              Continue to Dates & Guests <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: DATES, ROOM & GUEST SELECTION -->
+      <div class="modal-step-content" id="bookingStep3">
         <div class="step-inner">
           <h3 class="step-title"><i class="fa-regular fa-calendar-check text-cyan"></i> Select Departure Date & Room
             Preference</h3>
@@ -1125,47 +1058,19 @@
             </label>
           </div>
 
-          <!-- Running summary card -->
-          <div class="booking-live-summary-box">
-            <div class="summary-line">
-              <span>Package Base (<span id="modalSummaryGuests">2</span> Travelers):</span>
-              <strong id="modalSummaryBasePrice">$2,598</strong>
-            </div>
-            <div class="summary-line" id="modalRoomUpgradeLine" style="display:none;">
-              <span>Room Upgrade:</span>
-              <strong id="modalSummaryRoomUpgrade">$0</strong>
-            </div>
-            <div class="summary-line" id="modalFlightLine" style="display:none;">
-              <span>Flights Add-on:</span>
-              <strong id="modalSummaryFlights">$0</strong>
-            </div>
-            <div class="summary-line promo-line">
-              <span>Early-Bird Summer Discount (Applied):</span>
-              <strong class="text-green">-$300</strong>
-            </div>
-            <div class="summary-line total-line">
-              <span>Total Package Investment:</span>
-              <strong class="highlight-total" id="modalSummaryTotalPrice">$2,298</strong>
-            </div>
-            <div class="deposit-notice">
-              <i class="fa-solid fa-shield-check text-cyan"></i> Pay only <strong>20% (<span
-                  id="modalDepositAmount">$459.60</span>)</strong> today to lock this package!
-            </div>
-          </div>
-
           <div class="step-actions">
-            <button type="button" class="btn btn-outline" onclick="window.nextBookingStep(1)">
+            <button type="button" class="btn btn-outline" onclick="window.nextBookingStep(2)">
               <i class="fa-solid fa-arrow-left"></i> Back
             </button>
-            <button type="button" class="btn btn-primary" onclick="window.nextBookingStep(3)">
+            <button type="button" class="btn btn-primary" onclick="window.nextBookingStep(4)">
               Continue to Traveler Details <i class="fa-solid fa-arrow-right"></i>
             </button>
           </div>
         </div>
       </div>
 
-      <!-- STEP 3: TRAVELER CONTACT DETAILS & PAYMENT CHOICE -->
-      <div class="modal-step-content" id="bookingStep3">
+      <!-- STEP 4: TRAVELER CONTACT DETAILS -->
+      <div class="modal-step-content" id="bookingStep4">
         <div class="step-inner">
           <h3 class="step-title"><i class="fa-solid fa-user-check text-coral"></i> Lead Traveler & Contact Information
           </h3>
@@ -1216,36 +1121,8 @@
                 placeholder="e.g., Honeymoon trip, vegetarian meal preferences, celebrating anniversary"></textarea>
             </div>
 
-            <!-- Payment Type Selection -->
-            <div class="form-group">
-              <label>Choose Deposit Option</label>
-              <div class="payment-tier-group">
-                <label class="pay-option active">
-                  <input type="radio" name="payOption" value="deposit" checked>
-                  <div class="pay-box">
-                    <div class="pay-title">
-                      <strong>Pay 20% Deposit Today</strong>
-                      <span class="badge-pill">Most Popular</span>
-                    </div>
-                    <p>Pay only <span id="modalDepositBadgePrice">$459.60</span> now. Remaining balance due 30 days
-                      before departure.</p>
-                  </div>
-                </label>
-                <label class="pay-option">
-                  <input type="radio" name="payOption" value="full">
-                  <div class="pay-box">
-                    <div class="pay-title">
-                      <strong>Pay Full Amount</strong>
-                      <span class="badge-pill badge-green">Extra 5% Off</span>
-                    </div>
-                    <p>Pay in full today and receive an extra 5% instant discount voucher for all on-site drinks.</p>
-                  </div>
-                </label>
-              </div>
-            </div>
-
             <div class="step-actions">
-              <button type="button" class="btn btn-outline" onclick="window.nextBookingStep(2)">
+              <button type="button" class="btn btn-outline" onclick="window.nextBookingStep(3)">
                 <i class="fa-solid fa-arrow-left"></i> Back
               </button>
               <button type="submit" class="btn btn-gradient btn-lg" id="confirmJoinPackageBtn">
@@ -1253,76 +1130,6 @@
               </button>
             </div>
           </form>
-        </div>
-      </div>
-
-      <!-- STEP 4: SUCCESS CONFIRMATION & VOUCHER -->
-      <div class="modal-step-content" id="bookingStep4">
-        <div class="confirmation-wrap">
-          <div class="confetti-popper-icon">
-            <i class="fa-solid fa-champagne-glasses"></i>
-          </div>
-          <h2 class="confirm-title">Congratulations! You're Going on an Adventure! 🎉</h2>
-          <p class="confirm-subtitle">
-            Your package spot has been officially reserved. A confirmation pack and receipt have been dispatched to your
-            email.
-          </p>
-
-          <!-- Digital Voucher Ticket -->
-          <div class="travel-voucher-ticket" id="travelVoucher">
-            <div class="ticket-header">
-              <div class="ticket-brand">
-                <i class="fa-solid fa-compass-drafting"></i>
-                <span>SELAMATVN TRAVEL & TOURS</span>
-              </div>
-              <div class="ticket-status">CONFIRMED RESERVATION</div>
-            </div>
-
-            <div class="ticket-body">
-              <div class="ticket-main-info">
-                <h3 id="ticketPackageName">Bali Tropical Paradise & Private Villa Retreat</h3>
-                <div class="ticket-dates" id="ticketDates">May 18 - May 25, 2026</div>
-              </div>
-
-              <div class="ticket-details-grid">
-                <div>
-                  <small>LEAD TRAVELER</small>
-                  <strong id="ticketTravelerName">Alexander Vance</strong>
-                </div>
-                <div>
-                  <small>GUESTS</small>
-                  <strong id="ticketGuestCount">2 Travelers</strong>
-                </div>
-                <div>
-                  <small>BOOKING REF</small>
-                  <strong id="ticketBookingRef">WL-2026-98421</strong>
-                </div>
-                <div>
-                  <small>STATUS</small>
-                  <strong class="text-green">20% Deposit Secured</strong>
-                </div>
-              </div>
-            </div>
-
-            <div class="ticket-footer">
-              <div class="barcode-graphic">
-                <div class="barcode-lines"></div>
-                <span>WL98421-GLOBAL-PASS</span>
-              </div>
-              <div class="concierge-badge">
-                <i class="fa-solid fa-user-tie"></i> Dedicated Concierge Assigned
-              </div>
-            </div>
-          </div>
-
-          <div class="confirm-actions">
-            <button type="button" class="btn btn-primary" onclick="window.printVoucher()">
-              <i class="fa-solid fa-print"></i> Print Voucher
-            </button>
-            <button type="button" class="btn btn-outline" onclick="window.closeBookingModal()">
-              <i class="fa-solid fa-check"></i> Return to Homepage
-            </button>
-          </div>
         </div>
       </div>
     </div>
@@ -1445,7 +1252,7 @@
   </div>
 
   <!-- JavaScript Main Application -->
-  <script src="app.js"></script>
+  <script src="app.js?v=4"></script>
 </body>
 
 </html>

@@ -288,11 +288,12 @@ let activeSelectedPackage = PACKAGES[0];
 let currentBookingStep = 1;
 let currentBookingState = {
   package: PACKAGES[0],
+  packageStyle: 'follow',
+  customPackageNotes: '',
   guests: 2,
   roomUpgradePerPerson: 0,
   includeFlights: false,
-  flightCostPerPerson: 0,
-  payOption: 'deposit'
+  flightCostPerPerson: 0
 };
 
 // ========================================================
@@ -306,7 +307,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initSocialProofToast();
   initFloatingConcierge();
   initNavigation();
-  updateTripCalc();
 });
 
 // ========================================================
@@ -481,78 +481,7 @@ window.handleHeroSearch = function() {
 };
 
 // ========================================================
-// 5. TRIP ESTIMATOR / INTERACTIVE CALCULATOR
-// ========================================================
-window.updateTripCalc = function() {
-  const destSelect = document.getElementById('calcDest');
-  if (!destSelect) return;
-
-  const selectedOpt = destSelect.options[destSelect.selectedIndex];
-  const basePricePerPerson = parseInt(selectedOpt.getAttribute('data-price') || '1299', 10);
-
-  // Accommodation tier
-  const tierRadios = document.getElementsByName('hotelTier');
-  let tierExtra = 0;
-  for (const radio of tierRadios) {
-    if (radio.checked) {
-      tierExtra = parseInt(radio.value, 10);
-      break;
-    }
-  }
-
-  // Addons
-  let addonsTotal = 0;
-  if (document.getElementById('addonYacht')?.checked) addonsTotal += 320;
-  if (document.getElementById('addonHeli')?.checked) addonsTotal += 380;
-  if (document.getElementById('addonDining')?.checked) addonsTotal += 190;
-  if (document.getElementById('addonPhoto')?.checked) addonsTotal += 150;
-
-  // Guest count
-  const guestCountEl = document.getElementById('calcGuestCount');
-  const guests = parseInt(guestCountEl ? guestCountEl.textContent : '2', 10);
-
-  // Calculation:
-  // Base total = (basePricePerPerson + tierExtra) * guests + addonsTotal
-  const subtotal = (basePricePerPerson + tierExtra) * guests + addonsTotal;
-  const originalEstimate = Math.round(subtotal * 1.18); // Show original before discount
-  const finalDiscounted = guests >= 2 ? Math.round(subtotal * 0.85) : subtotal;
-  const perPerson = Math.round(finalDiscounted / guests);
-
-  const { symbol, rate } = CURRENCY_RATES[currentCurrency];
-
-  const originalEl = document.getElementById('calcOriginalPrice');
-  const finalEl = document.getElementById('calcFinalPrice');
-  const perPersonEl = document.getElementById('calcPerPersonPrice');
-
-  if (originalEl) originalEl.textContent = `${symbol}${Math.round(originalEstimate * rate).toLocaleString()}`;
-  if (finalEl) finalEl.textContent = `${symbol}${Math.round(finalDiscounted * rate).toLocaleString()}`;
-  if (perPersonEl) perPersonEl.textContent = `(${symbol}${Math.round(perPerson * rate).toLocaleString()} / person)`;
-};
-
-window.adjustGuestCount = function(delta) {
-  const guestCountEl = document.getElementById('calcGuestCount');
-  if (!guestCountEl) return;
-  let count = parseInt(guestCountEl.textContent, 10) + delta;
-  if (count < 1) count = 1;
-  if (count > 16) count = 16;
-  guestCountEl.textContent = count;
-  window.updateTripCalc();
-};
-
-window.bookCustomTrip = function() {
-  const destSelect = document.getElementById('calcDest');
-  const destVal = destSelect ? destSelect.value : 'bali';
-  const foundPkg = PACKAGES.find(p => p.id === destVal) || PACKAGES[0];
-
-  const guestCount = parseInt(document.getElementById('calcGuestCount')?.textContent || '2', 10);
-
-  window.openBookingModal(foundPkg.id, {
-    guests: guestCount
-  });
-};
-
-// ========================================================
-// 6. MULTI-STEP BOOKING MODAL LOGIC
+// 5. MULTI-STEP BOOKING MODAL LOGIC
 // ========================================================
 window.openBookingModal = function(pkgId, customOptions = {}) {
   const pkg = PACKAGES.find(p => p.id === pkgId) || PACKAGES[0];
@@ -560,12 +489,20 @@ window.openBookingModal = function(pkgId, customOptions = {}) {
 
   currentBookingState = {
     package: pkg,
+    packageStyle: 'follow',
+    customPackageNotes: '',
     guests: customOptions.guests || 2,
     roomUpgradePerPerson: 0,
     includeFlights: false,
-    flightCostPerPerson: 0,
-    payOption: 'deposit'
+    flightCostPerPerson: 0
   };
+
+  // Reset Step 2 (Package Style) UI
+  const followRadio = document.querySelector('input[name="packageStyleOption"][value="follow"]');
+  if (followRadio) followRadio.checked = true;
+  const customNotesEl = document.getElementById('customPackageNotes');
+  if (customNotesEl) customNotesEl.value = '';
+  window.handlePackageStyleChange('follow');
 
   // Populate Step 1 UI
   const imgEl = document.getElementById('modalPackageImg');
@@ -627,6 +564,14 @@ document.getElementById('bookingModal')?.addEventListener('click', (e) => {
   if (e.target.id === 'bookingModal') window.closeBookingModal();
 });
 
+window.handlePackageStyleChange = function(style) {
+  currentBookingState.packageStyle = style === 'custom' ? 'custom' : 'follow';
+  const customGroup = document.getElementById('customPackageDetailsGroup');
+  if (customGroup) {
+    customGroup.style.display = currentBookingState.packageStyle === 'custom' ? 'block' : 'none';
+  }
+};
+
 window.nextBookingStep = function(stepNum) {
   setBookingStep(stepNum);
 };
@@ -650,12 +595,6 @@ function setBookingStep(stepNum) {
       if (i === stepNum) content.classList.add('active');
     }
   }
-
-  const progressFill = document.getElementById('stepProgressFill');
-  if (progressFill) {
-    const percents = { 1: '0%', 2: '33%', 3: '66%', 4: '100%' };
-    progressFill.style.width = percents[stepNum] || '0%';
-  }
 }
 
 window.adjustModalGuests = function(delta) {
@@ -671,9 +610,6 @@ window.adjustModalGuests = function(delta) {
 };
 
 window.updateBookingSummary = function() {
-  const pkg = currentBookingState.package;
-  const guests = currentBookingState.guests;
-
   const roomSelect = document.getElementById('modalRoomTier');
   const roomUpgradePerPerson = parseInt(roomSelect ? roomSelect.value : '0', 10);
   currentBookingState.roomUpgradePerPerson = roomUpgradePerPerson;
@@ -681,77 +617,33 @@ window.updateBookingSummary = function() {
   const flightsCheck = document.getElementById('modalIncludeFlights');
   const includeFlights = flightsCheck ? flightsCheck.checked : false;
   currentBookingState.includeFlights = includeFlights;
-  const flightsPerPerson = includeFlights ? 850 : 0;
-  currentBookingState.flightCostPerPerson = flightsPerPerson;
-
-  const { symbol, rate } = CURRENCY_RATES[currentCurrency];
-
-  const basePerPerson = pkg.basePrice;
-  const totalBase = basePerPerson * guests;
-  const totalRoomUpgrade = roomUpgradePerPerson * guests;
-  const totalFlights = flightsPerPerson * guests;
-  const summerDiscount = 300; // $300 early-bird flat package discount
-
-  const grandTotal = Math.max(0, (totalBase + totalRoomUpgrade + totalFlights) - summerDiscount);
-  const deposit20 = grandTotal * 0.20;
-
-  // Update Summary elements
-  const guestsSpan = document.getElementById('modalSummaryGuests');
-  const baseEl = document.getElementById('modalSummaryBasePrice');
-  const roomLine = document.getElementById('modalRoomUpgradeLine');
-  const roomPriceEl = document.getElementById('modalSummaryRoomUpgrade');
-  const flightLine = document.getElementById('modalFlightLine');
-  const flightPriceEl = document.getElementById('modalSummaryFlights');
-  const totalEl = document.getElementById('modalSummaryTotalPrice');
-  const depositEl = document.getElementById('modalDepositAmount');
-  const depositBadgeEl = document.getElementById('modalDepositBadgePrice');
-
-  if (guestsSpan) guestsSpan.textContent = guests;
-  if (baseEl) baseEl.textContent = `${symbol}${Math.round(totalBase * rate).toLocaleString()}`;
-
-  if (roomLine) {
-    roomLine.style.display = totalRoomUpgrade > 0 ? 'flex' : 'none';
-    if (roomPriceEl) roomPriceEl.textContent = `+${symbol}${Math.round(totalRoomUpgrade * rate).toLocaleString()}`;
-  }
-
-  if (flightLine) {
-    flightLine.style.display = includeFlights ? 'flex' : 'none';
-    if (flightPriceEl) flightPriceEl.textContent = `+${symbol}${Math.round(totalFlights * rate).toLocaleString()}`;
-  }
-
-  if (totalEl) totalEl.textContent = `${symbol}${Math.round(grandTotal * rate).toLocaleString()}`;
-  if (depositEl) depositEl.textContent = `${symbol}${Math.round(deposit20 * rate).toLocaleString()}`;
-  if (depositBadgeEl) depositBadgeEl.textContent = `${symbol}${Math.round(deposit20 * rate).toLocaleString()}`;
+  currentBookingState.flightCostPerPerson = includeFlights ? 850 : 0;
 };
 
 window.submitBookingOrder = function() {
   const firstName = document.getElementById('travelerFirstName')?.value || 'Guest';
   const lastName = document.getElementById('travelerLastName')?.value || 'Traveler';
   const dates = document.getElementById('bookingDepartureSelect')?.value || 'Selected 2026 Dates';
+  const customNotes = document.getElementById('customPackageNotes')?.value?.trim() || '';
   const pkg = currentBookingState.package;
+  const styleLabel = currentBookingState.packageStyle === 'custom' ? 'Custom Package' : 'Follow Package';
 
-  // Generate random reference code
+  currentBookingState.customPackageNotes = customNotes;
+
   const refCode = 'WL-2026-' + Math.floor(10000 + Math.random() * 90000);
 
-  // Fill Ticket Voucher
-  const ticketPkg = document.getElementById('ticketPackageName');
-  const ticketDates = document.getElementById('ticketDates');
-  const ticketName = document.getElementById('ticketTravelerName');
-  const ticketGuests = document.getElementById('ticketGuestCount');
-  const ticketRef = document.getElementById('ticketBookingRef');
+  alert(
+    `🎉 Reservation submitted for ${firstName} ${lastName}!\n\n` +
+    `Package: ${pkg.title}\n` +
+    `Style: ${styleLabel}\n` +
+    `Dates: ${dates}\n` +
+    `Guests: ${currentBookingState.guests} Traveler(s)\n` +
+    `Ref: ${refCode}\n\n` +
+    `Our concierge will contact you via email and WhatsApp within 2 hours.`
+  );
 
-  if (ticketPkg) ticketPkg.textContent = pkg.title;
-  if (ticketDates) ticketDates.textContent = dates;
-  if (ticketName) ticketName.textContent = `${firstName} ${lastName}`;
-  if (ticketGuests) ticketGuests.textContent = `${currentBookingState.guests} Traveler(s)`;
-  if (ticketRef) ticketRef.textContent = refCode;
-
-  // Move to Step 4
-  setBookingStep(4);
-};
-
-window.printVoucher = function() {
-  window.print();
+  document.getElementById('leadTravelerForm')?.reset();
+  window.closeBookingModal();
 };
 
 // ========================================================
@@ -869,7 +761,6 @@ function initCurrencyDropdown() {
 
         // Re-render price-dependent components
         renderPackagesGrid(PACKAGES);
-        updateTripCalc();
         updateBookingSummary();
       }
     });

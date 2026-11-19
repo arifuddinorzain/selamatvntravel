@@ -1,0 +1,810 @@
+/* ========================================================
+   VIETNAM LIVE QIBLAT COMPASS & PRAYER TIMES PAGE
+   ======================================================== */
+
+.qiblat-page-body {
+  background: #0b1120;
+  color: #f8fafc;
+  min-height: 100vh;
+}
+
+.qiblat-navbar {
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.qiblat-navbar .brand-name span,
+.qiblat-navbar .nav-link {
+  color: #e2e8f0;
+}
+
+.qiblat-navbar .brand-sub {
+  color: #94a3b8;
+}
+
+.qiblat-navbar .nav-link:hover {
+  color: var(--color-cyan);
+}
+
+.qiblat-hero {
+  position: relative;
+  padding: 56px 0 40px;
+  background: radial-gradient(circle at top right, rgba(6, 182, 212, 0.16), transparent 45%),
+              radial-gradient(circle at top left, rgba(244, 63, 94, 0.14), transparent 40%),
+              linear-gradient(180deg, #0f172a 0%, #0b1120 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.qiblat-hero-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.qiblat-live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulseLive 1.6s infinite;
+}
+
+@keyframes pulseLive {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.45); opacity: 0.55; }
+}
+
+.qiblat-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.qiblat-hero-sub {
+  color: #94a3b8;
+  font-size: 1.02rem;
+  max-width: 620px;
+}
+
+.vn-clock-card {
+  background: rgba(30, 41, 59, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg);
+  padding: 18px 24px;
+  min-width: 270px;
+  backdrop-filter: blur(12px);
+}
+
+.vn-clock-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.vn-clock-time {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+}
+
+.vn-clock-date {
+  margin-top: 6px;
+  font-size: 0.84rem;
+  color: #cbd5e1;
+}
+
+.vn-clock-hijri {
+  margin-top: 2px;
+  font-size: 0.8rem;
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+/* LOCATION & CONTROLS BAR */
+.qiblat-controls-bar {
+  margin-top: 28px;
+  background: rgba(30, 41, 59, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg);
+  padding: 18px 22px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr auto;
+  gap: 16px;
+  align-items: end;
+}
+
+.qiblat-control-field label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.qiblat-select {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+
+.qiblat-select:focus {
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
+}
+
+.gps-btn {
+  padding: 11px 18px;
+  border-radius: var(--radius-md);
+  background: rgba(6, 182, 212, 0.15);
+  border: 1px solid rgba(6, 182, 212, 0.45);
+  color: #67e8f9;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  white-space: nowrap;
+}
+
+.gps-btn:hover {
+  background: var(--color-cyan);
+  color: #0f172a;
+}
+
+/* MAIN DASHBOARD GRID */
+.qiblat-main-section {
+  padding: 40px 0 70px;
+}
+
+.qiblat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.qiblat-card {
+  background: rgba(30, 41, 59, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.qiblat-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.qiblat-card-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sync-badge {
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(16, 185, 129, 0.16);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.sync-badge.offline {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+/* COMPASS WIDGET — EMERALD & GOLD QIBLA DESIGN */
+.qiblat-compass-card {
+  background: linear-gradient(155deg, #0b4a37 0%, #3d6322 48%, #8f7211 100%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  padding: 24px;
+}
+
+.qibla-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.qibla-top-bar h2 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qibla-city-chip {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.compass-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qibla-status-pill {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  margin-bottom: -12px;
+  z-index: 6;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: background 0.25s ease;
+}
+
+.qibla-status-pill.is-perfect {
+  background: #16a34a;
+  border-color: #4ade80;
+  box-shadow: 0 4px 16px rgba(22, 163, 74, 0.5);
+}
+
+.qibla-status-pill.is-turning {
+  background: #d97706;
+  border-color: #fbbf24;
+}
+
+.compass-outer.qibla-ring-outer {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 70%, rgba(0, 0, 0, 0.08) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.42);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.compass-outer.qiblat-aligned {
+  border-color: #4ade80;
+  box-shadow: 0 0 36px rgba(74, 222, 128, 0.45);
+}
+
+.compass-dial-rotator {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.18s ease-out;
+}
+
+.compass-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.qiblat-needle-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  transition: transform 0.25s ease-out;
+}
+
+.qiblat-pointer-wrap {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.kaaba-square-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+/* FIXED CENTER PRAYER MAT */
+.prayer-mat-center {
+  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -44%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.prayer-pill {
+  background: #10b981;
+  color: #ffffff;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  margin-bottom: -6px;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.prayer-mat-body {
+  width: 48px;
+  height: 76px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #059669 0%, #047857 100%);
+  border: 2.5px solid #eab308;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+}
+
+.prayer-mat-arch {
+  width: 24px;
+  height: 30px;
+  border-radius: 12px 12px 2px 2px;
+  background: rgba(250, 204, 21, 0.85);
+  margin-top: 4px;
+}
+
+.prayer-mat-dot {
+  position: absolute;
+  top: 26px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+.prayer-mat-line {
+  width: 2px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.7);
+  margin-top: 2px;
+}
+
+.prayer-mat-arm {
+  position: absolute;
+  top: 42px;
+  left: 48px;
+  width: 28px;
+  height: 3px;
+  background: #eab308;
+  border-radius: 999px;
+}
+
+.prayer-mat-arm::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #eab308;
+}
+
+/* DUAL GLASS STAT CARDS */
+.compass-dual-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  width: 100%;
+  margin-top: 22px;
+}
+
+.compass-glass-card {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 16px 14px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+.compass-glass-card small {
+  display: block;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.compass-glass-card strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.05;
+}
+
+.compass-glass-card span {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+}
+
+/* CREAM LIVE COMPASS PANEL */
+.live-compass-panel {
+  width: 100%;
+  margin-top: 16px;
+  background: #f5f2df;
+  color: #14532d;
+  border-radius: 18px;
+  padding: 18px 20px;
+  text-align: center;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.2);
+}
+
+.live-compass-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #14532d;
+  margin-bottom: 10px;
+}
+
+.live-compass-angle {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #14532d;
+}
+
+.live-compass-dir {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #475569;
+  margin-top: 2px;
+}
+
+.live-compass-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 10px 0 14px;
+  font-size: 0.76rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.live-compass-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 24px;
+  border-radius: var(--radius-full);
+  background: #0d502d;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  box-shadow: 0 6px 16px rgba(13, 80, 45, 0.3);
+}
+
+.live-compass-btn:hover {
+  background: #14532d;
+  transform: translateY(-1px);
+}
+
+.live-compass-btn.active {
+  background: #15803d;
+}
+
+/* NEXT PRAYER COUNTDOWN BANNER */
+.next-prayer-banner {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.25), rgba(16, 185, 129, 0.2));
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.next-prayer-info small {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #7dd3fc;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.next-prayer-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  color: #ffffff;
+}
+
+.next-prayer-countdown {
+  text-align: right;
+}
+
+.next-prayer-countdown small {
+  display: block;
+  font-size: 0.72rem;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.next-prayer-countdown strong {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  color: #34d399;
+  letter-spacing: 0.04em;
+}
+
+/* PRAYER TIMES LIST */
+.prayer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.prayer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: var(--transition-fast);
+}
+
+.prayer-row.is-next {
+  background: rgba(2, 132, 199, 0.18);
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.2);
+}
+
+.prayer-row.is-passed {
+  opacity: 0.68;
+}
+
+.prayer-name-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.prayer-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-cyan);
+  font-size: 0.95rem;
+}
+
+.prayer-row.is-next .prayer-icon {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.prayer-title {
+  display: block;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 0.98rem;
+}
+
+.prayer-subtitle {
+  display: block;
+  font-size: 0.76rem;
+  color: #94a3b8;
+}
+
+.prayer-time-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prayer-time-value {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.next-tag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  background: #10b981;
+  color: #06281e;
+}
+
+/* MOSQUE TIPS */
+.vn-mosques-card {
+  margin-top: 28px;
+}
+
+.mosques-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.mosque-item {
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.mosque-city-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-cyan);
+  margin-bottom: 6px;
+}
+
+.mosque-item h4 {
+  font-size: 0.98rem;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.mosque-item p {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+  .qiblat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .qiblat-controls-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gps-btn {
+    grid-column: span 2;
+    justify-content: center;
+  }
+
+  .mosques-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .qiblat-hero {
+    padding: 36px 0 28px;
+  }
+
+  .qiblat-controls-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .gps-btn {
+    grid-column: span 1;
+  }
+
+  .compass-outer.qibla-ring-outer {
+    width: 248px;
+    height: 248px;
+  }
+
+  .next-prayer-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .next-prayer-countdown {
+    text-align: left;
+  }
+}
+
