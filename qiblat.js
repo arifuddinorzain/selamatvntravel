@@ -37,6 +37,8 @@ const METHOD_ANGLES = {
 
 let activeLocation = { ...VIETNAM_CITIES.hcmc };
 let activeMethod = 11;
+let activeTimeZone = VIETNAM_TZ;
+let activeTzOffset = 7;
 let currentQiblatBearing = 288.7;
 let currentTimings = null;
 let deviceHeading = null;
@@ -49,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateVietnamClock();
   setInterval(updateVietnamClock, 1000);
   refreshLocationData();
+  autoDetectGps();
   autoStartLiveCompass();
 });
 
@@ -77,54 +80,72 @@ function initMobileNav() {
 }
 
 function initControls() {
-  const citySelect = document.getElementById('vietnamCitySelect');
-  const methodSelect = document.getElementById('prayerMethodSelect');
-  const gpsBtn = document.getElementById('useGpsBtn');
   const sensorBtn = document.getElementById('toggleSensorBtn');
-
-  citySelect?.addEventListener('change', () => {
-    const city = VIETNAM_CITIES[citySelect.value];
-    if (city) {
-      activeLocation = { ...city };
-      refreshLocationData();
-    }
-  });
-
-  methodSelect?.addEventListener('change', () => {
-    activeMethod = parseInt(methodSelect.value, 10) || 11;
-    refreshPrayerTimes();
-  });
-
-  gpsBtn?.addEventListener('click', () => {
-    if (!navigator.geolocation) {
-      alert('Geolocation is not supported by your browser.');
-      return;
-    }
-
-    gpsBtn.disabled = true;
-    gpsBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Locating...';
-
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        activeLocation = {
-          name: `Live GPS (${pos.coords.latitude.toFixed(3)}°, ${pos.coords.longitude.toFixed(3)}°)`,
-          lat: pos.coords.latitude,
-          lng: pos.coords.longitude
-        };
-        gpsBtn.disabled = false;
-        gpsBtn.innerHTML = '<i class="fa-solid fa-location-crosshairs"></i> Live GPS Active';
-        refreshLocationData();
-      },
-      () => {
-        gpsBtn.disabled = false;
-        gpsBtn.innerHTML = '<i class="fa-solid fa-location-crosshairs"></i> Use My Live GPS';
-        alert('Unable to access GPS location. Please allow location permission or select a Vietnam city.');
-      },
-      { enableHighAccuracy: true, timeout: 8000 }
-    );
-  });
-
   sensorBtn?.addEventListener('click', toggleCompassSensor);
+}
+
+function findNearestVietnamCity(lat, lng) {
+  let nearest = null;
+  let minDist = Infinity;
+
+  for (const city of Object.values(VIETNAM_CITIES)) {
+    const dLat = toRad(city.lat - lat);
+    const dLng = toRad(city.lng - lng);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(toRad(lat)) * Math.cos(toRad(city.lat)) * Math.sin(dLng / 2) * Math.sin(dLng / 2);
+    const distKm = 6371 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    if (distKm < minDist) {
+      minDist = distKm;
+      nearest = city;
+    }
+  }
+
+  return minDist <= 80 ? nearest.name : null;
+}
+
+function autoDetectGps() {
+  if (!navigator.geolocation) return;
+
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      const { latitude, longitude } = pos.coords;
+      const inVietnam = latitude >= 8 && latitude <= 24 && longitude >= 102 && longitude <= 110;
+      const nearestVn = inVietnam ? findNearestVietnamCity(latitude, longitude) : null;
+
+      if (inVietnam) {
+        activeTimeZone = VIETNAM_TZ;
+        activeTzOffset = 7;
+        activeLocation = {
+          name: nearestVn ? `Live GPS • ${nearestVn}` : `Live GPS (${latitude.toFixed(2)}°N, ${longitude.toFixed(2)}°E)`,
+          lat: latitude,
+          lng: longitude
+        };
+      } else {
+        activeTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || VIETNAM_TZ;
+        activeTzOffset = -new Date().getTimezoneOffset() / 60;
+        activeLocation = {
+          name: `Live GPS (${latitude.toFixed(2)}°, ${longitude.toFixed(2)}°)`,
+          lat: latitude,
+          lng: longitude
+        };
+
+        const pill = document.getElementById('liveLocationPill');
+        const clockTitle = document.getElementById('liveClockTitle');
+        const clockTz = document.getElementById('liveClockTz');
+        const sign = activeTzOffset >= 0 ? '+' : '';
+        if (pill) pill.innerHTML = `<span class="live-dot"></span> Live GPS Detected (UTC${sign}${activeTzOffset})`;
+        if (clockTitle) clockTitle.innerHTML = '<i class="fa-regular fa-clock"></i> Local GPS Time';
+        if (clockTz) clockTz.textContent = `UTC${sign}${activeTzOffset}`;
+      }
+
+      refreshLocationData();
+    },
+    () => {
+      // Silently stay on Vietnam default (Ho Chi Minh City) if GPS is denied or unavailable
+    },
+    { enableHighAccuracy: true, timeout: 8000, maximumAge: 300000 }
+  );
 }
 
 // ========================================================
@@ -337,7 +358,7 @@ function handleOrientation(event) {
 function getVietnamTimeParts() {
   const now = new Date();
   const fmt = new Intl.DateTimeFormat('en-GB', {
-    timeZone: VIETNAM_TZ,
+    timeZone: activeTimeZone,
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
@@ -372,7 +393,7 @@ function updateVietnamClock() {
 
   if (dateEl) {
     dateEl.textContent = new Intl.DateTimeFormat('en-US', {
-      timeZone: VIETNAM_TZ,
+      timeZone: activeTimeZone,
       weekday: 'long',
       day: 'numeric',
       month: 'long',
@@ -383,7 +404,7 @@ function updateVietnamClock() {
   if (hijriEl && !hijriEl.dataset.apiSet) {
     try {
       hijriEl.textContent = new Intl.DateTimeFormat('en-TN-u-ca-islamic-umalqura', {
-        timeZone: VIETNAM_TZ,
+        timeZone: activeTimeZone,
         day: 'numeric',
         month: 'long',
         year: 'numeric'
@@ -425,16 +446,17 @@ function refreshLocationData() {
 
 async function refreshPrayerTimes() {
   const vn = getVietnamTimeParts();
+  const sign = activeTzOffset >= 0 ? '+' : '';
   // Immediately render astronomical calculation so UI is instant
   currentTimings = computeVietnamSolarTimes(vn.year, vn.month, vn.day, activeLocation.lat, activeLocation.lng, activeMethod);
-  setSyncBadge('Calculated (Vietnam UTC+7)', true);
+  setSyncBadge(`Calculated (UTC${sign}${activeTzOffset})`, true);
   renderPrayerList();
   updatePrayerCountdown(vn);
 
   // Sync live with Aladhan API for exact official tables
   const pad = n => String(n).padStart(2, '0');
   const dateStr = `${pad(vn.day)}-${pad(vn.month)}-${vn.year}`;
-  const url = `https://api.aladhan.com/v1/timings/${dateStr}?latitude=${activeLocation.lat}&longitude=${activeLocation.lng}&method=${activeMethod}&timezonestring=${encodeURIComponent(VIETNAM_TZ)}`;
+  const url = `https://api.aladhan.com/v1/timings/${dateStr}?latitude=${activeLocation.lat}&longitude=${activeLocation.lng}&method=${activeMethod}&timezonestring=${encodeURIComponent(activeTimeZone)}`;
 
   try {
     const controller = new AbortController();
@@ -482,9 +504,9 @@ function setSyncBadge(text, isOffline) {
   badge.classList.toggle('offline', isOffline);
 }
 
-// Pure-JS astronomical prayer time fallback (UTC+7)
+// Pure-JS astronomical prayer time fallback
 function computeVietnamSolarTimes(year, month, day, lat, lng, methodId) {
-  const tzOffset = 7; // Vietnam UTC+7
+  const tzOffset = activeTzOffset;
   const angles = METHOD_ANGLES[methodId] || METHOD_ANGLES[11];
 
   // Julian Date at 12:00 UTC

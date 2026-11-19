@@ -66,55 +66,22 @@
     <div class="container">
       <div class="qiblat-hero-top">
         <div>
-          <span class="qiblat-live-pill"><span class="live-dot"></span> Vietnam Live (UTC+7)</span>
+          <span class="qiblat-live-pill" id="liveLocationPill"><span class="live-dot"></span> Vietnam Live (UTC+7)</span>
           <h1>Vietnam Qiblat Compass & Prayer Times</h1>
           <p class="qiblat-hero-sub">
-            Live Kaaba direction and daily prayer schedules for Muslim travelers across Ho Chi Minh City, Hanoi, Da Nang, Phu Quoc, and all of Vietnam.
+            Live Kaaba direction and daily prayer schedules automatically synced to your live GPS location across Vietnam.
           </p>
         </div>
 
         <div class="vn-clock-card">
           <div class="vn-clock-label">
-            <span><i class="fa-regular fa-clock"></i> Vietnam Local Time</span>
-            <span>ICT (UTC+7)</span>
+            <span id="liveClockTitle"><i class="fa-regular fa-clock"></i> Vietnam Local Time</span>
+            <span id="liveClockTz">ICT (UTC+7)</span>
           </div>
           <div class="vn-clock-time" id="vnLiveClock">--:--:--</div>
-          <div class="vn-clock-date" id="vnLiveDate">Loading Vietnam date...</div>
+          <div class="vn-clock-date" id="vnLiveDate">Loading date...</div>
           <div class="vn-clock-hijri" id="vnHijriDate"></div>
         </div>
-      </div>
-
-      <!-- CITY, METHOD & GPS BAR -->
-      <div class="qiblat-controls-bar">
-        <div class="qiblat-control-field">
-          <label for="vietnamCitySelect"><i class="fa-solid fa-location-dot"></i> Select Vietnam City</label>
-          <select id="vietnamCitySelect" class="qiblat-select">
-            <option value="hcmc">Ho Chi Minh City (Saigon)</option>
-            <option value="hanoi">Hanoi</option>
-            <option value="danang">Da Nang</option>
-            <option value="phuquoc">Phu Quoc Island</option>
-            <option value="nhatrang">Nha Trang</option>
-            <option value="hue">Hue</option>
-            <option value="hoian">Hoi An</option>
-            <option value="dalat">Da Lat</option>
-            <option value="muine">Mui Ne</option>
-            <option value="sapa">Sapa</option>
-          </select>
-        </div>
-
-        <div class="qiblat-control-field">
-          <label for="prayerMethodSelect"><i class="fa-solid fa-sliders"></i> Calculation Method</label>
-          <select id="prayerMethodSelect" class="qiblat-select">
-            <option value="11" selected>Southeast Asia / MUIS (20° / 18°)</option>
-            <option value="3">Muslim World League (18° / 17°)</option>
-            <option value="4">Umm al-Qura University, Makkah</option>
-            <option value="2">ISNA (15° / 15°)</option>
-          </select>
-        </div>
-
-        <button type="button" class="gps-btn" id="useGpsBtn">
-          <i class="fa-solid fa-location-crosshairs"></i> Use My Live GPS
-        </button>
       </div>
     </div>
   </section>
@@ -248,7 +215,7 @@
     </div>
   </main>
 
-  <script src="qiblat.js?v=3"></script>
+  <script src="qiblat.js?v=4"></script>
 </body>
 
 </html>
