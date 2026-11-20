@@ -43,6 +43,7 @@ let currentQiblatBearing = 288.7;
 let currentTimings = null;
 let deviceHeading = null;
 let sensorActive = false;
+let isPrayerLiveSynced = false;
 
 document.addEventListener('DOMContentLoaded', () => {
   initCompassTicks();
@@ -140,12 +141,41 @@ function autoDetectGps() {
       }
 
       refreshLocationData();
+      resolveSpecificPlaceName(latitude, longitude);
     },
     () => {
       // Silently stay on Vietnam default (Ho Chi Minh City) if GPS is denied or unavailable
     },
     { enableHighAccuracy: true, timeout: 8000, maximumAge: 300000 }
   );
+}
+
+async function resolveSpecificPlaceName(lat, lng) {
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 5000);
+    const url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`;
+    const res = await fetch(url, { signal: controller.signal });
+    clearTimeout(timer);
+    if (!res.ok) return;
+
+    const data = await res.json();
+    const parts = [];
+    for (const raw of [data.locality, data.city, data.principalSubdivision, data.countryName]) {
+      const clean = String(raw || '').trim();
+      if (clean && !parts.some(p => p.toLowerCase() === clean.toLowerCase())) {
+        parts.push(clean);
+      }
+    }
+
+    if (parts.length > 0) {
+      // Keep concise: up to 3 most specific parts (e.g. "District 1, Ho Chi Minh City, Vietnam")
+      activeLocation.name = parts.slice(0, 3).join(', ');
+      updateLocationLabels();
+    }
+  } catch {
+    // Keep existing coordinate / nearest-city name if reverse geocoding fails
+  }
 }
 
 // ========================================================
@@ -237,7 +267,6 @@ function updateCompassVisuals() {
   const statusPill = document.getElementById('qiblaStatusPill');
   const phoneDirEl = document.getElementById('statPhoneDirection');
   const phoneSubEl = document.getElementById('statPhoneSub');
-  const headingMetaEl = document.getElementById('panelDeviceHeading');
 
   if (sensorActive && deviceHeading !== null) {
     // Dial rotates opposite to heading so North stays toward true North
@@ -251,7 +280,6 @@ function updateCompassVisuals() {
 
     if (phoneDirEl) phoneDirEl.textContent = `${Math.round(deviceHeading)}°`;
     if (phoneSubEl) phoneSubEl.textContent = bearingToCardinal(deviceHeading);
-    if (headingMetaEl) headingMetaEl.textContent = `Device Heading: ${deviceHeading.toFixed(1)}°`;
 
     if (statusPill) {
       statusPill.classList.remove('is-perfect', 'is-turning');
@@ -270,7 +298,6 @@ function updateCompassVisuals() {
 
     if (phoneDirEl) phoneDirEl.textContent = '--°';
     if (phoneSubEl) phoneSubEl.textContent = sensorActive ? 'Waiting sensor...' : 'Sensor off';
-    if (headingMetaEl) headingMetaEl.textContent = sensorActive ? 'Device Heading: Detecting...' : 'Device Heading: Static (True North)';
 
     if (statusPill) {
       statusPill.classList.remove('is-perfect', 'is-turning');
@@ -422,34 +449,42 @@ function updateVietnamClock() {
 // ========================================================
 // 3. PRAYER TIMES (LIVE API + OFFLINE ASTRONOMICAL FALLBACK)
 // ========================================================
+function updateLocationLabels() {
+  const cityLabel = document.getElementById('qiblatCityLabel');
+  if (cityLabel) cityLabel.textContent = activeLocation.name;
+  setSyncBadge(
+    isPrayerLiveSynced ? `Live Synced • ${activeLocation.name}` : `Calculated • ${activeLocation.name}`,
+    !isPrayerLiveSynced
+  );
+}
+
 function refreshLocationData() {
   currentQiblatBearing = calculateQiblatBearing(activeLocation.lat, activeLocation.lng);
   const distKm = calculateKaabaDistanceKm(activeLocation.lat, activeLocation.lng);
   const cardinal = bearingToCardinal(currentQiblatBearing);
   const fullDir = bearingToFullName(currentQiblatBearing);
 
-  const cityLabel = document.getElementById('qiblatCityLabel');
   const bearingStat = document.getElementById('statQiblatBearing');
   const qiblatSub = document.getElementById('statQiblatSub');
   const panelDeg = document.getElementById('panelQiblaDeg');
   const panelCard = document.getElementById('panelQiblaCard');
 
-  if (cityLabel) cityLabel.textContent = activeLocation.name;
   if (bearingStat) bearingStat.textContent = `${Math.round(currentQiblatBearing)}°`;
   if (qiblatSub) qiblatSub.textContent = `${cardinal} • ${distKm.toLocaleString()} km`;
   if (panelDeg) panelDeg.textContent = `Qibla Direction: ${currentQiblatBearing.toFixed(1)}°`;
   if (panelCard) panelCard.textContent = fullDir;
 
+  updateLocationLabels();
   updateCompassVisuals();
   refreshPrayerTimes();
 }
 
 async function refreshPrayerTimes() {
   const vn = getVietnamTimeParts();
-  const sign = activeTzOffset >= 0 ? '+' : '';
+  isPrayerLiveSynced = false;
   // Immediately render astronomical calculation so UI is instant
   currentTimings = computeVietnamSolarTimes(vn.year, vn.month, vn.day, activeLocation.lat, activeLocation.lng, activeMethod);
-  setSyncBadge(`Calculated (UTC${sign}${activeTzOffset})`, true);
+  updateLocationLabels();
   renderPrayerList();
   updatePrayerCountdown(vn);
 
@@ -485,7 +520,8 @@ async function refreshPrayerTimes() {
       hijriEl.dataset.apiSet = '1';
     }
 
-    setSyncBadge('Live Synced • Vietnam', false);
+    isPrayerLiveSynced = true;
+    updateLocationLabels();
     renderPrayerList();
     updatePrayerCountdown(getVietnamTimeParts());
   } catch {

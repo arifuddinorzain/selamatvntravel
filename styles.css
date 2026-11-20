@@ -4,29 +4,30 @@
    ======================================================== */
 
 :root {
-  /* Color Palette - Vibrant, Luxurious & Harmonious */
-  --color-primary: #0284c7;        /* Sky Blue */
-  --color-primary-light: #38bdf8;
-  --color-primary-dark: #0369a1;
-  --color-cyan: #06b6d4;           /* Caribbean Cyan */
-  --color-cyan-glow: rgba(6, 182, 212, 0.35);
+  /* Color Palette - SelamatVn Brand (#d0cb18 & #EF6C00) */
+  --color-primary: #EF6C00;        /* Vibrant Brand Orange */
+  --color-primary-light: #ff8f2b;
+  --color-primary-dark: #c95800;
+  --color-cyan: #d0cb18;           /* Signature Olive Gold */
+  --color-cyan-glow: rgba(208, 203, 24, 0.35);
 
-  --color-coral: #f43f5e;          /* Sunset Coral */
-  --color-coral-light: #fb7185;
-  --color-orange: #ff7849;         /* Sunburst Orange */
-  --color-gold: #f59e0b;           /* Golden Sand */
+  --color-coral: #EF6C00;          /* Accent Orange */
+  --color-coral-light: #ff8f2b;
+  --color-orange: #EF6C00;
+  --color-gold: #d0cb18;           /* Olive Gold */
+  --color-olive-text: #8f8b0c;     /* Readable Olive on light bg */
   --color-emerald: #10b981;        /* Lush Emerald */
-  --color-violet: #8b5cf6;         /* Twilight Violet */
+  --color-violet: #d0cb18;
 
   /* Dark surfaces & Luxury contrasts */
-  --color-bg-dark: #090e17;
-  --color-card-dark: #111827;
-  --color-surface-dark: #1e293b;
+  --color-bg-dark: #0e1008;
+  --color-card-dark: #16180d;
+  --color-surface-dark: #222414;
 
   /* Light / Body backgrounds */
-  --color-bg-body: #f8fafc;
+  --color-bg-body: #fcfcf7;
   --color-surface: #ffffff;
-  --color-surface-alt: #f1f5f9;
+  --color-surface-alt: #f7f6ea;
 
   /* Typography Colors */
   --color-text-main: #0f172a;
@@ -35,11 +36,11 @@
   --color-text-white: #ffffff;
 
   /* Gradients */
-  --gradient-ocean: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
-  --gradient-sunset: linear-gradient(135deg, #ff7849 0%, #f43f5e 50%, #d946ef 100%);
-  --gradient-hero-overlay: linear-gradient(180deg, rgba(9, 14, 23, 0.45) 0%, rgba(9, 14, 23, 0.85) 100%);
+  --gradient-ocean: linear-gradient(135deg, #d0cb18 0%, #EF6C00 100%);
+  --gradient-sunset: linear-gradient(135deg, #d0cb18 0%, #EF6C00 100%);
+  --gradient-hero-overlay: linear-gradient(180deg, rgba(14, 16, 8, 0.45) 0%, rgba(14, 16, 8, 0.85) 100%);
   --gradient-card-overlay: linear-gradient(180deg, rgba(15, 23, 42, 0.05) 0%, rgba(15, 23, 42, 0.85) 100%);
-  --gradient-gold: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  --gradient-gold: linear-gradient(135deg, #e2dd24 0%, #d0cb18 100%);
 
   /* Typography */
   --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -50,8 +51,8 @@
   --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
   --shadow-md: 0 8px 24px -4px rgba(15, 23, 42, 0.1);
   --shadow-lg: 0 20px 40px -10px rgba(15, 23, 42, 0.15);
-  --shadow-glow: 0 10px 30px rgba(2, 132, 199, 0.3);
-  --shadow-coral-glow: 0 10px 30px rgba(244, 63, 94, 0.35);
+  --shadow-glow: 0 10px 30px rgba(239, 108, 0, 0.3);
+  --shadow-coral-glow: 0 10px 30px rgba(239, 108, 0, 0.35);
 
   /* Radius */
   --radius-sm: 8px;
@@ -142,11 +143,11 @@ button {
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--color-primary);
-  background: rgba(2, 132, 199, 0.08);
+  background: rgba(208, 203, 24, 0.16);
   padding: 6px 16px;
   border-radius: var(--radius-full);
   margin-bottom: 14px;
-  border: 1px solid rgba(2, 132, 199, 0.15);
+  border: 1px solid rgba(208, 203, 24, 0.4);
 }
 
 .main-heading {
@@ -195,13 +196,13 @@ button {
 .btn-primary {
   background: var(--color-primary);
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+  box-shadow: 0 4px 14px rgba(239, 108, 0, 0.35);
 }
 
 .btn-primary:hover {
   background: var(--color-primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(2, 132, 199, 0.45);
+  box-shadow: 0 8px 22px rgba(239, 108, 0, 0.45);
 }
 
 .btn-gradient {
@@ -212,7 +213,7 @@ button {
 
 .btn-gradient:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 14px 28px rgba(244, 63, 94, 0.45);
+  box-shadow: 0 14px 28px rgba(239, 108, 0, 0.45);
 }
 
 .btn-outline {
@@ -224,7 +225,7 @@ button {
 .btn-outline:hover {
   border-color: var(--color-primary);
   color: var(--color-primary);
-  background: rgba(2, 132, 199, 0.04);
+  background: rgba(239, 108, 0, 0.05);
 }
 
 .btn-block {
@@ -240,13 +241,13 @@ button {
    TOP PROMO BANNER
    ======================================================== */
 .top-banner {
-  background: linear-gradient(90deg, #1e1b4b 0%, #0f172a 50%, #311042 100%);
+  background: linear-gradient(90deg, #1f1e07 0%, #17150a 50%, #431f00 100%);
   color: #ffffff;
   padding: 10px 20px;
   font-size: 0.875rem;
   position: relative;
   z-index: 100;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(208, 203, 24, 0.2);
 }
 
 .banner-container {
@@ -354,22 +355,25 @@ button {
 }
 
 .logo-icon-wrapper {
-  width: 44px;
-  height: 44px;
-  background: var(--gradient-sunset);
-  border-radius: 12px;
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
-  font-size: 1.35rem;
-  box-shadow: 0 4px 12px rgba(244, 63, 94, 0.35);
-  transform: rotate(-6deg);
+  flex-shrink: 0;
   transition: var(--transition-bounce);
 }
 
+.brand-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .brand-logo:hover .logo-icon-wrapper {
-  transform: rotate(0deg) scale(1.08);
+  transform: scale(1.08);
 }
 
 .brand-name {
@@ -381,13 +385,13 @@ button {
   font-family: var(--font-display);
   font-size: 1.45rem;
   font-weight: 800;
-  color: var(--color-text-main);
+  color: var(--color-olive-text);
   letter-spacing: -0.5px;
   line-height: 1.1;
 }
 
 .highlight-text {
-  color: var(--color-coral);
+  color: #EF6C00;
 }
 
 .brand-sub {
@@ -501,7 +505,7 @@ button {
 }
 
 .currency-opt:hover, .currency-opt.active {
-  background: rgba(2, 132, 199, 0.08);
+  background: rgba(239, 108, 0, 0.1);
   color: var(--color-primary);
 }
 
@@ -995,7 +999,7 @@ button {
 
 .filter-tab:hover {
   color: var(--color-primary);
-  background: rgba(2, 132, 199, 0.06);
+  background: rgba(239, 108, 0, 0.08);
 }
 
 .filter-tab.active {
@@ -1245,13 +1249,13 @@ button {
   font-size: 0.9rem;
   font-weight: 700;
   border-radius: var(--radius-full);
-  box-shadow: 0 4px 14px rgba(244, 63, 94, 0.3);
+  box-shadow: 0 4px 14px rgba(239, 108, 0, 0.35);
   transition: all var(--transition-fast);
 }
 
 .btn-join:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(244, 63, 94, 0.45);
+  box-shadow: 0 6px 18px rgba(239, 108, 0, 0.45);
 }
 
 /* GUARANTEE CARD STRIP */
@@ -1283,9 +1287,9 @@ button {
   flex-shrink: 0;
 }
 
-.cyan-glow { background: rgba(6, 182, 212, 0.12); color: var(--color-cyan); }
-.purple-glow { background: rgba(139, 92, 246, 0.12); color: var(--color-violet); }
-.gold-glow { background: rgba(245, 158, 11, 0.12); color: var(--color-gold); }
+.cyan-glow { background: rgba(208, 203, 24, 0.16); color: var(--color-olive-text); }
+.purple-glow { background: rgba(239, 108, 0, 0.12); color: #EF6C00; }
+.gold-glow { background: rgba(208, 203, 24, 0.18); color: var(--color-olive-text); }
 
 .guarantee-col h4 {
   font-family: var(--font-display);
@@ -1305,10 +1309,16 @@ button {
    ======================================================== */
 .custom-trip-section {
   padding: 90px 0;
-  background: linear-gradient(180deg, #090e17 0%, #0f172a 100%);
+  background: linear-gradient(155deg, #121407 0%, #1c1f0b 55%, #331902 100%);
   color: #ffffff;
   position: relative;
   overflow: hidden;
+}
+
+.custom-trip-section .sub-heading {
+  color: #d0cb18;
+  background: rgba(208, 203, 24, 0.15);
+  border-color: rgba(208, 203, 24, 0.35);
 }
 
 .custom-trip-wrapper {
@@ -1899,7 +1909,7 @@ button {
 
 .faq-item.active {
   border-color: var(--color-primary);
-  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.08);
+  box-shadow: 0 4px 14px rgba(239, 108, 0, 0.12);
 }
 
 .faq-question {
@@ -1957,7 +1967,7 @@ button {
 }
 
 .cta-banner-box {
-  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #4a044e 100%);
+  background: linear-gradient(135deg, #1b1a07 0%, #2f2d0b 48%, #703200 100%);
   border-radius: var(--radius-xl);
   padding: 64px 40px;
   text-align: center;
@@ -1977,7 +1987,7 @@ button {
 .circle-1 {
   width: 320px;
   height: 320px;
-  background: rgba(244, 63, 94, 0.3);
+  background: rgba(239, 108, 0, 0.32);
   top: -60px;
   right: -60px;
 }
@@ -1985,7 +1995,7 @@ button {
 .circle-2 {
   width: 300px;
   height: 300px;
-  background: rgba(6, 182, 212, 0.3);
+  background: rgba(208, 203, 24, 0.28);
   bottom: -60px;
   left: -60px;
 }
@@ -2089,7 +2099,7 @@ button {
 }
 
 .footer-logo span:first-child {
-  color: #ffffff;
+  color: #d0cb18;
 }
 
 .footer-about {
@@ -2308,7 +2318,7 @@ button {
   background: var(--color-primary);
   border-color: var(--color-primary);
   color: #ffffff;
-  box-shadow: 0 0 12px rgba(2, 132, 199, 0.4);
+  box-shadow: 0 0 12px rgba(239, 108, 0, 0.4);
 }
 
 .step-indicator.active {
@@ -2482,7 +2492,7 @@ button {
 
 .form-control:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+  box-shadow: 0 0 0 3px rgba(239, 108, 0, 0.16);
 }
 
 .form-row {
@@ -2594,7 +2604,7 @@ button {
 
 .pay-option input:checked + .pay-box {
   border-color: var(--color-primary);
-  background: rgba(2, 132, 199, 0.05);
+  background: rgba(239, 108, 0, 0.06);
 }
 
 /* STEP 4: CONFIRMATION & DIGITAL TICKET */

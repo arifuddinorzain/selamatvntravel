@@ -21,7 +21,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="icon" type="image/png" href="assets/images/selamatvn-mark.png">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 
 <body>
@@ -31,7 +32,7 @@
     <div class="banner-container">
       <div class="banner-tag"><i class="fa-solid fa-bolt-lightning"></i> SUMMER SALE</div>
       <p class="banner-text">
-        <span>Save up to <strong>$500 per person</strong> on all 2026 curated packages!</span>
+        <span>Save up to <strong>RM 2,200 per person</strong> on all 2026 curated packages!</span>
         <span class="countdown-wrap">
           Offer ends in:
           <span class="timer-box" id="bannerTimer">02d : 14h : 38m : 19s</span>
@@ -48,13 +49,13 @@
   <!-- NAVIGATION BAR -->
   <header class="navbar" id="mainHeader">
     <div class="nav-container">
-      <a href="#" class="brand-logo" aria-label="WanderLuxe Homepage">
+      <a href="#" class="brand-logo" aria-label="SelamatVn Homepage">
         <div class="logo-icon-wrapper">
-          <i class="fa-solid fa-compass-drafting"></i>
+          <img src="assets/images/selamatvn-mark.png" alt="SelamatVn Logo" class="brand-logo-img">
         </div>
         <div class="brand-name">
           <span>Selamat<strong class="highlight-text">Vn</strong></span>
-          <span class="brand-sub">TRAVEL & TOURS</span>
+          <span class="brand-sub">TOUR & TRAVEL</span>
         </div>
       </a>
 
@@ -75,11 +76,12 @@
         <!-- Currency Selector -->
         <div class="currency-dropdown">
           <button class="currency-btn" id="currencyToggleBtn" aria-haspopup="true" aria-expanded="false">
-            <span id="currentCurrencyLabel">USD ($)</span>
+            <span id="currentCurrencyLabel">MYR (RM)</span>
             <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="currency-menu" id="currencyMenu">
-            <button class="currency-opt active" data-currency="USD">USD ($)</button>
+            <button class="currency-opt active" data-currency="MYR">MYR (RM)</button>
+            <button class="currency-opt" data-currency="USD">USD ($)</button>
             <button class="currency-opt" data-currency="EUR">EUR (€)</button>
             <button class="currency-opt" data-currency="GBP">GBP (£)</button>
             <button class="currency-opt" data-currency="AUD">AUD (A$)</button>
@@ -105,7 +107,8 @@
     <!-- HERO SECTION -->
     <section class="hero-section" id="hero">
       <div class="hero-bg-overlay"></div>
-      <img src="assets/images/hero-bali.jpg" alt="Luxury infinity pool paradise resort at sunset" class="hero-bg-img"
+      <img src="assets/images/hero-vietnam.jpg"
+        alt="Lush limestone karst mountains and emerald waters of Ha Long Bay, Vietnam at sunset" class="hero-bg-img"
         id="heroBgImage">
 
       <div class="hero-container">
@@ -121,8 +124,8 @@
           </h1>
 
           <p class="hero-subtitle animate-fade-up-delay">
-            Handcrafted luxury vacation packages designed to inspire wonder. From turquoise Balinese lagoons to private
-            Amalfi yachts and alpine peaks — join the world's most sought-after trips today.
+            Explore Vietnam's breathtaking landscapes, vibrant culture and unforgettable adventures. Let us make your
+            next journey extraordinary.
           </p>
 
           <!-- Key Trust Badges -->
@@ -149,7 +152,7 @@
               <i class="fa-solid fa-fire"></i>
             </div>
             <div>
-              <div class="float-title">Bali Retreat Flash Deal</div>
+              <div class="float-title">Lmited Flash Deal</div>
               <div class="float-meta">🔥 Only 3 slots remaining!</div>
             </div>
           </div>
@@ -174,13 +177,12 @@
           <div class="widget-field">
             <label for="searchDestination"><i class="fa-solid fa-location-dot"></i> Where to?</label>
             <select id="searchDestination">
-              <option value="all">Any Destination (Global)</option>
-              <option value="bali">Bali, Indonesia</option>
-              <option value="amalfi">Amalfi Coast, Italy</option>
-              <option value="swiss">Swiss Alps, Switzerland</option>
-              <option value="kyoto">Kyoto, Japan</option>
-              <option value="serengeti">Serengeti, Tanzania</option>
-              <option value="santorini">Santorini, Greece</option>
+              <option value="all">Any Destination (Vietnam)</option>
+              <option value="hanoi">Hanoi, Vietnam</option>
+              <option value="phuquoc">Phu Quoc, Vietnam</option>
+              <option value="danang">Da Nang, Vietnam</option>
+              <option value="hochiminh">Ho Chi Minh, Vietnam</option>
+              <option value="dalat">Dalat, Vietnam</option>
             </select>
           </div>
 
@@ -259,121 +261,102 @@
     <section class="destinations-section" id="destinations">
       <div class="container">
         <div class="section-header text-center">
-          <span class="sub-heading"><i class="fa-solid fa-globe"></i> World Curations</span>
-          <h2 class="main-heading">Explore World-Class Destinations</h2>
-          <p class="section-desc">Hand-picked iconic locations with VIP access, 5-star hand-selected stays, and
+          <span class="sub-heading"><i class="fa-solid fa-globe"></i> Vietnam Curations</span>
+          <h2 class="main-heading">Explore Vietnam's Top Destinations</h2>
+          <p class="section-desc">Hand-picked iconic Vietnam locations with VIP access, 5-star hand-selected stays, and
             authentic cultural immersion.</p>
         </div>
 
         <div class="destinations-grid">
-          <!-- Bali -->
-          <div class="destination-card large-card" onclick="window.filterByDestination('bali')">
-            <img src="assets/images/hero-bali.jpg" alt="Bali tropical jungle and ocean" loading="lazy">
+          <!-- Hanoi -->
+          <div class="destination-card large-card" onclick="window.filterByDestination('hanoi')">
+            <img src="assets/images/dest-hanoi.jpg" alt="Hanoi Hoan Kiem Lake and Huc Bridge Vietnam" loading="lazy">
             <div class="destination-overlay">
               <div class="destination-top">
-                <span class="tag-pill tag-tropical"><i class="fa-solid fa-sun"></i> 29°C Tropical</span>
+                <span class="tag-pill tag-culture"><i class="fa-solid fa-landmark"></i> Heritage Capital</span>
                 <span class="tag-pill tag-sale">4 Packages Available</span>
               </div>
               <div class="destination-bottom">
-                <h3>Bali & Nusa Islands</h3>
-                <p>Indonesia • Sacred temples, cliffside infinity pools & coral reefs</p>
+                <h3>Hanoi</h3>
+                <p>Vietnam • Hoan Kiem Lake, Old Quarter charm & Ha Long Bay luxury cruises</p>
                 <div class="destination-cta">
-                  <span>Explore from <strong>$1,299</strong></span>
+                  <span>Explore from <strong data-usd-price="899">RM 4,001</strong></span>
                   <i class="fa-solid fa-arrow-right"></i>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Amalfi -->
-          <div class="destination-card" onclick="window.filterByDestination('amalfi')">
-            <img src="assets/images/amalfi-coast.jpg" alt="Amalfi Coast Positano Italy" loading="lazy">
+          <!-- Phu Quoc -->
+          <div class="destination-card" onclick="window.filterByDestination('phuquoc')">
+            <img src="assets/images/dest-phuquoc.jpg" alt="Phu Quoc Island crystal beach sunset Vietnam" loading="lazy">
             <div class="destination-overlay">
               <div class="destination-top">
-                <span class="tag-pill tag-luxury"><i class="fa-solid fa-gem"></i> Mediterranean</span>
+                <span class="tag-pill tag-tropical"><i class="fa-solid fa-sun"></i> Island Escape</span>
                 <span class="tag-pill tag-sale">3 Packages</span>
               </div>
               <div class="destination-bottom">
-                <h3>Amalfi Coast & Capri</h3>
-                <p>Italy • Pastel cliffs, yacht cruises & Michelin dining</p>
+                <h3>Phu Quoc</h3>
+                <p>Vietnam • Turquoise bays, palm-lined beaches & beachfront villas</p>
                 <div class="destination-cta">
-                  <span>Explore from <strong>$2,190</strong></span>
+                  <span>Explore from <strong data-usd-price="1090">RM 4,851</strong></span>
                   <i class="fa-solid fa-arrow-right"></i>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Swiss Alps -->
-          <div class="destination-card" onclick="window.filterByDestination('swiss')">
-            <img src="assets/images/swiss-alps.jpg" alt="Swiss Alps Zermatt summer lake" loading="lazy">
+          <!-- Da Nang -->
+          <div class="destination-card" onclick="window.filterByDestination('danang')">
+            <img src="assets/images/dest-danang.jpg" alt="Da Nang Golden Bridge Ba Na Hills Vietnam" loading="lazy">
             <div class="destination-overlay">
               <div class="destination-top">
-                <span class="tag-pill tag-adventure"><i class="fa-solid fa-mountain"></i> Alpine Haven</span>
+                <span class="tag-pill tag-adventure"><i class="fa-solid fa-mountain"></i> Coastal Wonder</span>
+                <span class="tag-pill tag-sale">3 Packages</span>
+              </div>
+              <div class="destination-bottom">
+                <h3>Da Nang</h3>
+                <p>Vietnam • Golden Bridge, Marble Mountains & Hoi An lantern nights</p>
+                <div class="destination-cta">
+                  <span>Explore from <strong data-usd-price="980">RM 4,361</strong></span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ho Chi Minh -->
+          <div class="destination-card" onclick="window.filterByDestination('hochiminh')">
+            <img src="assets/images/dest-hochiminh.jpg" alt="Ho Chi Minh City Saigon skyline twilight Vietnam" loading="lazy">
+            <div class="destination-overlay">
+              <div class="destination-top">
+                <span class="tag-pill tag-luxury"><i class="fa-solid fa-city"></i> Vibrant Metropolis</span>
+                <span class="tag-pill tag-sale">4 Packages</span>
+              </div>
+              <div class="destination-bottom">
+                <h3>Ho Chi Minh</h3>
+                <p>Vietnam • Saigon River dining, historic landmarks & Mekong Delta tours</p>
+                <div class="destination-cta">
+                  <span>Explore from <strong data-usd-price="850">RM 3,783</strong></span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dalat -->
+          <div class="destination-card" onclick="window.filterByDestination('dalat')">
+            <img src="assets/images/dest-dalat.jpg" alt="Dalat misty pine highlands and flower lake Vietnam" loading="lazy">
+            <div class="destination-overlay">
+              <div class="destination-top">
+                <span class="tag-pill tag-romantic"><i class="fa-solid fa-seedling"></i> Highland Retreat</span>
                 <span class="tag-pill tag-sale">2 Packages</span>
               </div>
               <div class="destination-bottom">
-                <h3>Swiss Alps & Zermatt</h3>
-                <p>Switzerland • Glacial peaks, alpine chalets & panoramic trains</p>
+                <h3>Dalat</h3>
+                <p>Vietnam • Misty pine forests, Xuan Huong Lake & blooming flower valleys</p>
                 <div class="destination-cta">
-                  <span>Explore from <strong>$2,450</strong></span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Kyoto -->
-          <div class="destination-card" onclick="window.filterByDestination('kyoto')">
-            <img src="assets/images/kyoto-japan.jpg" alt="Kyoto cherry blossom temple" loading="lazy">
-            <div class="destination-overlay">
-              <div class="destination-top">
-                <span class="tag-pill tag-culture"><i class="fa-solid fa-fan"></i> Cultural Heritage</span>
-                <span class="tag-pill tag-sale">3 Packages</span>
-              </div>
-              <div class="destination-bottom">
-                <h3>Kyoto & Tokyo</h3>
-                <p>Japan • Cherry blossoms, ancient shrines & tea ceremonies</p>
-                <div class="destination-cta">
-                  <span>Explore from <strong>$2,390</strong></span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Serengeti -->
-          <div class="destination-card" onclick="window.filterByDestination('serengeti')">
-            <img src="assets/images/serengeti-safari.jpg" alt="Serengeti luxury glamping safari" loading="lazy">
-            <div class="destination-overlay">
-              <div class="destination-top">
-                <span class="tag-pill tag-safari"><i class="fa-solid fa-binoculars"></i> Big Five Safari</span>
-                <span class="tag-pill tag-sale">2 Packages</span>
-              </div>
-              <div class="destination-bottom">
-                <h3>Serengeti & Ngorongoro</h3>
-                <p>Tanzania • Hot air balloon rides, wild migrations & luxury lodges</p>
-                <div class="destination-cta">
-                  <span>Explore from <strong>$3,150</strong></span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Santorini -->
-          <div class="destination-card" onclick="window.filterByDestination('santorini')">
-            <img src="assets/images/santorini-greece.jpg" alt="Santorini Oia caldera sunset" loading="lazy">
-            <div class="destination-overlay">
-              <div class="destination-top">
-                <span class="tag-pill tag-romantic"><i class="fa-solid fa-heart"></i> Romance & Sunsets</span>
-                <span class="tag-pill tag-sale">3 Packages</span>
-              </div>
-              <div class="destination-bottom">
-                <h3>Santorini & Mykonos</h3>
-                <p>Greece • Whitewashed villas, caldera infinity pools & wine tours</p>
-                <div class="destination-cta">
-                  <span>Explore from <strong>$1,890</strong></span>
+                  <span>Explore from <strong data-usd-price="920">RM 4,094</strong></span>
                   <i class="fa-solid fa-arrow-right"></i>
                 </div>
               </div>
@@ -592,9 +575,8 @@
                 class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>
             <p class="review-text">
-              "Joining the Bali Luxury Retreat was hands down the easiest and best vacation decision of our 10-year
-              marriage. Everything was seamless — from the private airport villa escort to the secret sunrise snorkel.
-              We booked the Amalfi tour for next spring immediately after getting home!"
+              Had a great time with the group! From sightseeing to shopping and trying Vietnamese food, everything was
+              enjoyable. Thank you for the great memories!
             </p>
             <div class="review-user">
               <img src="assets/images/avatar-couple.jpg" alt="Elena and Marcus Vance" class="review-avatar">
@@ -613,9 +595,8 @@
                 class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>
             <p class="review-text">
-              "As a solo female traveler, joining WanderLuxe's Swiss Alps tour felt safe, wonderfully organized, and
-              genuinely welcoming. The group size was only 10 people, so we became close friends within day two. Our
-              chalet had the most breathtaking view of the Matterhorn!"
+              Had an amazing trip to Vietnam! Everything was well organised, the itinerary was great and the tour guide
+              was very friendly. Definitely worth joining!
             </p>
             <div class="review-user">
               <img src="assets/images/avatar-traveler.jpg" alt="Sarah Jenkins" class="review-avatar">
@@ -631,19 +612,17 @@
           <div class="review-card">
             <div class="review-stars">
               <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                class="fa-solid fa-star"></i>
             </div>
             <p class="review-text">
-              "The Serengeti Safari package exceeded every expectation. Seeing the Great Migration and floating in a hot
-              air balloon over lions at sunrise was an emotional highlight. The WhatsApp concierge answered questions
-              within 60 seconds every single time!"
+              Great service and very helpful tour guide. We didn't have to worry about anything throughout the trip.
+              Just enjoy and take pictures!
             </p>
             <div class="review-user">
-              <div class="avatar-placeholder bg-gradient-amber">DK</div>
+              <div class="avatar-placeholder bg-gradient-amber">SY</div>
               <div>
-                <h4 class="user-name">David & Karen Kim</h4>
-                <span class="user-tag"><i class="fa-solid fa-circle-check text-cyan"></i> Verified Traveler • Serengeti
-                  Safari</span>
+                <h4 class="user-name">Sumaiyyah</h4>
+                <span class="user-tag"><i class="fa-solid fa-circle-check text-cyan"></i> Google Review</span>
               </div>
             </div>
           </div>
@@ -655,7 +634,7 @@
             <i class="fa-brands fa-google text-google"></i>
             <div>
               <strong>4.9 / 5.0 Rating</strong>
-              <small>Based on 2,400+ Google Reviews</small>
+              <small>Based on Google Reviews</small>
             </div>
           </div>
           <div class="score-divider"></div>
@@ -772,7 +751,7 @@
 
           <div class="cta-content">
             <span class="cta-sub"><i class="fa-solid fa-gift"></i> Instant Traveler Benefit</span>
-            <h2>Get an Instant $150 Voucher For Your First Trip</h2>
+            <h2>Get an Instant RM 650 Voucher For Your First Trip</h2>
             <p>Subscribe to our VIP Expedition dispatch and receive an instant promotional coupon code, secret flash
               deals, and curated destination guides straight to your inbox.</p>
 
@@ -783,7 +762,7 @@
                 <input type="email" id="newsletterEmail" placeholder="Enter your email address" required
                   aria-label="Email address for voucher">
                 <button type="submit" class="btn btn-newsletter" id="newsletterSubmitBtn">
-                  Claim $150 Voucher <i class="fa-solid fa-arrow-right"></i>
+                  Claim RM 650 Voucher <i class="fa-solid fa-arrow-right"></i>
                 </button>
               </div>
             </form>
@@ -802,11 +781,11 @@
         <div class="footer-col brand-col">
           <a href="#" class="brand-logo footer-logo">
             <div class="logo-icon-wrapper">
-              <i class="fa-solid fa-compass-drafting"></i>
+              <img src="assets/images/selamatvn-mark.png" alt="SelamatVn Logo" class="brand-logo-img">
             </div>
             <div class="brand-name">
               <span>Selamat<strong class="highlight-text">Vn</strong></span>
-              <span class="brand-sub">TRAVEL & TOURS</span>
+              <span class="brand-sub">TOUR & TRAVEL</span>
             </div>
           </a>
           <p class="footer-about">
@@ -859,7 +838,7 @@
             </div>
             <div class="contact-item">
               <i class="fa-solid fa-envelope"></i>
-              <span>selamattour.vn@gmail.com</span>
+              <span>selamatvntravel@gmail.com</span>
             </div>
             <div class="contact-item">
               <i class="fa-solid fa-location-dot"></i>
@@ -927,7 +906,7 @@
             </div>
             <div class="modal-price-box">
               <span class="discount-pill" id="modalDiscountPill">Save 20%</span>
-              <div class="modal-price-value" id="modalPriceDisplay">$1,299</div>
+              <div class="modal-price-value" id="modalPriceDisplay">RM 4,001</div>
               <span class="modal-price-sub">per traveler</span>
             </div>
           </div>
@@ -1038,9 +1017,9 @@
               <label for="modalRoomTier">Room Arrangement</label>
               <select id="modalRoomTier" class="form-control" onchange="window.updateBookingSummary()">
                 <option value="0">Double / Twin Luxury Room (Included)</option>
-                <option value="350">Private Pool Villa Upgrade (+$350/person)</option>
-                <option value="650">Presidential Ocean Suite Upgrade (+$650/person)</option>
-                <option value="200">Solo Private Room Single (+$200/person)</option>
+                <option value="350">Private Pool Villa Upgrade (+RM 1,558/person)</option>
+                <option value="650">Presidential Ocean Suite Upgrade (+RM 2,893/person)</option>
+                <option value="200">Solo Private Room Single (+RM 890/person)</option>
               </select>
             </div>
           </div>
@@ -1053,7 +1032,7 @@
               <span class="addon-info">
                 <span class="addon-name"><i class="fa-solid fa-plane"></i> Include Roundtrip Flights with Airport
                   Concierge</span>
-                <span class="addon-price">Estimated +$850/person</span>
+                <span class="addon-price">Estimated +RM 3,783/person</span>
               </span>
             </label>
           </div>
@@ -1180,7 +1159,7 @@
           <div class="itinerary-sticky-cta">
             <div class="cta-price-wrap">
               <small>Starting from</small>
-              <strong id="itinStickyPrice">$1,299</strong>
+              <strong id="itinStickyPrice">RM 4,001</strong>
             </div>
             <button type="button" class="btn btn-gradient" id="itinJoinNowBtn">
               <i class="fa-solid fa-plane-departure"></i> Join This Package Now
@@ -1252,7 +1231,7 @@
   </div>
 
   <!-- JavaScript Main Application -->
-  <script src="app.js?v=4"></script>
+  <script src="app.js?v=6"></script>
 </body>
 
 </html>

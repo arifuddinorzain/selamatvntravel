@@ -3,41 +3,61 @@
    ======================================================== */
 
 .qiblat-page-body {
-  background: #0b1120;
+  background: linear-gradient(155deg, #121407 0%, #1d1f0a 45%, #3a1f02 80%, #522700 100%);
+  background-attachment: fixed;
   color: #f8fafc;
   min-height: 100vh;
 }
 
 .qiblat-navbar {
-  background: rgba(15, 23, 42, 0.92);
+  background: rgba(18, 20, 7, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(208, 203, 24, 0.22);
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
-.qiblat-navbar .brand-name span,
+.qiblat-navbar .brand-name span:first-child {
+  color: #d0cb18;
+}
+
+.qiblat-navbar .highlight-text {
+  color: #EF6C00;
+}
+
 .qiblat-navbar .nav-link {
-  color: #e2e8f0;
+  color: #f5f5dc;
 }
 
 .qiblat-navbar .brand-sub {
-  color: #94a3b8;
+  color: #d6d3a3;
 }
 
-.qiblat-navbar .nav-link:hover {
-  color: var(--color-cyan);
+.qiblat-navbar .nav-link:hover,
+.qiblat-navbar .nav-link.active-qiblat-link {
+  color: #d0cb18;
+}
+
+.qiblat-navbar .join-nav-btn {
+  background: linear-gradient(135deg, #d0cb18 0%, #EF6C00 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 18px rgba(239, 108, 0, 0.35);
+}
+
+.qiblat-navbar .join-nav-btn:hover {
+  background: linear-gradient(135deg, #e0db20 0%, #d95f00 100%);
 }
 
 .qiblat-hero {
   position: relative;
   padding: 56px 0 40px;
-  background: radial-gradient(circle at top right, rgba(6, 182, 212, 0.16), transparent 45%),
-              radial-gradient(circle at top left, rgba(244, 63, 94, 0.14), transparent 40%),
-              linear-gradient(180deg, #0f172a 0%, #0b1120 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: radial-gradient(circle at top right, rgba(239, 108, 0, 0.2), transparent 45%),
+              radial-gradient(circle at top left, rgba(208, 203, 24, 0.18), transparent 45%),
+              rgba(14, 16, 8, 0.45);
+  border-bottom: 1px solid rgba(208, 203, 24, 0.16);
 }
 
 .qiblat-hero-top {
@@ -54,9 +74,9 @@
   gap: 8px;
   padding: 6px 14px;
   border-radius: var(--radius-full);
-  background: rgba(16, 185, 129, 0.14);
-  border: 1px solid rgba(16, 185, 129, 0.35);
-  color: #34d399;
+  background: rgba(208, 203, 24, 0.16);
+  border: 1px solid rgba(208, 203, 24, 0.42);
+  color: #ede84a;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -68,8 +88,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #10b981;
-  box-shadow: 0 0 10px #10b981;
+  background: #EF6C00;
+  box-shadow: 0 0 10px #EF6C00;
   animation: pulseLive 1.6s infinite;
 }
 
@@ -88,14 +108,14 @@
 }
 
 .qiblat-hero-sub {
-  color: #94a3b8;
+  color: #e2e0c1;
   font-size: 1.02rem;
   max-width: 620px;
 }
 
 .vn-clock-card {
-  background: rgba(30, 41, 59, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(208, 203, 24, 0.28);
   border-radius: var(--radius-lg);
   padding: 18px 24px;
   min-width: 270px;
@@ -109,7 +129,7 @@
   gap: 12px;
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--color-cyan);
+  color: #d0cb18;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 6px;
@@ -127,76 +147,14 @@
 .vn-clock-date {
   margin-top: 6px;
   font-size: 0.84rem;
-  color: #cbd5e1;
+  color: #f5f5dc;
 }
 
 .vn-clock-hijri {
   margin-top: 2px;
   font-size: 0.8rem;
-  color: #fbbf24;
+  color: #ff9f43;
   font-weight: 600;
-}
-
-/* LOCATION & CONTROLS BAR */
-.qiblat-controls-bar {
-  margin-top: 28px;
-  background: rgba(30, 41, 59, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-lg);
-  padding: 18px 22px;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr auto;
-  gap: 16px;
-  align-items: end;
-}
-
-.qiblat-control-field label {
-  display: block;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #94a3b8;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 8px;
-}
-
-.qiblat-select {
-  width: 100%;
-  padding: 11px 14px;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: #0f172a;
-  color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 600;
-  outline: none;
-  cursor: pointer;
-}
-
-.qiblat-select:focus {
-  border-color: var(--color-cyan);
-  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
-}
-
-.gps-btn {
-  padding: 11px 18px;
-  border-radius: var(--radius-md);
-  background: rgba(6, 182, 212, 0.15);
-  border: 1px solid rgba(6, 182, 212, 0.45);
-  color: #67e8f9;
-  font-weight: 700;
-  font-size: 0.9rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  transition: var(--transition-fast);
-  white-space: nowrap;
-}
-
-.gps-btn:hover {
-  background: var(--color-cyan);
-  color: #0f172a;
 }
 
 /* MAIN DASHBOARD GRID */
@@ -212,8 +170,8 @@
 }
 
 .qiblat-card {
-  background: rgba(30, 41, 59, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(155deg, #2d2c08 0%, #615b0c 48%, #a84b00 100%);
+  border: 1px solid rgba(208, 203, 24, 0.28);
   border-radius: var(--radius-xl);
   padding: 28px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
@@ -226,7 +184,7 @@
   gap: 12px;
   margin-bottom: 22px;
   padding-bottom: 14px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .qiblat-card-header h2 {
@@ -239,26 +197,30 @@
   gap: 10px;
 }
 
+.qiblat-card-header h2 i {
+  color: #d0cb18;
+}
+
 .sync-badge {
   font-size: 0.74rem;
   font-weight: 700;
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: var(--radius-full);
-  background: rgba(16, 185, 129, 0.16);
-  color: #34d399;
-  border: 1px solid rgba(16, 185, 129, 0.35);
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
 }
 
 .sync-badge.offline {
-  background: rgba(245, 158, 11, 0.15);
-  color: #fbbf24;
-  border-color: rgba(245, 158, 11, 0.35);
+  background: rgba(239, 108, 0, 0.28);
+  color: #fef08a;
+  border-color: rgba(208, 203, 24, 0.5);
 }
 
-/* COMPASS WIDGET — EMERALD & GOLD QIBLA DESIGN */
+/* COMPASS WIDGET — #d0cb18 & #EF6C00 BRAND THEME */
 .qiblat-compass-card {
-  background: linear-gradient(155deg, #0b4a37 0%, #3d6322 48%, #8f7211 100%);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: linear-gradient(155deg, #323108 0%, #6a640d 48%, #b85300 100%);
+  border: 1px solid rgba(208, 203, 24, 0.3);
   padding: 24px;
 }
 
@@ -318,8 +280,8 @@
 }
 
 .qibla-status-pill.is-turning {
-  background: #d97706;
-  border-color: #fbbf24;
+  background: #EF6C00;
+  border-color: #d0cb18;
 }
 
 .compass-outer.qibla-ring-outer {
@@ -399,7 +361,7 @@
 }
 
 .prayer-pill {
-  background: #10b981;
+  background: #EF6C00;
   color: #ffffff;
   font-size: 0.66rem;
   font-weight: 800;
@@ -415,8 +377,8 @@
   width: 48px;
   height: 76px;
   border-radius: 10px;
-  background: linear-gradient(180deg, #059669 0%, #047857 100%);
-  border: 2.5px solid #eab308;
+  background: linear-gradient(180deg, #5c5808 0%, #302e05 100%);
+  border: 2.5px solid #d0cb18;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -429,7 +391,7 @@
   width: 24px;
   height: 30px;
   border-radius: 12px 12px 2px 2px;
-  background: rgba(250, 204, 21, 0.85);
+  background: rgba(208, 203, 24, 0.88);
   margin-top: 4px;
 }
 
@@ -519,8 +481,8 @@
 .live-compass-panel {
   width: 100%;
   margin-top: 16px;
-  background: #f5f2df;
-  color: #14532d;
+  background: #fcfbf0;
+  color: #3a3706;
   border-radius: 18px;
   padding: 18px 20px;
   text-align: center;
@@ -534,7 +496,7 @@
   font-family: var(--font-display);
   font-size: 0.95rem;
   font-weight: 800;
-  color: #14532d;
+  color: #EF6C00;
   margin-bottom: 10px;
 }
 
@@ -542,24 +504,14 @@
   font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 800;
-  color: #14532d;
+  color: #2b2905;
 }
 
 .live-compass-dir {
   font-size: 0.92rem;
   font-weight: 600;
-  color: #475569;
-  margin-top: 2px;
-}
-
-.live-compass-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin: 10px 0 14px;
-  font-size: 0.76rem;
   color: #64748b;
-  font-weight: 600;
+  margin: 4px 0 16px;
 }
 
 .live-compass-btn {
@@ -569,28 +521,28 @@
   gap: 8px;
   padding: 11px 24px;
   border-radius: var(--radius-full);
-  background: #0d502d;
+  background: linear-gradient(135deg, #d0cb18 0%, #EF6C00 100%);
   color: #ffffff;
   font-size: 0.9rem;
   font-weight: 700;
   cursor: pointer;
   transition: var(--transition-fast);
-  box-shadow: 0 6px 16px rgba(13, 80, 45, 0.3);
+  box-shadow: 0 6px 16px rgba(239, 108, 0, 0.35);
 }
 
 .live-compass-btn:hover {
-  background: #14532d;
+  background: linear-gradient(135deg, #e0db20 0%, #d95f00 100%);
   transform: translateY(-1px);
 }
 
 .live-compass-btn.active {
-  background: #15803d;
+  background: #EF6C00;
 }
 
 /* NEXT PRAYER COUNTDOWN BANNER */
 .next-prayer-banner {
-  background: linear-gradient(135deg, rgba(2, 132, 199, 0.25), rgba(16, 185, 129, 0.2));
-  border: 1px solid rgba(56, 189, 248, 0.35);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(208, 203, 24, 0.45);
   border-radius: var(--radius-lg);
   padding: 18px 22px;
   display: flex;
@@ -598,6 +550,7 @@
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 20px;
+  backdrop-filter: blur(8px);
 }
 
 .next-prayer-info small {
@@ -605,7 +558,7 @@
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #7dd3fc;
+  color: #f0eb4a;
   font-weight: 700;
   margin-bottom: 4px;
 }
@@ -623,7 +576,7 @@
 .next-prayer-countdown small {
   display: block;
   font-size: 0.72rem;
-  color: #cbd5e1;
+  color: #f5f5dc;
   text-transform: uppercase;
   font-weight: 700;
 }
@@ -631,7 +584,7 @@
 .next-prayer-countdown strong {
   font-family: var(--font-display);
   font-size: 1.65rem;
-  color: #34d399;
+  color: #f0eb4a;
   letter-spacing: 0.04em;
 }
 
@@ -648,19 +601,19 @@
   justify-content: space-between;
   padding: 14px 18px;
   border-radius: var(--radius-md);
-  background: rgba(15, 23, 42, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.11);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   transition: var(--transition-fast);
 }
 
 .prayer-row.is-next {
-  background: rgba(2, 132, 199, 0.18);
-  border-color: rgba(56, 189, 248, 0.55);
-  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.2);
+  background: #fcfbf0;
+  border-color: #d0cb18;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
 }
 
 .prayer-row.is-passed {
-  opacity: 0.68;
+  opacity: 0.72;
 }
 
 .prayer-name-wrap {
@@ -673,16 +626,16 @@
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.14);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-cyan);
+  color: #f0eb4a;
   font-size: 0.95rem;
 }
 
 .prayer-row.is-next .prayer-icon {
-  background: var(--color-primary);
+  background: #EF6C00;
   color: #ffffff;
 }
 
@@ -696,7 +649,16 @@
 .prayer-subtitle {
   display: block;
   font-size: 0.76rem;
-  color: #94a3b8;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.prayer-row.is-next .prayer-title,
+.prayer-row.is-next .prayer-time-value {
+  color: #2b2905;
+}
+
+.prayer-row.is-next .prayer-subtitle {
+  color: #64748b;
 }
 
 .prayer-time-wrap {
@@ -716,10 +678,10 @@
   font-size: 0.68rem;
   font-weight: 800;
   text-transform: uppercase;
-  padding: 3px 8px;
+  padding: 3px 9px;
   border-radius: var(--radius-full);
-  background: #10b981;
-  color: #06281e;
+  background: #EF6C00;
+  color: #ffffff;
 }
 
 /* MOSQUE TIPS */
@@ -734,8 +696,8 @@
 }
 
 .mosque-item {
-  background: rgba(15, 23, 42, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.11);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: var(--radius-md);
   padding: 16px;
 }
@@ -745,7 +707,7 @@
   font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--color-cyan);
+  color: #f0eb4a;
   margin-bottom: 6px;
 }
 
@@ -757,22 +719,13 @@
 
 .mosque-item p {
   font-size: 0.82rem;
-  color: #94a3b8;
+  color: #f5f5dc;
   line-height: 1.5;
 }
 
 @media (max-width: 992px) {
   .qiblat-grid {
     grid-template-columns: 1fr;
-  }
-
-  .qiblat-controls-bar {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .gps-btn {
-    grid-column: span 2;
-    justify-content: center;
   }
 
   .mosques-grid {
@@ -783,14 +736,6 @@
 @media (max-width: 640px) {
   .qiblat-hero {
     padding: 36px 0 28px;
-  }
-
-  .qiblat-controls-bar {
-    grid-template-columns: 1fr;
-  }
-
-  .gps-btn {
-    grid-column: span 1;
   }
 
   .compass-outer.qibla-ring-outer {

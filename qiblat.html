@@ -19,8 +19,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="styles.css?v=6">
-  <link rel="stylesheet" href="qiblat.css?v=2">
+  <link rel="icon" type="image/png" href="assets/images/selamatvn-mark.png">
+  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="qiblat.css?v=6">
 </head>
 
 <body class="qiblat-page-body">
@@ -30,18 +31,18 @@
     <div class="nav-container">
       <a href="index.html" class="brand-logo" aria-label="SelamatVn Homepage">
         <div class="logo-icon-wrapper">
-          <i class="fa-solid fa-compass-drafting"></i>
+          <img src="assets/images/selamatvn-mark.png" alt="SelamatVn Logo" class="brand-logo-img">
         </div>
         <div class="brand-name">
           <span>Selamat<strong class="highlight-text">Vn</strong></span>
-          <span class="brand-sub">TRAVEL & TOURS</span>
+          <span class="brand-sub">TOUR & TRAVEL</span>
         </div>
       </a>
 
       <nav class="nav-links" id="navMenu">
         <a href="index.html#destinations" class="nav-link">Destinations</a>
         <a href="index.html#packages" class="nav-link">Tour Packages</a>
-        <a href="qiblat.html" class="nav-link" style="color: var(--color-cyan);">Qiblat & Prayers</a>
+        <a href="qiblat.html" class="nav-link active-qiblat-link">Qiblat & Prayers</a>
         <a href="index.html#why-us" class="nav-link">Why Us</a>
         <a href="index.html#faq" class="nav-link">FAQ</a>
       </nav>
@@ -66,10 +67,12 @@
     <div class="container">
       <div class="qiblat-hero-top">
         <div>
-          <span class="qiblat-live-pill" id="liveLocationPill"><span class="live-dot"></span> Vietnam Live (UTC+7)</span>
-          <h1>Vietnam Qiblat Compass & Prayer Times</h1>
+          <span class="qiblat-live-pill" id="liveLocationPill"><span class="live-dot"></span> Vietnam Live
+            (UTC+7)</span>
+          <h1>Qiblat Compass & Prayer Times</h1>
           <p class="qiblat-hero-sub">
-            Live Kaaba direction and daily prayer schedules automatically synced to your live GPS location across Vietnam.
+            Live Kaaba direction and daily prayer schedules automatically synced to your live GPS location across
+            Vietnam.
           </p>
         </div>
 
@@ -153,10 +156,6 @@
               </div>
               <h3 class="live-compass-angle" id="panelQiblaDeg">Qibla Direction: 288.7°</h3>
               <p class="live-compass-dir" id="panelQiblaCard">West-Northwest</p>
-              <div class="live-compass-meta">
-                <span id="panelDeviceHeading">Device Heading: Off (Desktop / Static)</span>
-                <span>Accuracy: ±10°</span>
-              </div>
               <button type="button" class="live-compass-btn" id="toggleSensorBtn">
                 <i class="fa-regular fa-compass"></i> Enable Live Compass
               </button>
@@ -167,13 +166,13 @@
         <!-- RIGHT CARD: LIVE VIETNAM PRAYER TIMES -->
         <section class="qiblat-card" aria-labelledby="prayerCardTitle">
           <div class="qiblat-card-header">
-            <h2 id="prayerCardTitle"><i class="fa-solid fa-mosque text-coral"></i> Daily Prayer Times</h2>
+            <h2 id="prayerCardTitle"><i class="fa-solid fa-mosque"></i> Daily Prayer Times</h2>
             <span class="sync-badge" id="prayerSyncBadge">Loading...</span>
           </div>
 
           <div class="next-prayer-banner">
             <div class="next-prayer-info">
-              <small>Next Prayer in Vietnam</small>
+              <small>Next Prayer</small>
               <h3 id="nextPrayerName">Loading...</h3>
             </div>
             <div class="next-prayer-countdown">
@@ -191,14 +190,15 @@
       <!-- HELPFUL MOSQUE GUIDE FOR VIETNAM -->
       <section class="qiblat-card vn-mosques-card">
         <div class="qiblat-card-header">
-          <h2><i class="fa-solid fa-map-pin text-cyan"></i> Key Mosques for Travelers in Vietnam</h2>
+          <h2><i class="fa-solid fa-map-pin"></i> Key Mosques for Travelers in Vietnam</h2>
         </div>
 
         <div class="mosques-grid">
           <div class="mosque-item">
             <span class="mosque-city-tag">Ho Chi Minh City</span>
             <h4>Saigon Central Mosque (Musulman)</h4>
-            <p>66 Dong Du Street, District 1 — centrally located near Ben Thanh Market with Halal restaurants nearby.</p>
+            <p>66 Dong Du Street, District 1 — centrally located near Ben Thanh Market with Halal restaurants nearby.
+            </p>
           </div>
           <div class="mosque-item">
             <span class="mosque-city-tag">Hanoi</span>
@@ -208,15 +208,15 @@
           <div class="mosque-item">
             <span class="mosque-city-tag">Da Nang & Hoi An</span>
             <h4>Prayer Rooms & Halal Hubs</h4>
-            <p>Muslim-friendly hotels and Halal restaurants around An Thuong (My Khe Beach) offer dedicated prayer spaces.</p>
+            <p>Muslim-friendly hotels and Halal restaurants around An Thuong (My Khe Beach) offer dedicated prayer
+              spaces.</p>
           </div>
         </div>
       </section>
     </div>
   </main>
 
-  <script src="qiblat.js?v=4"></script>
+  <script src="qiblat.js?v=6"></script>
 </body>
 
 </html>
-

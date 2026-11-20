@@ -8,282 +8,221 @@
 // ========================================================
 const PACKAGES = [
   {
-    id: 'bali',
-    title: 'Bali Tropical Paradise & Private Villa Retreat',
-    country: 'Indonesia',
-    category: 'beach',
+    id: 'hanoi',
+    title: 'Hanoi Heritage, Old Quarter & Ha Long Bay Cruise',
+    country: 'Hanoi, Vietnam',
+    category: 'cultural',
     tag: 'Best Seller',
-    duration: '7 Days / 6 Nights',
+    duration: '6 Days / 5 Nights',
+    groupSize: 'Max 12 Guests',
+    rating: 4.96,
+    reviewsCount: 342,
+    basePrice: 899,
+    originalPrice: 1150,
+    discountText: 'Save 20%',
+    image: 'assets/images/dest-hanoi.jpg',
+    summary: 'Stroll around Hoan Kiem Lake and Hanoi’s vibrant Old Quarter, visit Al-Noor Mosque, enjoy authentic Halal pho, and sail overnight aboard a luxury Ha Long Bay cruise.',
+    features: [
+      '5-Star Boutique Stay near Hoan Kiem Lake & Old Quarter',
+      'Overnight Luxury Balcony Suite Cruise in Ha Long Bay',
+      'Halal-Friendly Culinary Tour & Al-Noor Mosque Visit',
+      'VIP Airport Escort & Private Chauffeur Transfers'
+    ],
+    inclusions: [
+      '5 nights in handpicked 5-star Hanoi hotels & Ha Long cruise cabin',
+      'Halal-certified breakfasts, lunches & candlelit bay dinners',
+      'Guided cyclo tour through Hanoi Old Quarter & Water Puppet Show',
+      'Kayaking & limestone cave exploration in Ha Long Bay',
+      'Comprehensive travel insurance & 24/7 WhatsApp concierge'
+    ],
+    upgrades: [
+      'Private Seaplane Scenic Flight over Ha Long Bay (+$240)',
+      'Sapa & Fansipan Cable Car 2-Day Highland Extension (+$290)',
+      'Ninh Binh Trang An Private Boat Excursion (+$110)'
+    ],
+    itinerary: [
+      { day: 'Day 1', title: 'Arrival in Hanoi & Old Quarter Welcome', desc: 'VIP airport pickup and private transfer to your boutique hotel near Hoan Kiem Lake. Evening Halal Vietnamese welcome dinner.' },
+      { day: 'Day 2', title: 'Hoan Kiem Lake, Al-Noor Mosque & Cultural Walk', desc: 'Morning stroll across Huc Bridge, visit historic Al-Noor Mosque, explore Temple of Literature, and enjoy traditional Egg Coffee.' },
+      { day: 'Day 3', title: 'Ha Long Bay Luxury Overnight Cruise', desc: 'Scenic drive to Ha Long Bay. Board a 5-star cruise ship, kayak among emerald karst islands, and dine under the stars.' },
+      { day: 'Day 4', title: 'Sung Sot Cave Sunrise & Return to Hanoi', desc: 'Morning Tai Chi on the sun deck, explore Sung Sot Cave, cruise back to harbor, and return to Hanoi for evening shopping.' },
+      { day: 'Day 5', title: 'Ninh Binh Limestone Valleys & Trang An', desc: 'Day trip through peaceful emerald waterways and limestone cliffs in Ninh Binh before a farewell dinner in Hanoi.' },
+      { day: 'Day 6', title: 'Departure Transfer', desc: 'Relaxed breakfast and private chauffeur transfer to Noi Bai International Airport.' }
+    ]
+  },
+  {
+    id: 'phuquoc',
+    title: 'Phu Quoc Island Luxury Beach & Sunset Villa Escape',
+    country: 'Phu Quoc, Vietnam',
+    category: 'beach',
+    tag: 'Island Escape',
+    duration: '5 Days / 4 Nights',
+    groupSize: 'Max 10 Guests',
+    rating: 4.97,
+    reviewsCount: 289,
+    basePrice: 1090,
+    originalPrice: 1390,
+    discountText: 'Save RM 1,300',
+    image: 'assets/images/dest-phuquoc.jpg',
+    summary: 'Unwind on crystal turquoise beaches in Phu Quoc, island-hop by private speedboat, ride the world’s longest sea cable car to Hon Thom, and savor sunset seafood dinners.',
+    features: [
+      '5★ Beachfront Resort & Private Pool Villa Access',
+      'Private 4-Island Speedboat Snorkeling Excursion',
+      'Hon Thom Sea Cable Car Panoramic Ocean Crossing',
+      'Halal Seafood Sunset Feast & Night Market Tour'
+    ],
+    inclusions: [
+      '4 nights in beachfront luxury resort villas in Phu Quoc',
+      'Daily gourmet breakfast & 4 Halal-friendly island meals',
+      'Private speedboat charter with snorkeling gear & guide',
+      'Hon Thom Sun World Cable Car & Sunset Town admission',
+      'Private airport transfers & 24/7 travel concierge'
+    ],
+    upgrades: [
+      'Private Sunset Catamaran Charter with Mocktail Bar (+$220)',
+      'Couples Beachfront Spa & Aromatherapy Ritual (+$140)',
+      'VinWonders & Safari VIP Fast-Track Pass (+$95)'
+    ],
+    itinerary: [
+      { day: 'Day 1', title: 'Arrival in Phu Quoc & Beachfront Sunset', desc: 'Private transfer to your coastal resort. Unwind along powdery white sands and watch the golden sunset from the wooden pier.' },
+      { day: 'Day 2', title: '4-Island Speedboat & Coral Reef Snorkeling', desc: 'Sail to May Rut, Gam Ghi, and Fingernail Islands. Swim in crystal waters and enjoy a fresh grilled seafood lunch.' },
+      { day: 'Day 3', title: 'Hon Thom Cable Car & Sunset Town', desc: 'Glide high above turquoise bays on the world’s longest over-sea cable car, followed by an evening stroll in Sunset Town.' },
+      { day: 'Day 4', title: 'Starfish Beach & Duong Dong Night Market', desc: 'Morning relaxation at Rach Vem Starfish Beach and afternoon spa session before exploring the vibrant night market.' },
+      { day: 'Day 5', title: 'Island Farewell & Airport Transfer', desc: 'Morning swim and leisurely breakfast before private transfer to Phu Quoc International Airport.' }
+    ]
+  },
+  {
+    id: 'danang',
+    title: 'Da Nang Golden Bridge, Ba Na Hills & Hoi An Lanterns',
+    country: 'Da Nang, Vietnam',
+    category: 'adventure',
+    tag: 'Top Pick',
+    duration: '5 Days / 4 Nights',
+    groupSize: 'Max 12 Guests',
+    rating: 4.98,
+    reviewsCount: 256,
+    basePrice: 980,
+    originalPrice: 1240,
+    discountText: 'Flash Deal',
+    image: 'assets/images/dest-danang.jpg',
+    summary: 'Walk the iconic Golden Bridge held by giant stone hands in Ba Na Hills, explore Marble Mountains, and drift down Hoi An’s lantern-lit Thu Bon River at dusk.',
+    features: [
+      '5★ My Khe Beachfront Hotel with Ocean Views',
+      'Early Access to Iconic Golden Bridge & Ba Na Hills',
+      'Hoi An Ancient Town Lantern Boat & Silk Tailoring',
+      'Muslim-Friendly Dining & Dedicated Prayer Stops'
+    ],
+    inclusions: [
+      '4 nights in beachfront 5-star resorts in Da Nang',
+      'Ba Na Hills cable car tickets & Golden Bridge guided visit',
+      'Marble Mountains & Son Tra Peninsula scenic tour',
+      'Hoi An lantern river cruise & Coconut Forest basket boat ride',
+      'All private air-conditioned transfers & bilingual guide'
+    ],
+    upgrades: [
+      'Day Trip to Hue Imperial Citadel via Hai Van Pass (+$130)',
+      'Private Beachfront Cabana BBQ Dinner (+$110)',
+      'Hoi An Memories Show VIP Seats (+$65)'
+    ],
+    itinerary: [
+      { day: 'Day 1', title: 'Arrival in Da Nang & My Khe Beach', desc: 'Private airport transfer to your oceanfront hotel. Evening walk along Dragon Bridge and Halal coastal dinner.' },
+      { day: 'Day 2', title: 'Ba Na Hills & Iconic Golden Bridge', desc: 'Ride the mountain cable car above the clouds to walk the Golden Bridge at sunrise and explore the French Village.' },
+      { day: 'Day 3', title: 'Basket Boats & Hoi An Lantern Town', desc: 'Paddle bamboo basket boats in Cam Thanh Coconut Forest, then spend the evening releasing lanterns in UNESCO Hoi An.' },
+      { day: 'Day 4', title: 'Marble Mountains & Son Tra Peninsula', desc: 'Explore limestone caves and panoramic viewpoints along Monkey Mountain before relaxing at My Khe Beach.' },
+      { day: 'Day 5', title: 'Central Coast Departure', desc: 'Free morning for local coffee and souvenirs before private transfer to Da Nang International Airport.' }
+    ]
+  },
+  {
+    id: 'hochiminh',
+    title: 'Ho Chi Minh City Saigon Skyline & Mekong Delta',
+    country: 'Ho Chi Minh, Vietnam',
+    category: 'luxury',
+    tag: 'City & Culture',
+    duration: '4 Days / 3 Nights',
     groupSize: 'Max 12 Guests',
     rating: 4.95,
-    reviewsCount: 342,
-    basePrice: 1299,
-    originalPrice: 1699,
-    discountText: 'Save 20%',
-    image: 'assets/images/hero-bali.jpg',
-    summary: 'Immerse in cliffside luxury, secret Nusa Penida snorkeling with manta rays, private jungle infinity pools in Ubud, and sacred water temple blessing ceremonies.',
+    reviewsCount: 318,
+    basePrice: 850,
+    originalPrice: 1080,
+    discountText: 'Early Bird',
+    image: 'assets/images/dest-hochiminh.jpg',
+    summary: 'Experience bustling District 1 near Saigon Central Mosque and Halal Street, cruise the Saigon River at twilight, explore Cu Chi Tunnels, and glide along the Mekong Delta.',
     features: [
-      '5-Star Jungle & Oceanfront Villas with Private Pools',
-      'Private Yacht Excursion to Nusa Penida & Snorkel Manta Bay',
-      'Daily Floating Champagne Breakfast & Balinese Massages',
-      'VIP Airport Escort & 24/7 Dedicated Chauffeur'
+      '5★ District 1 Luxury Hotel Steps from Halal Street & Ben Thanh',
+      'Saigon River Twilight Dinner Cruise with Skyline Views',
+      'Guided Cu Chi Tunnels & Mekong Delta Sampan Boat Tour',
+      'Visit to Historic Saigon Central Mosque (Musulman)'
     ],
     inclusions: [
-      '6 nights in handpicked 5-star luxury villas',
-      'All gourmet meals (daily breakfast, 5 lunches, 5 dinners)',
-      'Private speed boat charter to Nusa Penida & Lembongan',
-      'Sacred Tirta Empul cleansing ceremony with village elder',
-      'Comprehensive travel medical & cancellation insurance',
-      '24/7 personal WhatsApp concierge & English guide'
+      '3 nights in central District 1 5-star luxury accommodation',
+      'Daily breakfast & Halal-friendly Saigon & Mekong meals',
+      'Saigon River evening dinner cruise along Bitexco skyline',
+      'Private Mekong Delta boat trip & tropical fruit orchard tasting',
+      'Private chauffeur transfers & 24/7 concierge support'
     ],
     upgrades: [
-      'Helicopter Volcano Tour over Mount Batur (+$280)',
-      'Private Sunset Seafood Feast on Jimbaran Beach (+$120)',
-      'Floating Candlelit 7-Course Dinner in Ubud (+$150)'
+      'Private Vespa Saigon Street & Nightlife Tour (+$95)',
+      'Bitexco Saigon Skydeck VIP Sunset Lounge (+$45)',
+      'Mui Ne White Sand Dunes Day Extension (+$150)'
     ],
     itinerary: [
-      { day: 'Day 1', title: 'Arrival in Denpasar & Luxury Villa Check-in', desc: 'VIP meet-and-greet at airport tarmac, private luxury transfer to your jungle villa in Ubud. Welcome cocktail reception and traditional Balinese dinner.' },
-      { day: 'Day 2', title: 'Sacred Temples & Tegallalang Rice Terraces', desc: 'Sunrise guided walk through Tegallalang, secret coffee tasting, water blessing ceremony at Tirta Empul, followed by an afternoon floating pool lunch.' },
-      { day: 'Day 3', title: 'Nusa Penida Private Speedboat Adventure', desc: 'Board a private speed boat to Kelingking T-Rex cliff, snorkel with gentle manta rays in crystal turquoise water, and unwind at Diamond Beach.' },
-      { day: 'Day 4', title: 'Uluwatu Sunset & Fire Dance Performance', desc: 'Transfer to South Bali clifftop resort. Afternoon surfing lesson or infinity pool relaxation, followed by sunset Kecak dance over the Indian Ocean.' },
-      { day: 'Day 5', title: 'Gourmet Balinese Cooking Masterclass & Spa', desc: 'Morning visit to organic spice farm with award-winning local chef, prepare 6 traditional dishes, followed by a 2-hour Balinese flower spa ritual.' },
-      { day: 'Day 6', title: 'Seminyak Yacht Day & Sunset Beach Club VIP', desc: 'Day cruise along the southern coastline, paddleboarding, and reserved VIP cabana at one of Bali\'s premier beachfront sunset lounges.' },
-      { day: 'Day 7', title: 'Farewell Brunch & Chauffeur Airport Departure', desc: 'Artisan souvenir shopping in Canggu, final beachfront brunch, and chauffeur transfer to Ngurah Rai International Airport.' }
+      { day: 'Day 1', title: 'Arrival in Saigon & River Dinner Cruise', desc: 'VIP airport pickup to District 1. Visit Saigon Central Mosque, browse Ben Thanh Market, and board a Saigon River twilight cruise.' },
+      { day: 'Day 2', title: 'Cu Chi Tunnels & Historic Landmarks', desc: 'Morning expedition to the historic Cu Chi Tunnels followed by Notre Dame Cathedral, Central Post Office, and Nguyen Hue Boulevard.' },
+      { day: 'Day 3', title: 'Mekong Delta Coconut Islands & Sampan Ride', desc: 'Full-day cruise through peaceful Mekong waterways, traditional coconut candy workshops, and tropical orchard lunch.' },
+      { day: 'Day 4', title: 'Halal Street Shopping & Departure', desc: 'Final souvenir shopping along Nguyen An Ninh Halal Street before private transfer to Tan Son Nhat Airport.' }
     ]
   },
   {
-    id: 'amalfi',
-    title: 'Amalfi Coast Cliffside & Capri Yacht Odyssey',
-    country: 'Italy',
-    category: 'luxury',
-    tag: 'Ultra Luxury',
-    duration: '8 Days / 7 Nights',
-    groupSize: 'Max 10 Guests',
-    rating: 4.98,
-    reviewsCount: 289,
-    basePrice: 2190,
-    originalPrice: 2790,
-    discountText: 'Save $600',
-    image: 'assets/images/amalfi-coast.jpg',
-    summary: 'Pastel cliffside panoramas in Positano, private Riva yacht charter around Capri’s Blue Grotto, lemon grove limoncello tastings, and Michelin-star Mediterranean dining.',
-    features: [
-      'Historical 5★ Cliffside Hotel in Positano with Sea Views',
-      'Private Riva Yacht Charter around Capri Island & Faraglioni',
-      'Hands-on Pasta & Limoncello Workshop in Ravello Cliffside Estate',
-      'Private Mercedes transfers across the Amalfi Drive'
-    ],
-    inclusions: [
-      '7 nights in sea-view suites in Positano & Sorrento',
-      'All regional breakfasts & 6 multi-course dinners with sommelier pairings',
-      'Full-day private motor yacht charter to Capri and Faraglioni Rocks',
-      'Private access to Ravello Villa Rufolo gardens & concerts',
-      'All ferry tickets, porterage, and Mercedes-Benz chauffeur transfers',
-      '24/7 travel concierge & certified art historian guides'
-    ],
-    upgrades: [
-      'Helicopter transfer from Rome or Naples Airport (+$450)',
-      'Sunset vintage Alfa Romeo drive along coastal corniche (+$190)',
-      'Private wine cellar dinner with master sommelier in Capri (+$240)'
-    ],
-    itinerary: [
-      { day: 'Day 1', title: 'Benvenuti in Naples to Positano', desc: 'Private driver pickup from Naples. Scenic coastal drive to Positano. Settle into cliffside balconies with welcome Prosecco and fresh oysters.' },
-      { day: 'Day 2', title: 'Positano Hidden Boutiques & Beachfront', desc: 'Guided stroll through winding stairways, private leather sandals artisan visit, and afternoon sunbed relaxation at Spiaggia Grande.' },
-      { day: 'Day 3', title: 'Capri Private Yacht Excursion & Blue Grotto', desc: 'Cruise aboard a classic Italian mahogany yacht, swim in hidden sea caves, marvel at the Faraglioni arches, and explore Capri’s designer Piazzetta.' },
-      { day: 'Day 4', title: 'Ravello Gardens & Classical Music Clifftop', desc: 'Ascend to quiet Ravello, wander through Villa Rufolo and Villa Cimbrone’s Terrace of Infinity suspended 1,200 feet over the sparkling Mediterranean.' },
-      { day: 'Day 5', title: 'Path of the Gods Hike & Farmhouse Feast', desc: 'Scenic gentle ridge walk with panoramic sea vistas followed by a rustic family lunch of homemade mozzarella, prosciutto, and organic wines.' },
-      { day: 'Day 6', title: 'Sorrento Historic Center & Limoncello Crafting', desc: 'Discover Sorrento’s historic artisan quarters, visit a 120-year-old family lemon grove, and distill your own authentic Limoncello.' },
-      { day: 'Day 7', title: 'Pompeii VIP Access & Farewell Gala', desc: 'Exclusive archaeologist-guided tour of Pompeii with VIP access to freshly restored villas, followed by a Michelin-star farewell banquet.' },
-      { day: 'Day 8', title: 'Arrivederci Departure Transfer', desc: 'Final espresso and fresh sfogliatella on your terrace before chauffeur transfer to Naples or Rome airport.' }
-    ]
-  },
-  {
-    id: 'swiss',
-    title: 'Swiss Alps & Glacier Express Alpine Luxury',
-    country: 'Switzerland',
-    category: 'adventure',
-    tag: 'Alpine Luxury',
-    duration: '7 Days / 6 Nights',
-    groupSize: 'Max 12 Guests',
-    rating: 4.97,
-    reviewsCount: 215,
-    basePrice: 2450,
-    originalPrice: 2990,
-    discountText: 'Flash Deal',
-    image: 'assets/images/swiss-alps.jpg',
-    summary: 'Wake up to Matterhorn views from wooden luxury chalets, ride the panoramic Glacier Express Excellence Class, cruise alpine lakes, and taste Swiss chocolate & fondue.',
-    features: [
-      '5★ Luxury Spa Chalet in Zermatt facing the Matterhorn',
-      'Glacier Express Excellence Class Panoramic Train Journey',
-      'Private Alpine Wildflower Hike & High Glacial Lake Picnic',
-      'Unlimited Swiss First-Class Travel Pass included'
-    ],
-    inclusions: [
-      '6 nights in premium alpine chalets & grand lakefront hotels',
-      'First-Class Swiss Rail Pass including all mountain cogwheel trains & cable cars',
-      'Glacier Express Excellence Class with 5-course gourmet wine lunch',
-      'Thermal bath & alpine herbal spa wellness day passes',
-      'Traditional Swiss cheese fondue & raclette evening in mountain hut',
-      'Certified mountain hiking leader & luggage concierge'
-    ],
-    upgrades: [
-      'Scenic Paragliding tandem flight over Zermatt & Matterhorn (+$240)',
-      'Private Swiss watchmaking masterclass in Geneva (+$320)',
-      'Helicopter flight to Matterhorn peak summit (+$380)'
-    ],
-    itinerary: [
-      { day: 'Day 1', title: 'Lucerne Lake Cruise & Mount Pilatus', desc: 'Meet in Lucerne, historic wooden bridge walking tour, panoramic electric catamaran lake cruise, and traditional Swiss welcoming dinner.' },
-      { day: 'Day 2', title: 'Interlaken & Lauterbrunnen Valley of 72 Waterfalls', desc: 'Travel into the dramatic Lauterbrunnen canyon, take the funicular to Mürren cliff village, and enjoy alpine coffee overlooking the Eiger & Jungfrau.' },
-      { day: 'Day 3', title: 'Glacier Express Excellence Class Journey', desc: 'Step aboard the world\'s most luxurious panoramic train. Sip champagne, feast on a 5-course meal as dramatic snowy gorges glide past your oversized glass window.' },
-      { day: 'Day 4', title: 'Zermatt & Gornergrat Matterhorn Vista', desc: 'Cogwheel train up to 3,100m Gornergrat. Walk to Riffelsee to photograph the pristine lake reflection of the Matterhorn, followed by chalet spa time.' },
-      { day: 'Day 5', title: 'Glacier Palace & High Altitude Alpine Fondue', desc: 'Ascend to Europe\'s highest cable car station (Matterhorn Glacier Paradise), walk inside blue ice caves, and enjoy hot Swiss fondue in a mountain hut.' },
-      { day: 'Day 6', title: 'Lake Geneva & Montreux Chillon Castle', desc: 'Scenic descent to Montreux and the Lavaux UNESCO terraced vineyards. Wine tasting overlooking the lake and farewell dinner.' },
-      { day: 'Day 7', title: 'Zurich / Geneva Chauffeur Departure', desc: 'Transfer to Zurich or Geneva Airport with first-class rail and luggage forwarding service.' }
-    ]
-  },
-  {
-    id: 'kyoto',
-    title: 'Kyoto Cherry Blossom & Ancient Zen Sanctuary',
-    country: 'Japan',
-    category: 'cultural',
-    tag: 'Culture Hit',
-    duration: '9 Days / 8 Nights',
+    id: 'dalat',
+    title: 'Dalat Misty Pine Highlands, Lakes & Flower Valleys',
+    country: 'Dalat, Vietnam',
+    category: 'romantic',
+    tag: 'Highland Gem',
+    duration: '4 Days / 3 Nights',
     groupSize: 'Max 10 Guests',
     rating: 4.96,
-    reviewsCount: 310,
-    basePrice: 2390,
-    originalPrice: 2890,
-    discountText: 'Early Bird',
-    image: 'assets/images/kyoto-japan.jpg',
-    summary: 'Wander lantern-lit bamboo groves, witness cherry blossoms, stay in luxurious traditional Ryokans with private onsen, and participate in private Zen tea ceremonies.',
+    reviewsCount: 214,
+    basePrice: 920,
+    originalPrice: 1180,
+    discountText: 'Save 20%',
+    image: 'assets/images/dest-dalat.jpg',
+    summary: 'Escape to Vietnam’s cool mountain sanctuary in Dalat—wake up to misty pine forests, stroll around Xuan Huong Lake’s flower gardens, visit Datanla Waterfalls, and sip highland Arabica coffee.',
     features: [
-      'Traditional 5★ Luxury Ryokan Stay with Private Onsen Hot Springs',
-      'Exclusive Private Tea Ceremony with 14th-Gen Tea Master',
-      'First-Class Shinkansen Bullet Train Across Golden Route',
-      'Multi-Course Kaiseki Dinners Prepared by Kyoto Culinary Masters'
+      'Boutique French-Heritage Resort Overlooking Misty Pine Hills',
+      'Sunrise Walk Around Xuan Huong Lake & Hydrangea Gardens',
+      'Datanla Alpine Coaster & Langbiang Mountain Jeep Summit',
+      'Highland Tea & Arabica Coffee Plantation Tasting'
     ],
     inclusions: [
-      '8 nights in premium Kyoto ryokans & Tokyo 5-star skyline hotels',
-      'Full Japanese breakfast daily & 6 exquisite Michelin-curated Kaiseki dinners',
-      'Shinkansen bullet train Green Car (First Class) tickets',
-      'VIP entrance to Fushimi Inari, Golden Pavilion & Arashiyama Bamboo Forest',
-      'Private kimonos fitting & calligraphy workshop',
-      'Fluent bilingual cultural concierge'
+      '3 nights in boutique highland resort villas in Dalat',
+      'Daily breakfast & cozy Muslim-friendly highland dinners',
+      'Guided tour of Xuan Huong Lake, Valley of Love & Clay Tunnel',
+      'Datanla Waterfall alpine coaster & Langbiang 4x4 summit ride',
+      'Private transfers & dedicated local highland guide'
     ],
     upgrades: [
-      'Private Geisha (Geiko) banquet performance in Gion (+$350)',
-      'Artisan Japanese Damascus knife forging workshop (+$290)',
-      'Sunrise helicopter tour over Mount Fuji (+$420)'
+      'Sunrise Cloud-Hunting Ridge Jeep Experience (+$85)',
+      'Private Lakeside Flower Garden Picnic (+$75)',
+      'Combined Dalat + Nha Trang Coastal Transfer (+$140)'
     ],
     itinerary: [
-      { day: 'Day 1', title: 'Tokyo Arrival & Shinjuku Neon Sky Lounge', desc: 'Private airport arrival into Tokyo. Welcome dinner at a high-rise panoramic lounge overlooking Tokyo\'s glowing evening skyline.' },
-      { day: 'Day 2', title: 'Old & New Tokyo: Asakusa & Ginza', desc: 'Morning visit to Senso-ji temple, street food stroll down Nakamise, afternoon wagyu beef lunch and Ginza art gallery tour.' },
-      { day: 'Day 3', title: 'Shinkansen Bullet Train to Kyoto & Gion Evening', desc: 'High-speed bullet train past Mount Fuji to ancient Kyoto. Sunset lantern walk through preserved Gion streets spotting Maiko geishas.' },
-      { day: 'Day 4', title: 'Arashiyama Bamboo Grove & Tenryu-ji Temple', desc: 'Early morning tranquility in Arashiyama bamboo path, UNESCO Zen rock garden, and traditional matcha tea whisking ceremony.' },
-      { day: 'Day 5', title: 'Fushimi Inari 10,000 Torii Gates & Sake Tasting', desc: 'Hike the vibrant orange torii gates of Fushimi Inari shrine, followed by a tour of Fushimi\'s 400-year-old sake brewing district.' },
-      { day: 'Day 6', title: 'Ryokan Immersion & Mineral Onsen Bathing', desc: 'Check in to a secluded mountainside ryokan in Hakone. Soak in natural mineral cedarwood hot spring baths and savor a 9-course Kaiseki feast.' },
-      { day: 'Day 7', title: 'Lake Ashi Pirate Ship & Mount Fuji Vista', desc: 'Cable car over steaming Owakudani volcanic valley and boat cruise across Lake Ashi with iconic red torii gate in the water.' },
-      { day: 'Day 8', title: 'Return to Tokyo & Farewell Omakase Banquet', desc: 'Return to Tokyo for last-minute boutique shopping and a celebration farewell Chef\'s Omakase sushi dinner.' },
-      { day: 'Day 9', title: 'Sayonara Departure', desc: 'Private chauffeur transfer to Narita or Haneda Airport with gift bag of artisan Japanese green teas.' }
-    ]
-  },
-  {
-    id: 'serengeti',
-    title: 'Serengeti Great Migration & Hot Air Balloon Safari',
-    country: 'Tanzania',
-    category: 'safari',
-    tag: 'Bucket List',
-    duration: '6 Days / 5 Nights',
-    groupSize: 'Max 8 Guests',
-    rating: 4.99,
-    reviewsCount: 198,
-    basePrice: 3150,
-    originalPrice: 3850,
-    discountText: 'VIP Exclusive',
-    image: 'assets/images/serengeti-safari.jpg',
-    summary: 'Witness over 1.5 million wildebeest and zebras, sleep under African stars in luxury canvas tent suites, drift over lions at dawn in a hot air balloon, and explore Ngorongoro crater.',
-    features: [
-      'Luxury Glamping Tented Lodges with Private Plunge Pools',
-      'Sunrise Serengeti Hot Air Balloon Flight with Bush Champagne Breakfast',
-      'Exclusive 4x4 Open-Roof Land Cruiser with Pro Wildlife Tracker',
-      'Ngorongoro Crater Floor Full-Day Big Five Safari'
-    ],
-    inclusions: [
-      '5 nights in luxury safari camp accommodations with butler service',
-      'All meals, soft drinks, vintage wines, and campfire spirits',
-      'Serengeti National Park & Ngorongoro conservation entry fees',
-      'Hot air balloon flight with champagne toast in the savanna',
-      'Professional certified Tanzanian safari guide and tracker',
-      'Flying Doctors emergency medical rescue coverage'
-    ],
-    upgrades: [
-      'Zanzibar Beach Villa Extension (3 Nights) (+$890)',
-      'Private Maasai warrior cultural preservation walk (+$150)',
-      'Night game drive to spot nocturnal leopards (+$210)'
-    ],
-    itinerary: [
-      { day: 'Day 1', title: 'Kilimanjaro to Serengeti via Bush Flight', desc: 'Scenic bush flight into the Serengeti airstrip. First game drive en route to your luxury tented lodge. Sundowner drinks by the fire pit.' },
-      { day: 'Day 2', title: 'Serengeti Great Migration Tracking', desc: 'Full-day game drive tracking lion prides, leopards in acacia trees, cheetahs hunting, and thousands of migrating herds crossing rivers.' },
-      { day: 'Day 3', title: 'Dawn Hot Air Balloon & Champagne Breakfast', desc: 'Gently float above the golden savannah as the sunrise ignites the horizon. Land for a gourmet English breakfast served under an acacia canopy.' },
-      { day: 'Day 4', title: 'Serengeti to Ngorongoro Crater Rim', desc: 'Morning game drive, then travel to the edge of the ancient Ngorongoro caldera. Watch sunset colors wash over the volcanic crater floor.' },
-      { day: 'Day 5', title: 'Ngorongoro Crater Floor Big Five Safari', desc: 'Descend 2,000 feet into the crater, home to 25,000 large animals including endangered black rhinos, hippos, and flamingo-filled soda lakes.' },
-      { day: 'Day 6', title: 'Arusha Transfer & Flight Home', desc: 'Farewell lunch at a Tanzanian coffee estate and private transfer to Kilimanjaro Airport for departure.' }
-    ]
-  },
-  {
-    id: 'santorini',
-    title: 'Santorini Caldera & Cyclades Islands Sunset Romance',
-    country: 'Greece',
-    category: 'romantic',
-    tag: 'Romance Pick',
-    duration: '7 Days / 6 Nights',
-    groupSize: 'Max 12 Guests',
-    rating: 4.94,
-    reviewsCount: 264,
-    basePrice: 1890,
-    originalPrice: 2290,
-    discountText: 'Save 15%',
-    image: 'assets/images/santorini-greece.jpg',
-    summary: 'Whitewashed cliffside villas in Oia, private catamaran cruise through volcanic hot springs, Assyrtiko wine tasting in 300-year-old caves, and iconic pink sunset dinners.',
-    features: [
-      'Cliffside Oia Suite with Private Caldera Infinity Jacuzzi',
-      'Private Sunset Catamaran Cruise with Greek BBQ & Wine',
-      'Volcanic Vineyard Wine Tasting with Master Sommelier',
-      'Private Helicopter or Hydrofoil Transfer between Islands'
-    ],
-    inclusions: [
-      '6 nights in whitewashed caldera luxury suites in Santorini & Mykonos',
-      'Champagne breakfast served daily on your private sea balcony',
-      '5-hour luxury catamaran sunset sailing tour with seafood dinner',
-      'Private guided tour of ancient prehistoric Akrotiri ruins',
-      'All island ferry transfers and private air-conditioned Mercedes vans',
-      '24/7 dedicated Greek holiday specialist'
-    ],
-    upgrades: [
-      'Professional Sunset Couple Photoshoot in Oia (+$180)',
-      'Scuba diving through submerged volcanic caldera crater (+$220)',
-      'Private helicopter hop to Mykonos or Milos (+$490)'
-    ],
-    itinerary: [
-      { day: 'Day 1', title: 'Arrival in Santorini & Oia Cliffside Check-in', desc: 'Private port or airport transfer to your whitewashed villa. Sip chilled Santorini Assyrtiko wine while gazing at the sunken volcanic caldera.' },
-      { day: 'Day 2', title: 'Oia Blue Domes Walk & Red Beach Discovery', desc: 'Morning walking tour through iconic blue-domed churches and bougainvillea alleyways before crowds arrive. Afternoon swim at Red Beach.' },
-      { day: 'Day 3', title: 'Private Sunset Catamaran Sailing Tour', desc: 'Sail past the Indian Rock and Venetian lighthouse. Swim in volcanic sulfur hot springs and feast on grilled prawns as the sun dips below the Aegean.' },
-      { day: 'Day 4', title: 'Ancient Akrotiri & Volcanic Wine Cellars', desc: 'Explore "Minoan Pompeii" at Akrotiri, followed by estate tastings of rare volcanic wines paired with Cycladic cheeses and olives.' },
-      { day: 'Day 5', title: 'Fira to Oia Clifftop Scenic Hike', desc: 'Walk along the caldera rim with 360-degree views of the sapphire sea, followed by a sunset dinner at an intimate cliff restaurant.' },
-      { day: 'Day 6', title: 'Beach Day at Perissa Black Sand & Evening Feast', desc: 'Relax in private cabanas on volcanic black sands. Farewell seafood feast under fairy lights in quiet Ammoudi Bay.' },
-      { day: 'Day 7', title: 'Aegean Departure', desc: 'Final morning coffee overlooking the volcano before private transfer to Santorini Airport or port.' }
+      { day: 'Day 1', title: 'Arrival in Dalat & Xuan Huong Lakeside Stroll', desc: 'Scenic ascent into cool pine-scented Dalat. Check in to your boutique resort and enjoy a sunset walk beside blooming lakeside flower gardens.' },
+      { day: 'Day 2', title: 'Langbiang Summit, Hydrangea Fields & Coffee Estate', desc: '4x4 ride up Langbiang Peak for panoramic highland views, wander endless blue hydrangea fields, and taste fresh local Arabica coffee.' },
+      { day: 'Day 3', title: 'Datanla Waterfalls, Crazy House & Night Market', desc: 'Ride the alpine forest coaster to Datanla Falls, explore iconic Dalat architecture, and browse cozy highland night market stalls.' },
+      { day: 'Day 4', title: 'Misty Morning & Departure Transfer', desc: 'Final misty mountain breakfast overlooking the pines before private transfer to Lien Khuong Airport.' }
     ]
   }
 ];
 
 // Currency exchange rates relative to USD
 const CURRENCY_RATES = {
+  MYR: { symbol: 'RM ', rate: 4.45, label: 'MYR (RM)' },
   USD: { symbol: '$', rate: 1.0, label: 'USD ($)' },
   EUR: { symbol: '€', rate: 0.92, label: 'EUR (€)' },
   GBP: { symbol: '£', rate: 0.79, label: 'GBP (£)' },
   AUD: { symbol: 'A$', rate: 1.52, label: 'AUD (A$)' }
 };
 
-let currentCurrency = 'USD';
+let currentCurrency = 'MYR';
 let activeSelectedPackage = PACKAGES[0];
 let currentBookingStep = 1;
 let currentBookingState = {
@@ -301,6 +240,7 @@ let currentBookingState = {
 // ========================================================
 document.addEventListener('DOMContentLoaded', () => {
   renderPackagesGrid(PACKAGES);
+  updateDestinationPrices();
   initBannerCountdown();
   initFaqAccordion();
   initCurrencyDropdown();
@@ -761,6 +701,7 @@ function initCurrencyDropdown() {
 
         // Re-render price-dependent components
         renderPackagesGrid(PACKAGES);
+        updateDestinationPrices();
         updateBookingSummary();
       }
     });
@@ -769,6 +710,14 @@ function initCurrencyDropdown() {
   document.addEventListener('click', () => {
     menu.classList.remove('active');
     toggleBtn.setAttribute('aria-expanded', 'false');
+  });
+}
+
+function updateDestinationPrices() {
+  const { symbol, rate } = CURRENCY_RATES[currentCurrency];
+  document.querySelectorAll('[data-usd-price]').forEach(el => {
+    const usd = parseFloat(el.getAttribute('data-usd-price') || '0');
+    el.textContent = `${symbol}${Math.round(usd * rate).toLocaleString()}`;
   });
 }
 
@@ -913,7 +862,7 @@ function generateConciergeResponse(query) {
   let reply = "I would be thrilled to assist you with that! All our packages can be joined with just a 20% deposit today, and our team handles all 5-star lodging, transfers, and native guided excursions. Would you like to check available dates or customize a package?";
 
   if (lower.includes('discount') || lower.includes('sale') || lower.includes('deal')) {
-    reply = "🔥 Right now you can claim up to $500 off per person during our Summer Early-Bird event! Plus, if you pay in full today, you receive an extra 5% instant discount voucher. Check our top packages above!";
+    reply = "🔥 Right now you can claim up to RM 2,200 off per person during our Summer Early-Bird event! Check our top Vietnam packages above!";
   } else if (lower.includes('deposit') || lower.includes('payment') || lower.includes('pay')) {
     reply = "💳 You only need 20% down to secure guaranteed departures! The remaining balance is split into zero-interest installments or due 30 days prior to takeoff.";
   } else if (lower.includes('honeymoon') || lower.includes('romance') || lower.includes('romantic')) {
@@ -937,7 +886,7 @@ window.handleNewsletter = function() {
   const email = emailInput?.value || '';
 
   if (email) {
-    alert(`🎉 Success! Your $150 promo voucher code [WANDER150] has been registered and emailed to ${email}. You can apply this code at checkout on any package!`);
+    alert(`🎉 Success! Your RM 650 promo voucher code [WANDER150] has been registered and emailed to ${email}. You can apply this code at checkout on any package!`);
     if (emailInput) emailInput.value = '';
   }
 };
