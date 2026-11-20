@@ -40,6 +40,10 @@
   color: #d0cb18;
 }
 
+.qiblat-navbar .mobile-toggle span {
+  background: #f5f5dc;
+}
+
 .qiblat-navbar .join-nav-btn {
   background: linear-gradient(135deg, #d0cb18 0%, #EF6C00 100%);
   color: #ffffff;
@@ -730,6 +734,28 @@
 
   .mosques-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .qiblat-navbar .nav-links {
+    background: rgba(18, 20, 7, 0.98);
+    border-bottom: 1px solid rgba(208, 203, 24, 0.25);
+  }
+
+  .qiblat-navbar .nav-link {
+    color: #f5f5dc;
+  }
+
+  .qiblat-navbar .nav-link:hover,
+  .qiblat-navbar .nav-link.active-qiblat-link {
+    background: rgba(208, 203, 24, 0.14);
+    color: #d0cb18;
+  }
+
+  .qiblat-navbar .mobile-menu-cta {
+    background: linear-gradient(135deg, #d0cb18 0%, #EF6C00 100%);
+    color: #ffffff;
   }
 }
 
